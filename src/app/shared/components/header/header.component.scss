@@ -1,0 +1,36 @@
+.logopng{
+    height: 65px;
+    width: 65px;
+   
+}
+.infocemet{
+    width: 300px;
+}
+
+.ceim{
+    font-size: 15px;
+   
+    
+}
+.navbitem{
+    font-size: 18px;
+    position:absolute; right:0px;
+}
+.navbar{
+    padding-bottom: 0px;
+}
+
+@media (max-width:650px) {
+    .infocemet{
+       
+       font-size: 8px;
+       width: 250px;
+       margin: 0 auto;
+       
+
+    }
+    .navbitem{
+        position:static
+    }
+  }
+  
