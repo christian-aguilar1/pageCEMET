@@ -111,6 +111,16 @@
               "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "pageCEMET:build:production",
+            "firebaseProject": "pagecemet",
+            "firebaseHostingSite": "pagecemet"
+          }
         }
       }
     }
