@@ -2,7 +2,8 @@
 
 :root {
   //fonts
-  --normal: 16px;
+  //normalFont:font-family: Roboto, "Helvetica Neue", sans-serif;
+  --normalSize: 16px;
 
   // colors
   --maincolor: black;
@@ -11,4 +12,4 @@
 }
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0;  }

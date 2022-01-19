@@ -1,21 +1,22 @@
 .logopng{
     height: 65px;
     width: 65px;
-
-}
-.infocemet{
-    width: 300px;
-}
-
-.ceim{
-    font-size: 15px;
-
+    margin-right: -50px;
 
 }
 .navbitem{
     font-size: 18px;
     position:absolute; right:0px;
 }
+.infocemet{
+    width: 400px;
+    
+}
+
+.ceim{
+    font-size: 15px;    
+}
+
 .navbar{
     padding-bottom: 0px;
 }
@@ -23,11 +24,18 @@
 @media (max-width:650px) {
     .infocemet{
 
-       font-size: 8px;
-       width: 250px;
-       margin: 0 auto;
+    
+       width: 165px;
+       
 
 
+    }
+    .titulocemet{
+        font-size: 12px;
+        
+    }
+    .ceim{
+        font-size: 10px;
     }
     .navbitem{
         position:static
