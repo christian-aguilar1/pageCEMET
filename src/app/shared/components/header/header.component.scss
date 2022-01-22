@@ -1,20 +1,29 @@
 .logopng{
-    height: 65px;
-    width: 65px;
-    margin-right: -50px;
+    height: 80px;
+    width: 80px;
+    margin-right: -20px;
+    
 
 }
 .navbitem{
     font-size: 18px;
     position:absolute; right:0px;
 }
+.titulocemet{
+    font-size: 12px;
+    margin-top: 15px;
+    margin-bottom: auto;
+}
 .infocemet{
+   
     width: 400px;
+    margin-bottom: auto;
     
 }
 
 .ceim{
-    font-size: 15px;    
+    margin-top: 5px;
+    font-size: 12px;    
 }
 
 .navbar{
@@ -29,7 +38,9 @@
        
 
 
+       
     }
+    .logopng{margin-right: -65px;}
     .titulocemet{
         font-size: 12px;
         
