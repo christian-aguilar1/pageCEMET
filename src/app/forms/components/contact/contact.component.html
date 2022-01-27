@@ -1,0 +1,6 @@
+<form [formGroup]="form" (ngSubmit)="sendEmail(form.value)">
+  <input type="text" formControlName="name" class="form-control" placeholder="Nombre y apellido">
+  <input type="email" formControlName="email" class="form-control" placeholder="Email">
+  <textarea formControlName="message" class="form-control form-control-lg" placeholder="Mensaje"></textarea>
+  <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+</form>
