@@ -1,17 +1,8 @@
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>{{ new.name | uppercase }}</mat-card-title>
-    <mat-card-subtitle>{{ new.price | currency }}</mat-card-subtitle>
-  </mat-card-header>
-  <div class="crop-image">
-    <img [src]="new.image" [alt]="new.name">
+<div class="card cardnoticias" style="width: 18rem;">
+  <img src="/assets/images/noticia.png" class="card-img-top" alt="...">
+  <div class="card-body ">
+    
+    <p class="card-text">El mundo de la innovacion y el emprendimiento cada vez es mas conocido y admirado te invitamos </p>
+    <button type="button" class="btn btn-outline-success">Ver más</button>
   </div>
-  <mat-card-content>
-    <p>{{ new.description | slice:0:100 }}</p>
-  </mat-card-content>
-  <mat-card-actions>
-    <a mat-raised-button color="primary" [routerLink]="['/products', 1]" [state]="{data: {'image': '1'}}">Ver detalle</a>
-    <button mat-raised-button color="primary">Add to cart</button>
-    <!-- (click)="addCart()"  -->
-  </mat-card-actions>
-</mat-card>
+</div> 
