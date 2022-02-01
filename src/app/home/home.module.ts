@@ -4,14 +4,14 @@ import { CommonModule } from '@angular/common';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './components/home/home.component';
 import { SharedModule } from '../shared/shared.module';
-import { NewsComponent } from './components/news/news.component';
+import { NewsCardComponent } from './components/news-card/news-card.component';
 import { MaterialModule } from '../material/material.module';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
-    NewsComponent,
+    NewsCardComponent,
   ],
   imports: [
     CommonModule,

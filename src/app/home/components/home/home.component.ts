@@ -25,6 +25,41 @@ export class HomeComponent implements OnInit {
       image: '/assets/images/logo-cemet1.jpeg',
       price: 1000,
       description: 'test'
+    },
+    {
+      id: 1,
+      title: 'Test',
+      image: '/assets/images/logo-cemet1.jpeg',
+      price: 1000,
+      description: 'test'
+    },
+    {
+      id: 1,
+      title: 'Test',
+      image: '/assets/images/logo-cemet1.jpeg',
+      price: 1000,
+      description: 'test'
+    },
+    {
+      id: 1,
+      title: 'Test',
+      image: '/assets/images/logo-cemet1.jpeg',
+      price: 1000,
+      description: 'test'
+    },
+    {
+      id: 1,
+      title: 'Test',
+      image: '/assets/images/logo-cemet1.jpeg',
+      price: 1000,
+      description: 'test'
+    },
+    {
+      id: 1,
+      title: 'Test',
+      image: '/assets/images/logo-cemet1.jpeg',
+      price: 1000,
+      description: 'test'
     })
   }
 
