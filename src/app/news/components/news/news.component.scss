@@ -1,9 +1,23 @@
 /*noticias*/
 .noticia{
-    margin-top: 40px;   
+    margin-top: 40px; 
+    transition:  all 250ms ease; 
+    border-radius: 5px;
+    margin-bottom: 0px;
+}
+.noticia:hover{
+    background-color: rgb(245, 245, 245);
+    
+}
+.row{
+    transition:  all 400ms ease; 
+}
+.row:hover{
+    width: 101%;
 }
 .containerNoticia{
     width: 300px;
+    
 }
 .fechaNoticia{
     margin-bottom: 0px;
@@ -16,13 +30,18 @@
 .infoNoticia{
     width: 600px;
     padding-top: 50px;
+    
+}
+.tituloNoticia{
+    text-align: center;
 }
 .contenidoNoticia{
     margin-top: 40px;
+    text-align: left;
   
 }
 .hrNoticia{
-    margin-top: 35px;
+    margin-top: 45px;
     width:900px; 
     margin-left:  auto;
     margin-right: auto;
