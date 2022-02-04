@@ -15,44 +15,44 @@ export class HomeComponent implements OnInit {
     this.news.push({
       id: 1,
       title: 'Test',
-      image: '/assets/images/logo-cemet1.jpeg',
-      price: 1000,
-      description: 'test'
+      image: '/assets/images/noticia.png',
+      date: 1000,
+      description: 'El mundo de la innovacion y el emprendimiento cada vez es mas conocido y admirado te invitamos'
     },
     {
       id: 1,
       title: 'Test',
-      image: '/assets/images/logo-cemet1.jpeg',
-      price: 1000,
-      description: 'test'
+      image: '/assets/images/noticia.png',
+      date: 1000,
+      description: 'El mundo de la innovacion y el emprendimiento cada vez es mas conocido y admirado te invitamos'
     },
     {
       id: 1,
       title: 'Test',
-      image: '/assets/images/logo-cemet1.jpeg',
-      price: 1000,
-      description: 'test'
+      image: '/assets/images/noticia.png',
+      date: 1000,
+      description: 'El mundo de la innovacion y el emprendimiento cada vez es mas conocido y admirado te invitamos'
     },
     {
       id: 1,
       title: 'Test',
-      image: '/assets/images/logo-cemet1.jpeg',
-      price: 1000,
-      description: 'test'
+      image: '/assets/images/noticia.png',
+      date: 1000,
+      description: 'El mundo de la innovacion y el emprendimiento cada vez es mas conocido y admirado te invitamos'
     },
     {
       id: 1,
       title: 'Test',
-      image: '/assets/images/logo-cemet1.jpeg',
-      price: 1000,
-      description: 'test'
+      image: '/assets/images/noticia.png',
+      date: 1000,
+      description: 'El mundo de la innovacion y el emprendimiento cada vez es mas conocido y admirado te invitamos'
     },
     {
       id: 1,
       title: 'Test',
-      image: '/assets/images/logo-cemet1.jpeg',
-      price: 1000,
-      description: 'test'
+      image: '/assets/images/noticia.png',
+      date: 1000,
+      description: 'El mundo de la innovacion y el emprendimiento cada vez es mas conocido y admirado te invitamos'
     })
   }
 

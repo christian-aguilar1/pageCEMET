@@ -1,7 +1,7 @@
 export interface New {
   id: string;
-  name: string;
+  title: string;
   image: string;
-  price: number;
+  date: Date;
   description: string;
 }

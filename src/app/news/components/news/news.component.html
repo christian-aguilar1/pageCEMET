@@ -1,17 +1,14 @@
-
-
-<div class="container-fluid noticia ">
-  <div class="container-fluid row ">
+<div class="container-fluid noticia">
+  <div class="container-fluid row">
       <div class="container-fluid containerNoticia">
-          <p class="fechaNoticia">14 de enero 2021</p>
-          <img class="img-fluid imgNoticia" src="/assets/images/noticia.png">
-      </div>  
+          <p class="fechaNoticia">{{ new.date }}</p>
+          <img class="img-fluid imgNoticia"  [src]="new.image" [alt]="new.title">
+      </div>
       <div class="container-fluid infoNoticia">
-          <h5  class="tituloNoticia">Lista de estudiantes sin codigo</h5>
-          <p class="contenidoNoticia">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, ratione? Ab, enim expedita! Quaerat quisquam, amet quidem odit quo dolorem saepe soluta at molestiae voluptas, eligendi cupiditate commodi aperiam est explicabo veritatis ut assumenda? </p>
-      
-      </div>  
+          <p class="title-new">{{ new.title }}</p>
+          <p class="contenidoNoticia">{{ new.description | slice:0:500 }}</p>
+      </div>
       <hr class="hrNoticia">
   </div>
-  
+
 </div>

@@ -1,1 +1,5 @@
-<p>login works!</p>
+<form [formGroup]="form" (ngSubmit)="login($event)">
+  <input formControlName="email" matInput type="email">
+  <input formControlName="password" matInput type="password">
+  <button [disabled]="form.invalid" mat-raised-button color="primary" type="submit" [style.marginLeft.px] = 30>Ingresar</button>
+</form>
