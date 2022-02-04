@@ -1,3 +1,4 @@
+import { ManagementModule } from './management/management.module';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
@@ -20,6 +21,10 @@ const routes: Routes = [
       {
         path: 'forms',
         loadChildren: () => import('./forms/forms.module').then(m => m.FormsModule)
+      },
+      {
+        path: 'directiva',
+        loadChildren: () => import('./management/management.module').then(m => m.ManagementModule)
       },
       {
         path: 'auth',

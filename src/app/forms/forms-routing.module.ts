@@ -5,7 +5,7 @@ import { ComplaintsComponent } from './components/complaints/complaints.componen
 import { ContactComponent } from './components/contact/contact.component';
 
 const routes: Routes = [
-  {path: 'denuncias', component: ComplaintsComponent},
+  {path: 'reclamos', component: ComplaintsComponent},
   {path: 'contacto', component: ContactComponent}
 ];
 
