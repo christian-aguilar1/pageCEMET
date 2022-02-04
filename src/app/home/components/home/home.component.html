@@ -1,51 +1,56 @@
-<div class="container-fluid home">
-  <div class="container-fluid row justify-content-sm-center containernav">
+<div class="container-fluid">
+  <div class="container row justify-content-sm-center containernav">
 
-    <div class="col-sm conitem ">
-      <h3 class="nombreseccion">Nube Papeo</h3>
-      <img class="img-fluid fotopng" src="/assets/icons/cloud.png">
-    </div>
-
-    <div class="col-sm-auto hr2"></div>
-
-    <div class=" col-sm  conitem ">
-      <h3 class="nombreseccion">Sube tu Papeo </h3>
-      <img class="img-fluid fotopng" src="/assets/icons/file.png">
-    </div>
+    <a routerLink="/home" routerLinkActive="active" class="col-sm conitem">
+      <p class="nombreseccion">Nube Papeo</p>
+      <img class="img-fluid fotopng" src="/assets/icons/cloud.png" alt="Icono de Nube Papeo">
+    </a>
 
     <div class="col-sm-auto hr2"></div>
 
-    <div class=" col-sm  conitem ">
-      <h3 class="nombreseccion">Malla </h3>
-      <img class="img-fluid fotopng" src="/assets/icons/folder2.png">
-    </div>
+    <a routerLink="/home" routerLinkActive="active" class="col-sm conitem">
+      <p class="nombreseccion">Sube tu Papeo</p>
+      <img class="img-fluid fotopng" src="/assets/icons/file.png" alt="Icono de Sube tu Papeo"/>
+    </a>
 
     <div class="col-sm-auto hr2"></div>
 
-    <div class=" col-sm  conitem ">
-      <h3 class="nombreseccion">Documentos </h3>
-      <img class="img-fluid fotopng" src="/assets/icons/documents3.png">
-    </div>
+    <a routerLink="/home" routerLinkActive="active" class="col-sm conitem ">
+      <p class="nombreseccion">Malla</p>
+      <img class="img-fluid fotopng" src="/assets/icons/folder2.png" alt="Icono de Malla">
+    </a>
 
     <div class="col-sm-auto hr2"></div>
 
-    <div class=" col-sm conitem ">
-      <h3 class="nombreseccion">Reclamos </h3>
-      <img class="img-fluid fotopng" src="/assets/icons/complain.png">
-    </div>
+    <a routerLink="/home" routerLinkActive="active" class="col-sm conitem ">
+      <p class="nombreseccion">Documentos</p>
+      <img class="img-fluid fotopng" src="/assets/icons/documents3.png" alt="Icono de Documentos">
+    </a>
+
+    <div class="col-sm-auto hr2"></div>
+
+    <a routerLink="/home" routerLinkActive="active" class="col-sm conitem ">
+      <p class="nombreseccion">Reclamos</p>
+      <img class="img-fluid fotopng" src="/assets/icons/complain.png" alt="Icono de Reclamos">
+    </a>
+
   </div>
 
   <div class="container divultimas">
-    <h3 class="ultimasnoticias">Últimas Noticias</h3>
+    <p class="ultimasnoticias">Últimas Noticias</p>
   </div>
 
   <div class="container container-cards">
-    <app-news
+    <app-news-card
         *ngFor="let new of news" [new]="new">
-    </app-news>
+    </app-news-card>
   </div>
 
-  <div class="container masNoticias ">
-    <h3 class="masNoticiasT">Más Noticias ></h3>
+  <div class="container__mas-noticias">
+    <button class="btn__mas-noticias">
+      <div class="text__mas-noticias">Más Noticias</div>
+      <div><img class="icon__mas-noticias" src="/assets/icons/right-arrow.png" alt="Icono Flecha"></div>
+    </button>
   </div>
+
 </div>

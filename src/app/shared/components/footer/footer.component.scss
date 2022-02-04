@@ -1,31 +1,45 @@
 .footer1 {
-  text-align: center;
+  display: flex;
   height: 120px;
   background-color:#000000;
-  padding-top: 20px;
+  align-items: center;
+  justify-content: center;
+  // justify-content: space-between;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.text-icons {
+  width: 140px;
 }
 
 .titulof {
-  margin: 0px auto;
+  // margin: 0px auto;
   color: aliceblue;
 }
 
-.faceicon {
-  width: 50px;
-  height: 50px;
+.icons {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 5px;
+}
+
+.icon-twitter {
+  width: 30px;
+  height: 30px;
 
 }
 .instaicon {
-  width: 55px;
-  height: 55px;
-  margin-top: 8px;
-  margin-left: 8px;
+  width: 30px;
+  height: 30px;
+  // margin-top: 8px;
+  // margin-left: 8px;
 }
 .linkedinIcon{
-  width: 55px;
-  height: 55px;
-  margin-top: 8px;
-  margin-left: 0px;
+  width: 30px;
+  height: 30px;
+  // margin-top: 8px;
+  // margin-left: 0px;
 }
 
 .footer2 {

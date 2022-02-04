@@ -2,9 +2,8 @@
     height: 80px;
     width: 80px;
     margin-right: -20px;
-    
-
 }
+
 .navbitem{
     font-size: 18px;
     position:absolute; right:0px;
@@ -15,35 +14,35 @@
     margin-bottom: auto;
 }
 .infocemet{
-   
+
     width: 400px;
     margin-bottom: auto;
-    
+
 }
 
 .ceim{
-    margin-top: 5px;
-    font-size: 12px;    
+    margin-top: 10px;
+    font-size: 12px;
 }
 
 .navbar{
-    padding-bottom: 0px;
+    // padding-bottom: 0px;
 }
 
 @media (max-width:650px) {
     .infocemet{
 
-    
+
        width: 165px;
-       
 
 
-       
+
+
     }
     .logopng{margin-right: -65px;}
     .titulocemet{
         font-size: 12px;
-        
+
     }
     .ceim{
         font-size: 10px;

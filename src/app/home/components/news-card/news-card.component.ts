@@ -3,7 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { New } from '../../../core/models/new';
 
 @Component({
-  selector: 'app-news',
+  selector: 'app-news-card',
   templateUrl: './news-card.component.html',
   styleUrls: ['./news-card.component.scss']
 })

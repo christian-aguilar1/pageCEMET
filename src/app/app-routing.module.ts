@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
+import { AdminGuard } from './admin.guard';
 import { LayoutComponent } from './layout/layout.component';
 
 const routes: Routes = [
@@ -20,11 +21,15 @@ const routes: Routes = [
         path: 'forms',
         loadChildren: () => import('./forms/forms.module').then(m => m.FormsModule)
       },
+      {
+        path: 'auth',
+        loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+      },
+      {
+        path: '**',
+        loadChildren: () => import('./not-found/not-found.module').then(m => m.NotFoundModule)
+      },
     ]
-  },
-  {
-    path: '**',
-    loadChildren: () => import('./not-found/not-found.module').then(m => m.NotFoundModule)
   },
 ];
 
