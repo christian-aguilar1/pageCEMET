@@ -2,12 +2,12 @@
 //   width: 19rem;
 // }
 
-.cardnoticias {
+.card-news {
   border: none;
   box-shadow:  0px 1px  10px rgba(0, 0, 0, 0.15);
   transition:  all 400ms ease;
 }
-.cardnoticias:hover {
+.card-news:hover {
   box-shadow:  5px 5px 10px rgba(0, 0, 0, 0.2);
   transform: translateY(-0.5%);
 }
@@ -23,14 +23,35 @@
     object-position: center;
   }
 }
+
 .card-body{
   background-color: rgb(248, 248, 248);
-
 }
-.card-text{
 
+.card-text{
   transition:  all 200ms ease;
 }
 .card-text:hover{
   color: rgb(92, 92, 92);
+}
+
+.container-btn {
+  display: flex;
+  justify-content: space-between;
+  width: 150px;
+  height: 38px;
+}
+
+.btn-edit {
+  // display: flex;
+  // justify-content: center;
+  // background-color: blue;
+  // border: none;
+  border-radius: 450%;
+  // height: 38px;
+  // width: 38px;
+  // transition-duration: 0.4s;
+}
+.btn-edit:hover {
+  // background-color: ;
 }

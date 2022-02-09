@@ -70,13 +70,21 @@
 
 // }
 
+.container__btn-create {
+  display: flex;
+  justify-content: space-between;
+}
+
+.text__btn-create {
+  margin-top: 3px;
+}
+
 .container-cards{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
   grid-template-rows: auto;
   gap: 5rem;
-  padding-bottom: 3rem;
-
+  padding: 3rem 0;
   // grid-auto-flow: dense;
 }
 

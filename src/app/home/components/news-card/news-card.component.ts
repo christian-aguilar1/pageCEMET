@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/core/services/auth/auth.service';
 
 import { New } from '../../../core/models/new';
 
@@ -9,14 +10,27 @@ import { New } from '../../../core/models/new';
 })
 export class NewsCardComponent implements OnInit {
 
+  public user: boolean = false;
+
   @Input()
   new!: New;
 
   // image: string = this;
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.hasUser();
+  }
+
+  hasUser() {
+    this.authService.hasUser().
+      subscribe(res => {
+        if(res && res.uid) {
+          this.user = true;
+        }
+      }
+    );
   }
 
 }

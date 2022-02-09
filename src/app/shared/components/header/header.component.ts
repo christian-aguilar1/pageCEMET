@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { map, tap } from 'rxjs';
+
+import { AuthService } from 'src/app/core/services/auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  public user: boolean = false;
+
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.hasUser();
+  }
+
+  hasUser() {
+    this.authService.hasUser().
+      subscribe(res => {
+        if(res && res.uid) {
+          this.user = true;
+        }
+      }
+    );
   }
 
 }
