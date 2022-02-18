@@ -57,7 +57,7 @@
   border-radius: 10px;
   border: solid 0.5px rgb(165, 165, 165);
   height: 50px;
-  margin-bottom: 50px;
+  // margin-bottom: 50px;
 }
 
 .ultimasnoticias{
@@ -71,6 +71,10 @@
 // }
 
 .container__btn-create {
+  margin-top: 50px;
+}
+
+.btn-create {
   display: flex;
   justify-content: space-between;
 }

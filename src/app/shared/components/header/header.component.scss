@@ -1,3 +1,7 @@
+.navbar{
+  // margin-bottom: 3rem;
+}
+
 .logo{
     height: 80px;
     width: 80px;
@@ -23,10 +27,6 @@
 .navbitem{
     font-size: 18px;
     position:absolute; right:0px;
-}
-
-.navbar{
-    // padding-bottom: 0px;
 }
 
 @media (max-width:650px) {

@@ -53,6 +53,9 @@ Thumbs.db
 ### Firebase Patch ###
 .runtimeconfig.json
 .firebase/
+storage.rules
+firestore.rules
+firestore.indexes.json
 
 # environments
 environments

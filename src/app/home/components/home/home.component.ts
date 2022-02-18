@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { AuthService } from 'src/app/core/services/auth/auth.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -8,10 +10,12 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   public news = [] as  any;
+  public user: boolean = false;
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.hasUser();
     this.news.push({
       id: 1,
       title: 'Test',
@@ -56,7 +60,15 @@ export class HomeComponent implements OnInit {
     })
   }
 
-
+  hasUser() {
+    this.authService.hasUser().
+      subscribe(res => {
+        if(res && res.uid) {
+          this.user = true;
+        }
+      }
+    );
+  }
 
   clickProduct(id: number) {
     console.log('product');
