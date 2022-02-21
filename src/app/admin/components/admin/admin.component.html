@@ -3,13 +3,15 @@
   <p>Content *</p>
 </div>
 
-<form [formGroup]="form" class="container form-group" (ngSubmit)="test(form.value)">
-  <input type="text" formControlName="name" class="form-control" placeholder="Nombre y apellido">
-  <input type="email" formControlName="email" class="form-control" placeholder="Email">
-  <div [(ngmodel)]="content" id="editor" trackChanges="all" placeholder="Texto"></div>
-  <!-- <quill-editor [(ngModel)]="content" trackChanges="all" [modules]="modules" (onEditorCreated)="addBindingCreated($event)"></quill-editor> -->
-  <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
-</form>
+  <form [formGroup]="form" class="container form-group  " (ngSubmit)="test(form.value)">
+    <input type="text" formControlName="name" class="form-control" placeholder="Nombre y apellido">
+    <input type="email" formControlName="email" class="form-control" placeholder="Email">
+    <div [(ngmodel)]="content" id="editor" trackChanges="all" placeholder="Texto"></div>
+    <!-- <quill-editor [(ngModel)]="content" trackChanges="all" [modules]="modules" (onEditorCreated)="addBindingCreated($event)"></quill-editor> -->
+    <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+  </form>
+
+
 
 <div id="text"></div>
 
