@@ -4,18 +4,32 @@
   padding: 1rem;
 }
 
+.container-btns {
+
+}
+
 ol {
   list-style: none;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  display: flex;
+  // flex-direction: column;
+  // flex-wrap: wrap;
+  flex-flow: column wrap;
+  // justify-content: flex-end;
+  // grid-template-rows: repeat(7, 1fr);
+  // grid-template-columns: repeat(12, 1fr);
   margin: 0;
   padding: 0;
+  height: 500px;
+  width: 100%;
 }
 
 li {
+  width: 10%;
+  height: 14%;
+  text-align: center;
   color: white;
   cursor: pointer;
-  font-size: 1ch;
+  font-size: 12px;
   padding: .25rem;
   border: 1px solid rgb(41, 41, 41);
   background-color: rgb(61, 61, 61);
