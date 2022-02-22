@@ -7,6 +7,7 @@
     background-color: rgb(243, 243, 243);
     border-radius: 8px;
     border: solid 0.2px rgb(189, 189, 189);
+    margin-bottom: 400px;
 }
 .iUser,.iPass{
     height: 50px;
@@ -20,10 +21,14 @@
     margin-top: 20px;
     width: 300px;
     height: 40px;
-    background-color: #3fa07b;
+    background-color: #3f79a0;
      transition:  all 200ms ease;
 
 }
 .buttonLogin:hover{
-    background-color: #5db392;
+    background-color: #538db4;
+}
+@media (max-width:625px){
+    .cajaForm{width: 300px;margin-bottom: 250px;}
+    .buttonLogin{width: 200px;}
 }
