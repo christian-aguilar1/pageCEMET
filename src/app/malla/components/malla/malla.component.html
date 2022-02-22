@@ -1,0 +1,10 @@
+<div class="container-ramos">
+  <div class="container-btns">
+    <button class="btn btn-primary">Malla civil</button>
+    <button class="btn btn-primary">Malla civil antigua</button>
+    <button class="btn btn-primary">Malla ejecucion</button>
+  </div>
+  <ol>
+    <li class="ramos" *ngFor="let ramo of nombreRamos; let i=index">{{ ramo }}</li>
+  </ol>
+</div>

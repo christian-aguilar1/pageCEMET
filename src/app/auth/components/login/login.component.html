@@ -1,12 +1,8 @@
-
-  <div class="container-fluid cajaForm">
-    <form [formGroup]="form" (ngSubmit)="login($event)" class="formLogin">
-      <input formControlName="email" class="form-control iUser" matInput type="email">
-      <br>
-      <input formControlName="password" class="form-control iPass" matInput type="password">
-      <button [disabled]="form.invalid" mat-raised-button color="primary" class="buttonLogin" type="submit" [style.marginLeft.px] = 30>Login</button>
-    </form>
-  </div>
- 
-  
-
+<div class="container-fluid cajaForm">
+  <form [formGroup]="form" (ngSubmit)="login($event)" class="formLogin">
+    <input formControlName="email" class="form-control iUser" matInput type="email">
+    <br>
+    <input formControlName="password" class="form-control iPass" matInput type="password">
+    <button [disabled]="form.invalid" mat-raised-button color="primary" class="buttonLogin" type="submit" [style.marginLeft.px] = 30>Login</button>
+  </form>
+</div>

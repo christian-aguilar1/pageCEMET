@@ -27,6 +27,14 @@ const routes: Routes = [
         loadChildren: () => import('./management/management.module').then(m => m.ManagementModule)
       },
       {
+        path: 'calendario',
+        loadChildren: () => import('./calendar/calendar.module').then(m => m.CalendarModule)
+      },
+      {
+        path: 'malla',
+        loadChildren: () => import('./malla/malla.module').then(m => m.MallaModule)
+      },
+      {
         path: 'auth',
         loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
       },
