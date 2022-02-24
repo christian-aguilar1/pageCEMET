@@ -1,5 +1,5 @@
-.container-ramos {
-  margin: 3rem 3rem 0;
+.container-malla {
+  margin: 2rem 1.6rem 0;
   border: 1px solid #ccc;
   padding: 1rem;
 }
@@ -8,24 +8,52 @@
 
 }
 
-ol {
-  list-style: none;
+.header-malla {
   display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header-year {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+}
+
+.header-semester {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+}
+
+.container-ramos {
+  display: flex;
+  flex-flow: row wrap;
+  // margin: 0;
+  // padding: 0;
+}
+
+.column-ramos {
+  display: flex;
+  flex-flow: column wrap;
+  // height: 90%;
+  // width: 8.3%;
   // flex-direction: column;
   // flex-wrap: wrap;
-  flex-flow: column wrap;
   // justify-content: flex-end;
   // grid-template-rows: repeat(7, 1fr);
   // grid-template-columns: repeat(12, 1fr);
-  margin: 0;
-  padding: 0;
-  height: 500px;
-  width: 100%;
 }
 
-li {
-  width: 10%;
-  height: 14%;
+.ramos {
+  // width: 12rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 6rem;
   text-align: center;
   color: white;
   cursor: pointer;

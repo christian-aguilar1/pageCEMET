@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { RealtimeService } from './carreras.service';
+import { RealtimeService } from './realtime.service';
 
 describe('RealtimeService', () => {
   let service: RealtimeService;

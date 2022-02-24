@@ -1,14 +1,26 @@
-<div class="container-ramos">
+<div class="container-malla">
   <div class="container-btns">
-    <button class="btn btn-primary">Malla civil</button>
-    <button class="btn btn-primary">Malla civil antigua</button>
-    <button class="btn btn-primary">Malla ejecucion</button>
+    <button class="btn btn-primary" (click)="changeRamosCarrera('civil2021')">Malla civil</button>
+    <button class="btn btn-primary" (click)="changeRamosCarrera('civil')">Malla civil antigua</button>
+    <button class="btn btn-primary" (click)="changeRamosCarrera('ejecucion')">Malla ejecucion</button>
   </div>
-  <div class="header-malla">
-    <div class="header-year">Semestre</div>
-    <div class="header-semester">Año</div>
-  </div>
-  <ol>
-    <li class="ramos" *ngFor="let ramo of nombreRamos; let i=index">{{ ramo }}</li>
+  <ol class="header-malla">
+    <li class="header-year" *ngFor="let year of years"
+         [style.width]="100 / years.length + '%'">
+      {{ year }}° Año
+    </li>
   </ol>
+  <ol class="header-malla">
+    <li class="header-semester" *ngFor="let semestre of cantRamosPorSemestre; let i = index"
+         [style.width]="100 / cantRamosPorSemestre.length + '%'">
+      Semestre {{ i + 1 }}
+  </li>
+  </ol>
+  <div class="container-ramos">
+    <div class="column-ramos" *ngFor="let ramos of arrayRamosMallaCarrera; let i = index"
+         [style.width]="100 / cantRamosPorSemestre.length + '%'">
+      <div class="ramos" *ngFor="let ramo of ramos">{{ ramo }}</div>
+      <!-- <li class="ramos">{{ ramos }}</li> -->
+    </div>
+  </div>
 </div>

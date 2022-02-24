@@ -30,7 +30,7 @@ import { SharedModule } from './shared/shared.module';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule,
+    AngularFirestoreModule.enablePersistence(),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     QuillModule.forRoot({

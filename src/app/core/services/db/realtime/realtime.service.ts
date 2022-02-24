@@ -5,17 +5,14 @@ import { AngularFireDatabase, AngularFireList, AngularFireObject }  from '@angul
 @Injectable({
   providedIn: 'root'
 })
-export class CarrerasService {
+export class RealtimeService {
 
   usersRef!: AngularFireList<any>;
   userRef!: AngularFireObject<any>;
 
-  constructor(private db: AngularFireDatabase) { }
+  constructor(private db: AngularFireDatabase) {}
 
-  public getCareers() {
-    return this.db.database.ref('carreras').get();
-  }
-  public getRamos() {
-    return this.db.database.ref('ramos').get();
+  public getDB(ref: string) {
+    return this.db.database.ref(ref).get();
   }
 }
