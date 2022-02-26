@@ -1,17 +1,18 @@
-<div class="container-malla">
-  <div class="container-btns">
-    <button class="btn btn-primary" (click)="changeRamosCarrera('civil2021')">Malla civil</button>
-    <button class="btn btn-primary" (click)="changeRamosCarrera('civil')">Malla civil antigua</button>
-    <button class="btn btn-primary" (click)="changeRamosCarrera('ejecucion')">Malla ejecucion</button>
+<div class=" container-malla">
+  <div class="container-btns d-flex justify-content-between">
+    <button class="btnCivil" (click)="changeRamosCarrera('civil2021')">Malla civil</button>
+    <button class="btnCivilA" (click)="changeRamosCarrera('civil')">Malla civil antigua</button>
+    <button class="btnEjecucion" (click)="changeRamosCarrera('ejecucion')">Malla ejecucion</button>
   </div>
-  <ol class="header-malla">
+  <!--<ol class="header-malla">
     <li class="header-year" *ngFor="let year of years"
          [style.width]="100 / years.length + '%'">
       {{ year }}° Año
     </li>
-  </ol>
+  </ol>-->  
+  
   <ol class="header-malla">
-    <li class="header-semester" *ngFor="let semestre of cantRamosPorSemestre; let i = index"
+    <li class="header-semester" id="civil2020"  *ngFor="let semestre of cantRamosPorSemestre; let i = index"
          [style.width]="100 / cantRamosPorSemestre.length + '%'">
       Semestre {{ i + 1 }}
   </li>

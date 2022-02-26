@@ -2,8 +2,8 @@
 .cajaForm{
     margin-top: 100px;
     width: 400px;
-    height: 250px;
-    padding-top: 50px;
+    height: 280px;
+    padding-top: 25px;
     background-color: rgb(243, 243, 243);
     border-radius: 8px;
     border: solid 0.2px rgb(189, 189, 189);
@@ -12,7 +12,9 @@
 .iUser,.iPass{
     height: 50px;
 }
-
+.lCorreo,.lPass{
+    margin-left: 5px;
+}
 .buttonLogin{
     color: aliceblue;
     font-size: 25px;

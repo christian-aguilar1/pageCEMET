@@ -6,20 +6,35 @@
 
 .container-btns {
 
+margin-bottom: 50px;
 }
+.btnCivil,.btnCivilA,.btnEjecucion{
+  width: 200px;
+  height: 50px;
+  border:none;
+  border-radius: 8px;
+  transition:  all 200ms ease;
+  background-color: rgb(230, 230, 230);
 
+}
+.btnCivil:hover,.btnCivilA:hover,.btnEjecucion:hover{
+background-color: #ccc;
+}
 .header-malla {
   display: flex;
   list-style: none;
   margin: 0;
   padding: 0;
+  margin-bottom: 10px; 
 }
 
 .header-year {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #ccc;
+  background-color: rgb(126, 126, 126);
+  border: 1px solid rgb(0, 0, 0);
+  color: white;
 }
 
 .header-semester {
@@ -27,8 +42,14 @@
   justify-content: center;
   align-items: center;
   border: 1px solid #ccc;
+  transition:  all 200ms ease;
+  
+  
 }
-
+.header-semester:hover{
+  background-color:rgb(236, 236, 236) ;
+  transform: translateY(-3%);
+}
 .container-ramos {
   display: flex;
   flex-flow: row wrap;
@@ -59,9 +80,14 @@
   cursor: pointer;
   font-size: 12px;
   padding: .25rem;
-  border: 1px solid rgb(41, 41, 41);
-  background-color: rgb(61, 61, 61);
+  
+  background-color: rgb(100, 100, 100);
   :hover {
     font-weight: bold;
   }
+  border: 5px solid rgb(255, 255, 255);
+  transition:  all 200ms ease;
+}
+.ramos:hover{
+  transform: translateY(-3%);
 }
