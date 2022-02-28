@@ -1,5 +1,7 @@
 // panel de navegación
 
+p, div {font-family: var(--mainFont);}
+
 .containernav{
   display: flex;
   align-items: center;
@@ -82,6 +84,10 @@
 .text__btn-create {
   margin-top: 3px;
 }
+
+// .noticiasome{
+
+// }
 
 .container-cards{
   display: grid;

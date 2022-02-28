@@ -17,8 +17,8 @@
 #toolbar-container .ql-font span[data-label="Arial"]::before {
   font-family: "Arial";
 }
-/* Set content font-families */
 
+/* Set content font-families */
 .ql-font-inconsolata {
   font-family: "Inconsolata";
 }
@@ -38,4 +38,4 @@
 .ql-font-monospace {
   font-family: "Monospace";
 }
-
+/*# sourceMappingURL=admin.component.css.map */

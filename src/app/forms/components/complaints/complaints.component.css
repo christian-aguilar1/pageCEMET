@@ -1,0 +1,16 @@
+div, h1 {
+  font-family: var(--mainFont);
+}
+
+.noticiasHead {
+  background-color: whitesmoke;
+  height: 100px;
+  padding-top: 30px;
+  border-top: solid 0.1px #e2e2e2;
+  border-bottom: solid 0.1px #e2e2e2;
+}
+
+.h1Head {
+  margin-left: 50px;
+}
+/*# sourceMappingURL=complaints.component.css.map */

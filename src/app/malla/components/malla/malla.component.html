@@ -4,13 +4,13 @@
     <button class="btnCivilA" (click)="changeRamosCarrera('civil')">Malla civil antigua</button>
     <button class="btnEjecucion" (click)="changeRamosCarrera('ejecucion')">Malla ejecucion</button>
   </div>
-  <!--<ol class="header-malla">
-    <li class="header-year" *ngFor="let year of years"
-         [style.width]="100 / years.length + '%'">
+  <ol class="header-malla">
+    <li class="header-year" *ngFor="let year of years; let i = index"
+         [style.width]="widthRow[i] + '%'">
       {{ year }}° Año
     </li>
-  </ol>-->  
-  
+  </ol>
+
   <ol class="header-malla">
     <li class="header-semester" id="civil2020"  *ngFor="let semestre of cantRamosPorSemestre; let i = index"
          [style.width]="100 / cantRamosPorSemestre.length + '%'">

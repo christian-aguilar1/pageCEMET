@@ -10,10 +10,12 @@ import Counter from 'src/app/counter';
 
 Quill.register('modules/counter', Counter)
 
-// const font = Quill.import('formats/font')
+const fontList = ['mirza', 'roboto', 'aref', 'serif', 'sansserif', 'monospace'];
+const fontNames = fontList.map(font => font.toLowerCase().replace(/\s/g, "-"));
+const fonts = Quill.import('attributors/class/font');
 // // We do not add Aref Ruqaa since it is the default
-// font.whitelist = ['mirza', 'roboto', 'aref', 'serif', 'sansserif', 'monospace']
-// Quill.register(font, true)
+fonts.whitelist = fontNames
+Quill.register(fonts, true)
 
 @Component({
   selector: 'app-admin',
@@ -44,7 +46,7 @@ export class AdminComponent implements OnInit {
       [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
 
       [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
-      [{ 'font': [] }],
+      [{ 'font': fonts.whitelist }],
       ['link', 'image', 'video'],
       ['code-block'],
       [{ 'align': [] }],
@@ -60,6 +62,20 @@ export class AdminComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    let fontStyles = "";
+    fontList.forEach(function(font) {
+      let fontName = font.toLowerCase().replace(/\s/g, "-");
+      fontStyles += ".ql-snow .ql-picker.ql-font .ql-picker-label[data-value=" + fontName + "]::before, .ql-snow .ql-picker.ql-font .ql-picker-item[data-value=" + fontName + "]::before {" +
+        "content: '" + font + "';" +
+        "font-family: '" + font + "', sans-serif;" +
+        "}" +
+        ".ql-font-" + fontName + "{" +
+        " font-family: '" + font + "', sans-serif;" +
+        "}";
+    });
+    var node = document.createElement('style');
+    node.innerHTML = fontStyles;
+    document.body.appendChild(node);
     this.options = {
       // debug: 'info',
       modules: {

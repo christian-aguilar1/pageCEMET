@@ -1,0 +1,62 @@
+p, button {
+  font-family: var(--mainFont);
+}
+
+.card-news {
+  border: none;
+  -webkit-box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.15);
+  -webkit-transition: all 400ms ease;
+  transition: all 400ms ease;
+}
+
+.card-news:hover {
+  -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+          box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  -webkit-transform: translateY(-0.5%);
+          transform: translateY(-0.5%);
+}
+
+.crop-image {
+  display: block;
+  height: 300px;
+  width: 100%;
+}
+
+.crop-image img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  height: 100%;
+  width: 100%;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.card-body {
+  background-color: #f8f8f8;
+}
+
+.card-text {
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+
+.card-text:hover {
+  color: #5c5c5c;
+}
+
+.container-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 150px;
+  height: 38px;
+}
+
+.btn-edit {
+  border-radius: 450%;
+}
+/*# sourceMappingURL=news-card.component.css.map */
