@@ -51,10 +51,16 @@ button, li, div {font-family: var(--mainFont)}
   margin-bottom: 10px;
 }
 
+.header-malla .header-year {
+  &:last-child {
+    width: var(--lastSemester);
+  }
+}
 .header-year {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: var(--semester);
   background-color: rgb(88, 140, 184);
   border: 3px solid rgb(255, 255, 255);
   color: white;
@@ -66,23 +72,23 @@ button, li, div {font-family: var(--mainFont)}
   align-items: center;
   border: 1px solid #ccc;
   transition:  all 200ms ease;
-
-
+  // width: var(--widthColumnRamos);
 }
+
 .header-semester:hover{
   background-color:rgb(236, 236, 236) ;
   transform: translateY(-3%);
 }
+
 .container-ramos {
   display: flex;
   flex-flow: row wrap;
-  // margin: 0;
-  // padding: 0;
 }
 
 .column-ramos {
   display: flex;
   flex-flow: column wrap;
+  width: var(--widthColumnRamos);
 }
 
 .ramos {
@@ -104,5 +110,25 @@ button, li, div {font-family: var(--mainFont)}
 }
 
 @media (max-width: 980px) {
+  .header-malla {display:none;}
+  .container-ramos {
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .column-ramos {
+    width: 25%;
+    margin-bottom: 2rem;
+  }
+}
 
+@media (max-width: 575px) {
+  .header-malla {display:none;}
+  .container-ramos {
+    justify-content: center;
+    align-items: center;
+  }
+  .column-ramos {
+    width: 60%;
+    margin-bottom: 2rem;
+  }
 }

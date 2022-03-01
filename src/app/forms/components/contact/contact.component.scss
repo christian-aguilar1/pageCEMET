@@ -6,8 +6,9 @@ div, h1, button, p {font-family: var(--mainFont);}
     margin-bottom: 30px
 }
 .cajaForm{
+  display: flex;
+  flex-direction: column;
   width: 800px;
-  height: 380px;
   padding-top: 2rem;
   background-color: rgb(243, 243, 243);
   border-radius: 8px;
