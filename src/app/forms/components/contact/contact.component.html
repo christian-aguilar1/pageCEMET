@@ -1,15 +1,49 @@
 <div class="container-fluid encabezadoContacto">
   <h1>Contacto</h1>
-  Si necesitas contactactarte con nosotros puedes hacerlo a través<br> del correo cemet@usach.cl, o rellenando el siguiente formulario
+  Si necesitas contactarte con nosotros puedes hacerlo a través<br> del correo <a href="mailto:cemet@usach.cl">cemet@usach.cl</a>, o rellenando el siguiente formulario
 </div>
 
-<div class="container-fluid cajaForm"> 
-  <form [formGroup]="form" class="form-group container-fluid " (ngSubmit)="sendEmail(form.value)">
-    <input type="text" formControlName="name" class="form-control" placeholder="Nombre y apellido">
-    <input type="email" formControlName="email" class="form-control" placeholder="Email">
-    <textarea formControlName="message" class="form-control form-control-lg" placeholder="Mensaje"></textarea>
-    <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+<div class="container-fluid cajaForm position-relative">
+  <form [formGroup]="form" class="form-group container-fluid needs-validation" (ngSubmit)="sendEmail(form.value)" novalidate>
+    <div class="form-group has-validation">
+      <input type="name" formControlName="name" class="form-control" placeholder="Nombre y apellido" [ngClass]="{ 'is-invalid': clicked && f['name'].errors}">
+      <div *ngIf="clicked && f['name'].errors" class="invalid-feedback">
+        <div *ngIf="f['name'].errors['required']">El nombre y apellido es obligatorio</div>
+        <div *ngIf="f['name'].errors['minlength']">Por favor, ingresa tu nombre y apellido</div>
+      </div>
+    </div>
+    <div class="form-group has-validation">
+      <input type="email" formControlName="email" class="form-control" placeholder="Correo Electrónico USACH" [ngClass]="{ 'is-invalid': clicked && f['email'].errors}">
+      <div *ngIf="clicked && f['email'].errors" class="invalid-feedback">
+        <div *ngIf="f['email'].errors['required']">El email es obligatorio</div>
+        <div *ngIf="f['email'].errors['pattern']">Por favor, ingresa un Email correcto</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <textarea formControlName="message" class="form-control form-control-lg" placeholder="Mensaje" [ngClass]="{ 'is-invalid': clicked && f['message'].errors}"></textarea>
+      <div *ngIf="clicked && f['message'].errors" class="invalid-feedback">
+        <div *ngIf="f['message'].errors['required']">Por favor, ingresa un Mensaje</div>
+        <div *ngIf="f['message'].errors['minlength']">El mensaje tiene que ser de mínimo 10 caracteres</div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary btn-lg">
+      <div *ngIf="!submitted && !isLoading">
+        Enviar
+      </div>
+      <div *ngIf="submitted && isLoading">
+          <span class="spinner-border spinner-border-sm mr-2"></span>
+          Enviando datos...
+      </div>
+      <div *ngIf="submitted && !isLoading" class="container-success">
+        <div>
+          <img src="assets/icons/check.png" alt="success" class="icon-check">
+        </div>
+        <div>
+          Enviado!
+        </div>
+      </div>
+    </button>
   </form>
-  
+
 </div>
 

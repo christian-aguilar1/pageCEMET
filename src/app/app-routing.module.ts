@@ -35,6 +35,10 @@ const routes: Routes = [
         loadChildren: () => import('./malla/malla.module').then(m => m.MallaModule)
       },
       {
+        path: 'papeo',
+        loadChildren: () => import('./papeo/papeo.module').then(m => m.PapeoModule)
+      },
+      {
         path: 'auth',
         loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
       },

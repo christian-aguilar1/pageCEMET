@@ -1,8 +1,8 @@
 <div class=" container-malla">
   <div class="container-btns d-flex justify-content-between">
-    <button class="btnCivil" (click)="changeRamosCarrera('civil2021')">Malla civil</button>
-    <button class="btnCivilA" (click)="changeRamosCarrera('civil')">Malla civil antigua</button>
-    <button class="btnEjecucion" (click)="changeRamosCarrera('ejecucion')">Malla ejecucion</button>
+    <button class="btn-mallas btnCivil" (click)="changeRamosCarrera('civil2021')">Malla civil</button>
+    <button class="btn-mallas btnCivilA" (click)="changeRamosCarrera('civil')">Malla civil antigua</button>
+    <button class="btn-mallas btnEjecucion" (click)="changeRamosCarrera('ejecucion')">Malla ejecucion</button>
   </div>
   <ol class="header-malla">
     <li class="header-year" *ngFor="let year of years; let i = index"

@@ -1,4 +1,4 @@
-div, h1, button {font-family: var(--mainFont);}
+div, h1, button, p {font-family: var(--mainFont);}
 
 .encabezadoContacto{
     text-align: center;
@@ -6,17 +6,31 @@ div, h1, button {font-family: var(--mainFont);}
     margin-bottom: 30px
 }
 .cajaForm{
-    width: 800px;
-    height: 380px;
-    padding-top: 50px;
-    background-color: rgb(243, 243, 243);
-    border-radius: 8px;
-    border: solid 0.2px rgb(189, 189, 189);
+  width: 800px;
+  height: 380px;
+  padding-top: 2rem;
+  background-color: rgb(243, 243, 243);
+  border-radius: 8px;
+  border: solid 0.2px rgb(189, 189, 189);
 }
 
-.form-control{
-    margin-bottom: 25px;
+.form-group{
+  margin-bottom: 25px;
 }
+
+.container-success {
+  display: flex;
+  width: 110px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: space-evenly;
+}
+
+.icon-check {
+  height: 16px;
+  width: 16px;
+}
+
 @media (max-width:980px){
-    .cajaForm{width: 100%;}
+    .cajaForm{width: 90%;}
 }
