@@ -11,26 +11,38 @@
     <br>
     El formulario puede ser llenado de forma anónima si quien denuncia no desea dar a conocer su identidad.
   </p>
+  <hr>
   <form [formGroup]="form" class="form-group needs-validation" (ngSubmit)="sendEmail(form.value)" novalidate>
     <div class="form-group has-validation">
-      <input type="name" formControlName="name" class="form-control" placeholder="Nombre y apellido" [ngClass]="{ 'is-invalid': clicked && f['name'].errors}">
+      <label for="name">Nombre (opcional)</label>
+      <input id="name" type="name" formControlName="name" class="form-control" placeholder="Nombre y apellido" [ngClass]="{ 'is-invalid': clicked && f['name'].errors}">
       <div *ngIf="clicked && f['name'].errors" class="invalid-feedback">
-        <div *ngIf="f['name'].errors['required']">El nombre y apellido es obligatorio</div>
         <div *ngIf="f['name'].errors['minlength']">Por favor, ingresa tu nombre y apellido</div>
+        <div *ngIf="f['name'].errors['emailRequired']">Por favor, si ingresaste tu nombre ingresa también tu correo</div>
       </div>
     </div>
     <div class="form-group has-validation">
-      <input type="email" formControlName="email" class="form-control" placeholder="Correo Electrónico USACH" [ngClass]="{ 'is-invalid': clicked && f['email'].errors}">
+      <label for="email">Correo Electrónico (opcional)</label>
+      <input id="email" type="email" formControlName="email" class="form-control" placeholder="ejemplo@usach.cl" [ngClass]="{ 'is-invalid': clicked && f['email'].errors}">
       <div *ngIf="clicked && f['email'].errors" class="invalid-feedback">
-        <div *ngIf="f['email'].errors['required']">El email es obligatorio</div>
         <div *ngIf="f['email'].errors['pattern']">Por favor, ingresa un Email correcto</div>
+        <div *ngIf="f['email'].errors['nameRequired']">Por favor, si ingresaste tu correo ingresa también tu nombre</div>
+      </div>
+    </div>
+    <div class="form-group has-validation">
+      <label for="blamedName">Nombre Denunciado *</label>
+      <input id="blamedName" type="name" formControlName="blamedName" class="form-control" placeholder="Nombre y apellido" [ngClass]="{ 'is-invalid': clicked && f['blamedName'].errors}">
+      <div *ngIf="clicked && f['blamedName'].errors" class="invalid-feedback">
+        <div *ngIf="f['blamedName'].errors['minlength']">Por favor, ingresa el nombre y apellido del denunciado</div>
+        <div *ngIf="f['blamedName'].errors['required']">El nombre del denunciado es obligatorio</div>
       </div>
     </div>
     <div class="form-group">
-      <textarea formControlName="message" class="form-control form-control-lg" placeholder="Mensaje" [ngClass]="{ 'is-invalid': clicked && f['message'].errors}"></textarea>
+      <label for="message">Situación *</label>
+      <textarea id="message" formControlName="message" class="form-control form-control-lg" placeholder="Mensaje" [ngClass]="{ 'is-invalid': clicked && f['message'].errors}"></textarea>
       <div *ngIf="clicked && f['message'].errors" class="invalid-feedback">
         <div *ngIf="f['message'].errors['required']">Por favor, ingresa un Mensaje</div>
-        <div *ngIf="f['message'].errors['minlength']">El mensaje tiene que ser de mínimo 10 caracteres</div>
+        <div *ngIf="f['message'].errors['minlength']">El mensaje tiene que ser de mínimo 20 caracteres</div>
       </div>
     </div>
     <button type="submit" class="btn btn-primary btn-lg">

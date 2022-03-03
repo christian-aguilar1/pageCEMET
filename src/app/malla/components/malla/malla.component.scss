@@ -7,7 +7,9 @@ button, li, div {font-family: var(--mainFont)}
 }
 
 .container-btns {
-  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 1rem;
 }
 
 .btn-mallas{
@@ -124,9 +126,13 @@ button, li, div {font-family: var(--mainFont)}
 }
 
 @media (max-width: 575px) {
+  .container-btns {
+    justify-content: center;
+    align-items: center;
+  }
   .btn-mallas{
     width: 250px;
-    margin-left: 20%;
+    // margin-left: 20%;
     margin-bottom: 20px;
   }
   .header-malla {display:none;}

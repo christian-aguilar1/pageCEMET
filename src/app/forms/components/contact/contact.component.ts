@@ -30,9 +30,8 @@ export class ContactComponent implements OnInit {
       this.submitted = true;
       this.isLoading = true;
       this.form.disable();
-      this.mailSender.sendMessage(values.name, values.email, values.message);
+      this.mailSender.sendMessage(values.name, values.email, values.message, 'contact');
       this.isLoading = false;
-      console.log(values.name, values.email, values.message);
     }
   }
 
