@@ -8,11 +8,13 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './components/admin/admin.component';
 import { SharedModule } from '../shared/shared.module';
 import { MaterialModule } from '../material/material.module';
+import { CreateComponent } from './components/create/create.component';
 
 
 @NgModule({
   declarations: [
-    AdminComponent
+    AdminComponent,
+    CreateComponent
   ],
   imports: [
     CommonModule,
