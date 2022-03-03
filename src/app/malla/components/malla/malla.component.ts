@@ -47,6 +47,7 @@ export class MallaComponent implements OnInit {
       this.fillArrayDB(this.carreraCivilDB.ramos)
       this.getSubjectPerSemesters(this.carreraCivilDB.ramosPorSemestre);
       this.fillArrayOfArraysSubjectsCareer();
+      
     }
     else if (carrera == "civil2021") {
       this.carrera = "civil2021";
