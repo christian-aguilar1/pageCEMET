@@ -1,10 +1,14 @@
 <div class="card card-news">
-  <img [src]="new.image" [alt]="new.title" class="card-img-top" >
+  <img [src]="image" [alt]="new.title" class="card-img-top" >
   <div class="card-body ">
 
-    <p class="card-text">{{ new.description | slice:0:100 }}</p>
+    <div class="badges mb-2" *ngFor="let category of new.categories">
+      <span class="badge bg-primary me-2">{{ category }}</span>
+    </div>
+
+    <p class="card-text">{{ new.body | slice:0:100 }}</p>
     <div class="container-btn">
-      <button type="button" class="btn btn-outline-success">Ver más</button>
+      <button type="button" class="btn btn-outline-success" [routerLink]="['/noticias', idDoc]" [state]="{data: {'image': '1'}}">Ver más</button>
 
       <button *ngIf="user" type="button" class="btn btn-primary btn-edit" routerLink="">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">

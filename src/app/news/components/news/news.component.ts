@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-
-import { New } from 'src/app/core/models/new';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-news',
@@ -9,12 +8,12 @@ import { New } from 'src/app/core/models/new';
 })
 export class NewsComponent implements OnInit {
 
-  @Input()
-  new!: New;
-
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.params.subscribe((params: Params) => {
+      const id = params['id'];
+    })
   }
 
 }

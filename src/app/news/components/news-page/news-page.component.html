@@ -7,9 +7,9 @@
 <div></div>
 
 <div class="container container-cards">
-  <app-news
-      *ngFor="let new of news" [new]="new">
-  </app-news>
+  <app-news-card
+      *ngFor="let new of news; let i = index" [new]="new" [idDoc]="idDocs[i]">
+  </app-news-card>
 </div>
 
 <div class="container-fluid contenedorButton d-flex">

@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule }  from '@angular/fire/compat/database';
+import { AngularFireStorageModule }  from '@angular/fire/compat/storage';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -32,6 +33,7 @@ import { SharedModule } from './shared/shared.module';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule.enablePersistence(),
     AngularFireDatabaseModule,
+    AngularFireStorageModule,
     AngularFireAuthModule,
     QuillModule.forRoot({
       customOptions: [{

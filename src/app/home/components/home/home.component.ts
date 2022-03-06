@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { FirestoreService } from 'src/app/core/services/db/firestore/firestore.service';
 
 @Component({
   selector: 'app-home',
@@ -11,52 +12,18 @@ export class HomeComponent implements OnInit {
 
   public news = [] as  any;
   public user: boolean = false;
+  public idDocs = [] as  any;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private firestoreService: FirestoreService) { }
 
   ngOnInit(): void {
     this.hasUser();
-    this.news.push({
-      id: 1,
-      title: 'Test',
-      image: '/assets/images/noticia.png',
-      date: 1000,
-      description: 'El mundo de la innovacion y el emprendimiento cada vez es mas conocido y admirado te invitamos'
-    },
-    {
-      id: 1,
-      title: 'Test',
-      image: '/assets/images/noticia.png',
-      date: 1000,
-      description: 'El mundo de la innovacion y el emprendimiento cada vez es mas conocido y admirado te invitamos'
-    },
-    {
-      id: 1,
-      title: 'Test',
-      image: '/assets/images/noticia.png',
-      date: 1000,
-      description: 'El mundo de la innovacion y el emprendimiento cada vez es mas conocido y admirado te invitamos'
-    },
-    {
-      id: 1,
-      title: 'Test',
-      image: '/assets/images/noticia.png',
-      date: 1000,
-      description: 'El mundo de la innovacion y el emprendimiento cada vez es mas conocido y admirado te invitamos'
-    },
-    {
-      id: 1,
-      title: 'Test',
-      image: '/assets/images/noticia.png',
-      date: 1000,
-      description: 'El mundo de la innovacion y el emprendimiento cada vez es mas conocido y admirado te invitamos'
-    },
-    {
-      id: 1,
-      title: 'Test',
-      image: '/assets/images/noticia.png',
-      date: 1000,
-      description: 'El mundo de la innovacion y el emprendimiento cada vez es mas conocido y admirado te invitamos'
+    this.firestoreService.getCollections('news').subscribe((snapshot) => {
+      this.news = [];
+      snapshot.forEach((doc) => {
+        this.news.push(doc.data())
+        this.idDocs.push(doc.id);
+      })
     })
   }
 
