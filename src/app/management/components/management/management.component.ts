@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { FirestoreService } from 'src/app/core/services/db/firestore/firestore.service';
+
 @Component({
   selector: 'app-management',
   templateUrl: './management.component.html',
@@ -7,9 +10,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManagementComponent implements OnInit {
 
-  constructor() { }
+  public positions = [] as  any;
+  public user: boolean = false;
+  public idDocs = [] as  any;
+
+  constructor(private authService: AuthService, private firestoreService: FirestoreService) { }
 
   ngOnInit(): void {
+    this.hasUser();
+    this.firestoreService.getCollections('management').subscribe((snapshot) => {
+      this.positions = [];
+      snapshot.forEach((doc) => {
+        this.positions.push(doc.data())
+        this.idDocs.push(doc.id);
+      })
+    })
+  }
+
+  hasUser() {
+    this.authService.hasUser().
+      subscribe(res => {
+        if(res && res.uid) {
+          this.user = true;
+        }
+      }
+    );
   }
 
 }

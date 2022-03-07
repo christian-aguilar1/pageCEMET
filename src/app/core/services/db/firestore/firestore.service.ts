@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
+import { Position } from './../../../models/position';
+import { New } from 'src/app/core/models/new';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -9,7 +12,7 @@ export class FirestoreService {
 
   constructor(private db: AngularFirestore) { }
 
-  public createCollection(collection: string, documentId: string, data: {id: number, name: string, description: string, price: number, image: string}) {
+  public createCollection(collection: string, documentId: string, data: New | Position) {
     return this.db.collection(collection).doc(documentId).set(data);
   }
 

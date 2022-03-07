@@ -18,6 +18,8 @@ import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
 import { SharedModule } from './shared/shared.module';
 
+import { MdbDropdownModule } from 'mdb-angular-ui-kit/dropdown';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +37,7 @@ import { SharedModule } from './shared/shared.module';
     AngularFireDatabaseModule,
     AngularFireStorageModule,
     AngularFireAuthModule,
+    MdbDropdownModule,
     QuillModule.forRoot({
       customOptions: [{
         import: 'formats/font',

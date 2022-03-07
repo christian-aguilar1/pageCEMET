@@ -1,0 +1,67 @@
+
+<div class="container-fluid ">
+  <div class="container-fluid containerTCrearNoticia">
+    <h1 class="TCnoticia">Crear Noticia</h1>
+    <hr class="hrCrearNoticia">
+  </div>
+</div>
+
+<div class="container-fluid CCrearNoticia position-relative">
+  <form [formGroup]="form" class="container-fluid form-group" (ngSubmit)="test(form.value)">
+    <div class="mb-1">
+      <label for="LnNoticia">Titulo de la Noticia</label>
+      <input type="text" formControlName="title" class="form-control" placeholder="Nombre">
+    </div>
+
+    <div class="mb-1">
+      <label for="lDropdown">Tipo de noticia</label>
+      <div mdbDropdown class="dropdown">
+        <button mdbDropdownToggle #dropdown class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          Noticia
+        </button>
+        <ul mdbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item">Noticia</a></li>
+          <li><a class="dropdown-item">Evento</a></li>
+          <li><a class="dropdown-item">Comunicado Oficial</a></li>
+          <li><a class="dropdown-item">Herramienta</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- <div class="mb-1 container__div-category">
+      <label for="category">Categoría de la Noticia</label>
+      <div class="container__input-category col-12">
+        <input type="text" class="form-control input__add-category" placeholder="Noticia, Evento, Comunicado Oficial, etc.">
+        <button class="btn btn-primary" (click)="addNewCategory()">+</button>
+      </div>
+    </div> -->
+
+    <div class="mb-1">
+      <label for="formFileSm" class="form-label">Seleccionar Imagen</label>
+      <input class="form-control form-control-sm" id="formFileSm" type="file">
+    </div>
+
+    <label for="LcontenidoNoticia">Contenido</label>
+    <div [(ngmodel)]="content" [styles]="editorStyle" id="editor" trackChanges="all" placeholder="Texto"></div>
+    <!-- <textarea name="" id="" cols="30" rows="10">Texto</textarea> -->
+
+    <!-- <quill-editor [(ngModel)]="content" trackChanges="all" [modules]="modules" (onEditorCreated)="addBindingCreated($event)"></quill-editor> -->
+
+    <div class="cBtn mt-3 mb-3">
+      <button type="submit"  class="btn btn-primary btnCrear">Crear</button>
+    </div>
+  </form>
+</div>
+
+
+
+<div class="container-fluid CcerrarSesion">
+  <hr class="hrCrearNoticia">
+  <button class="btn btn-outline-primary btnCerraS" (click)="logout()">Cerrar Sesión</button>
+  <div id="quill" class="container">
+    <p>Content *</p>
+  </div>
+</div>
+
+
+<div id="text"></div>

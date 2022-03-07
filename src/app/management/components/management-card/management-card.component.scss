@@ -1,0 +1,17 @@
+h5, p, button {font-family: var(--mainFont);}
+
+img{
+  width: 180px;
+  border-radius: 50%;
+}
+
+.container-btn {
+  display: flex;
+  justify-content: space-between;
+  width: 150px;
+  height: 38px;
+}
+
+.btn-edit {
+  border-radius: 50%;
+}

@@ -1,12 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { AddPositionComponent } from './components/add-position/add-position.component';
 import { AdminComponent } from './components/admin/admin.component';
-import { CreateComponent } from './components/create/create.component';
+import { CreateNewComponent } from './components/create-new/create-new.component';
+import { EditPositionComponent } from './components/edit-position/edit-position.component';
 
 const routes: Routes = [
   {path: '', component: AdminComponent},
-  {path: 'crear', component: CreateComponent},
+  {path: 'crear-noticia', component: CreateNewComponent},
+  {path: 'agregar-cargo', component: AddPositionComponent},
+  {path: 'editar-cargo/:id', component: EditPositionComponent},
 ];
 
 @NgModule({

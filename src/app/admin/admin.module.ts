@@ -8,13 +8,17 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './components/admin/admin.component';
 import { SharedModule } from '../shared/shared.module';
 import { MaterialModule } from '../material/material.module';
-import { CreateComponent } from './components/create/create.component';
+import { CreateNewComponent } from './components/create-new/create-new.component';
+import { AddPositionComponent } from './components/add-position/add-position.component';
+import { EditPositionComponent } from './components/edit-position/edit-position.component';
 
 
 @NgModule({
   declarations: [
     AdminComponent,
-    CreateComponent
+    CreateNewComponent,
+    AddPositionComponent,
+    EditPositionComponent
   ],
   imports: [
     CommonModule,
