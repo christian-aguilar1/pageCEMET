@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { FirestoreService } from 'src/app/core/services/db/firestore/firestore.service';
@@ -14,7 +16,10 @@ export class HomeComponent implements OnInit {
   public user: boolean = false;
   public idDocs = [] as  any;
 
-  constructor(private authService: AuthService, private firestoreService: FirestoreService) { }
+  constructor(private authService: AuthService, private firestoreService: FirestoreService, private router: Router,
+              private title: Title) {
+                title.setTitle("CEMET - Centro de Estudiantes de Metalurgia");
+              }
 
   ngOnInit(): void {
     this.hasUser();
@@ -37,9 +42,11 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  clickProduct(id: number) {
-    console.log('product');
-    console.log(id);
+  logout() {
+    this.authService.logout()
+      .then(() => {
+        this.router.navigate(['/home']);
+      });
   }
 
 }

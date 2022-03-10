@@ -14,6 +14,7 @@ export class NewsCardComponent implements OnInit {
   new!: New;
   @Input() idDoc!: string;
   image!: string;
+  body: string = "";
 
   constructor(private storage: AngularFireStorage) { }
 
@@ -21,9 +22,9 @@ export class NewsCardComponent implements OnInit {
     const fileRef = this.storage.ref(this.new.image);
     const imageRef = fileRef.getDownloadURL();
     imageRef.subscribe(url => {
-      console.log(url)
       this.image = url;
     })
+    this.body = this.new.body.substring(0, 500);
   }
 
 }

@@ -7,36 +7,96 @@
 <div class="container-fluid container-form">
   <p>
     Aquí podrás hacer tus reclamos hacia la Institución ya sean malas practicas o comportamientos irregulares o mal intencionados
-    de profesores, ayudantes y compañeros
-    <br>
-    El formulario puede ser llenado de forma anónima si quien denuncia no desea dar a conocer su identidad.
+    de profesores, ayudantes y compañeros.
   </p>
   <hr>
   <form [formGroup]="form" class="form-group needs-validation" (ngSubmit)="sendEmail(form.value)" novalidate>
     <div class="form-group has-validation">
-      <label for="name">Nombre (opcional)</label>
+      <label for="name">Nombre *</label>
       <input id="name" type="name" formControlName="name" class="form-control" placeholder="Nombre y apellido" [ngClass]="{ 'is-invalid': clicked && f['name'].errors}">
       <div *ngIf="clicked && f['name'].errors" class="invalid-feedback">
+        <div *ngIf="f['name'].errors['required']">Tu nombre es obligatorio</div>
         <div *ngIf="f['name'].errors['minlength']">Por favor, ingresa tu nombre y apellido</div>
-        <div *ngIf="f['name'].errors['emailRequired']">Por favor, si ingresaste tu nombre ingresa también tu correo</div>
       </div>
     </div>
     <div class="form-group has-validation">
-      <label for="email">Correo Electrónico (opcional)</label>
+      <label for="email">Correo Electrónico *</label>
       <input id="email" type="email" formControlName="email" class="form-control" placeholder="ejemplo@usach.cl" [ngClass]="{ 'is-invalid': clicked && f['email'].errors}">
       <div *ngIf="clicked && f['email'].errors" class="invalid-feedback">
-        <div *ngIf="f['email'].errors['pattern']">Por favor, ingresa un Email correcto</div>
-        <div *ngIf="f['email'].errors['nameRequired']">Por favor, si ingresaste tu correo ingresa también tu nombre</div>
+        <div *ngIf="f['email'].errors['required']">Tu correo es obligatorio</div>
+        <div *ngIf="f['email'].errors['pattern']">Por favor, ingresa un Correo USACH válido</div>
       </div>
     </div>
+
     <div class="form-group has-validation">
-      <label for="blamedName">Nombre Denunciado *</label>
+      <label for="dropdownCareer">Carrera</label>
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownCareer" data-bs-toggle="dropdown" aria-expanded="false" [ngClass]="{ 'is-invalid': clicked && careerInvalid}">
+          {{ career }}
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownCareer">
+          <li><a class="dropdown-item" (click)="fillDropdown('civil')">Ingeniería Civil en Metalurgia</a></li>
+          <li><a class="dropdown-item" (click)="fillDropdown('ejecucion')">Ingeniería de Ejecución en Metalurgia</a></li>
+        </ul>
+        <div *ngIf="clicked && careerInvalid" class="invalid-feedback">
+          <div *ngIf="careerInvalid">La carrera es obligatoria</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group has-validation">
+      <label for="dropdownCareer">Reclamo dirigido a:</label>
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownCareer" data-bs-toggle="dropdown" aria-expanded="false" [ngClass]="{ 'is-invalid': clicked && denouncedInvalid}">
+          {{ denounced }}
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownCareer">
+          <li><a class="dropdown-item" (click)="fillDropdown('student')">Estudiante</a></li>
+          <li><a class="dropdown-item" (click)="fillDropdown('professor')">Profesor</a></li>
+          <li><a class="dropdown-item" (click)="fillDropdown('assistant')">Ayudante</a></li>
+        </ul>
+        <div *ngIf="clicked && denouncedInvalid" class="invalid-feedback">
+          <div *ngIf="denouncedInvalid">Este campo es obligatorio</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group has-validation" *ngIf="isProfessor">
+      <label for="subject">Ramo que imparte *</label>
+      <input id="subject" type="text" formControlName="subject" class="form-control" placeholder="Ramo" [ngClass]="{ 'is-invalid': clicked && subjectInvalid}">
+      <div *ngIf="clicked && subjectInvalid" class="invalid-feedback">
+        <div *ngIf="subjectInvalid">Por favor, ingresa el nombre del ramo</div>
+      </div>
+    </div>
+
+    <div class="form-group has-validation">
+      <label for="blamedName">Nombre de la persona a la que el reclamo va dirigido *</label>
       <input id="blamedName" type="name" formControlName="blamedName" class="form-control" placeholder="Nombre y apellido" [ngClass]="{ 'is-invalid': clicked && f['blamedName'].errors}">
       <div *ngIf="clicked && f['blamedName'].errors" class="invalid-feedback">
-        <div *ngIf="f['blamedName'].errors['minlength']">Por favor, ingresa el nombre y apellido del denunciado</div>
-        <div *ngIf="f['blamedName'].errors['required']">El nombre del denunciado es obligatorio</div>
+        <div *ngIf="f['blamedName'].errors['minlength']">Por favor, ingresa el nombre y apellido</div>
+        <div *ngIf="f['blamedName'].errors['required']">Este campo es obligatorio</div>
       </div>
     </div>
+
+    <div class="container__label-radio">
+      <label>Se dió la instancia para conversar? *</label>
+      <div class="form-check" [ngClass]="{ 'is-invalid': clicked && radioInvalid}">
+        <input class="form-check-input" type="radio" (click)="fillDropdown('yes')" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label" for="flexRadioDefault1">
+          Sí
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" (click)="fillDropdown('no')" name="flexRadioDefault" id="flexRadioDefault2">
+        <label class="form-check-label" for="flexRadioDefault2">
+          No
+        </label>
+      </div>
+      <div *ngIf="clicked && radioInvalid" class="invalid-feedback">
+        <div *ngIf="radioInvalid">Este campo es obligatorio</div>
+      </div>
+    </div>
+
     <div class="form-group">
       <label for="message">Situación *</label>
       <textarea id="message" formControlName="message" class="form-control form-control-lg" placeholder="Mensaje" [ngClass]="{ 'is-invalid': clicked && f['message'].errors}"></textarea>

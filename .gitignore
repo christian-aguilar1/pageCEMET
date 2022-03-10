@@ -56,6 +56,7 @@ Thumbs.db
 storage.rules
 firestore.rules
 firestore.indexes.json
+database.rules.json
 
 # environments
 environments

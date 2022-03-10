@@ -20,16 +20,20 @@ export class EditPositionComponent implements OnInit {
   form!: FormGroup;
   public position = {} as any;
   public idDoc = "";
+  public user: boolean = false;
   name$: string = "";
   image$!: Observable<any>;
+  image: string = "";
   submitted = false;
   clicked = false;
   isLoading!: boolean;
+  have: boolean = false;
 
   constructor(private authService: AuthService, private router: Router, private formBuilder: FormBuilder,
               private db: FirestoreService, private storage: AngularFireStorage, private activeRoute: ActivatedRoute,) { }
 
   ngOnInit(): void {
+    this.hasUser()
     this.buildForm();
     this.activeRoute.params.subscribe((params: Params) => this.idDoc = params['id']);
     this.db.getCollection('management', this.idDoc).subscribe((snapshot) => {
@@ -37,8 +41,9 @@ export class EditPositionComponent implements OnInit {
       if (this.position.image !== "") {
         const fileRef = this.storage.ref(this.position.image);
         const imageRef = fileRef.getDownloadURL();
-        imageRef.subscribe((url: any) => {;
-          this.form.get('image')?.setValue(url);
+        imageRef.forEach((url) => {
+          this.image = url;
+          this.have = true;
         })
       }
     })
@@ -52,11 +57,17 @@ export class EditPositionComponent implements OnInit {
       this.submitted = true;
       this.isLoading = true;
       let position: Position;
+      let name_img;
+      if (this.name$ === "") {
+        name_img = this.position.image;
+      } else {
+        name_img = this.name$;
+      }
       position = {
         name: values.name,
         position: values.position,
         email: values.email,
-        image: this.name$,
+        image: name_img,
         details: values.details,
       }
       this.db.createCollection('management', this.idDoc, position)
@@ -78,12 +89,23 @@ export class EditPositionComponent implements OnInit {
 
     task.snapshotChanges()
       .pipe(finalize(() => {
+        this.have = false;
         this.image$ = fileRef.getDownloadURL();
         this.image$.subscribe((url: any) => {
           this.form.get('image')?.setValue(url);
         })
       }))
       .subscribe();
+  }
+
+  hasUser() {
+    this.authService.hasUser().
+      subscribe(res => {
+        if(res && res.uid) {
+          this.user = true;
+        }
+      }
+    );
   }
 
   logout() {

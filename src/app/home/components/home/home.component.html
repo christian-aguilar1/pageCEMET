@@ -1,4 +1,8 @@
 <div class="container-fluid">
+  <div class="container-fluid container__logout" *ngIf="user">
+    <button class="btn btn-outline-primary btnCerraS" (click)="logout()">Cerrar Sesión</button>
+  </div>
+
   <div class="container row justify-content-sm-center containernav">
 
     <a href="https://drive.google.com/drive/folders/1KKDmgafW2HtVvPuVooKIfa58JluJgrJN?usp=sharing" target="_blank" class="col-sm conitem">
@@ -8,9 +12,16 @@
 
     <div class="col-sm-auto hr2"></div>
 
-    <a routerLink="/papeo" routerLinkActive="active" class="col-sm conitem">
+    <a href="https://drive.google.com/drive/folders/1KKDmgafW2HtVvPuVooKIfa58JluJgrJN?usp=sharing" target="_blank" class="col-sm conitem">
       <p class="nombreseccion">Sube tu Papeo</p>
       <img class="img-fluid fotopng" src="/assets/icons/file.png" alt="Icono de Sube tu Papeo"/>
+    </a>
+
+    <div class="col-sm-auto hr2"></div>
+
+    <a href="https://drive.google.com/drive/u/0/folders/1CNXj6bygSpYNTFNvcRTSIufv3eF_iVvd" target="_blank" class="col-sm conitem">
+      <p class="nombreseccion">Biblioteca</p>
+      <img class="img-fluid fotopng" src="/assets/icons/bookshelf.png" alt="Icono de Sube tu Papeo"/>
     </a>
 
     <div class="col-sm-auto hr2"></div>

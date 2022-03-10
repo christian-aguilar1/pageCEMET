@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 import { RealtimeService } from 'src/app/core/services/db/realtime/realtime.service';
 
@@ -21,7 +22,9 @@ export class MallaComponent implements OnInit {
   years: Array<number> = [];
   widthRow: Array<number> = [];
 
-  constructor(private realtimeService: RealtimeService, private elem: ElementRef) { }
+  constructor(private realtimeService: RealtimeService, private elem: ElementRef, private title: Title) {
+    title.setTitle("Malla - CEMET")
+  }
 
   ngOnInit(): void {
     this.realtimeService.getDB("ramos").then((snapshot) => {

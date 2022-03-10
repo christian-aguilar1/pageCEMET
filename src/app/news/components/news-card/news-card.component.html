@@ -6,7 +6,7 @@
       </div>
       <div class="container-fluid infoNoticia">
           <p class="title-new">{{ new.title }}</p>
-          <p class="contenidoNoticia">{{ new.body | slice:0:500 }}</p>
+          <div class="contenidoNoticia" [innerHTML]="body"></div>
       </div>
       <hr class="hrNoticia">
   </div>

@@ -19,6 +19,7 @@ export class AddPositionComponent implements OnInit {
 
   form!: FormGroup;
   public idDocs = [] as  any;
+  public user: boolean = false;
   name$: string = "";
   image$!: Observable<any>;
   submitted = false;
@@ -29,6 +30,7 @@ export class AddPositionComponent implements OnInit {
               private db: FirestoreService, private storage: AngularFireStorage) { }
 
   ngOnInit(): void {
+    this.hasUser();
     this.buildForm();
     this.db.getCollections('management').subscribe((snapshot) => {
       snapshot.forEach((doc) => {
@@ -85,6 +87,16 @@ export class AddPositionComponent implements OnInit {
         })
       }))
       .subscribe();
+  }
+
+  hasUser() {
+    this.authService.hasUser().
+      subscribe(res => {
+        if(res && res.uid) {
+          this.user = true;
+        }
+      }
+    );
   }
 
   logout() {

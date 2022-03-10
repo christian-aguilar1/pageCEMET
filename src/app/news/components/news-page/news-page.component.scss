@@ -6,13 +6,19 @@ h1, button {font-family: var(--mainFont);}
     padding-top: 30px;
     border-top:solid 0.1px rgb(226, 226, 226);
     border-bottom:solid 0.1px rgb(226, 226, 226);
-
-
 }
+
 .h1Head{
     margin-left: 50px;
 
 }
+
+.container__logout {
+  display: flex;
+  justify-content: flex-end;
+  margin: 1rem 1rem 0 0;
+}
+
 .contenedorButton{
     margin-left: 180px;
     width: 200px;

@@ -1,7 +1,7 @@
 export interface New {
   title: string;
   image: string;
-  categories: Array<string>;
+  categories: string;
   date: Date;
   body: string;
 }

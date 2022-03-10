@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { FirestoreService } from 'src/app/core/services/db/firestore/firestore.service';
@@ -14,7 +15,9 @@ export class ManagementComponent implements OnInit {
   public user: boolean = false;
   public idDocs = [] as  any;
 
-  constructor(private authService: AuthService, private firestoreService: FirestoreService) { }
+  constructor(private authService: AuthService, private firestoreService: FirestoreService, private title: Title) {
+    title.setTitle("Directiva - CEMET");
+  }
 
   ngOnInit(): void {
     this.hasUser();

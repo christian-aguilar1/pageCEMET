@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import * as moment from 'moment';
 import 'moment/locale/es';
 moment.locale('es');
@@ -24,7 +25,9 @@ export class CalendarComponent implements OnInit {
   dateSelect: any;
   dateValue: any;
 
-  constructor() { }
+  constructor(private title: Title) {
+    title.setTitle("Calendario - CEMET")
+  }
 
   ngOnInit(): void {
     this.getDaysFromDate(2, 2022);

@@ -1,5 +1,11 @@
 h1, label, input, a, button, p, textarea, div {font-family: var(--mainFont);}
 
+.container__logout {
+  display: flex;
+  justify-content: flex-end;
+  margin: 1rem 1rem 0 0;
+}
+
 .container__add-cargo{
   display: flex;
   flex-direction: column;

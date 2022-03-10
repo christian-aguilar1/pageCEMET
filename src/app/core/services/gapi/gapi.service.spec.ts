@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DriveService } from './drive.service';
+import { GapiService } from './gapi.service';
 
-describe('DriveService', () => {
-  let service: DriveService;
+describe('GapiService', () => {
+  let service: GapiService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(DriveService);
+    service = TestBed.inject(GapiService);
   });
 
   it('should be created', () => {

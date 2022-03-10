@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
       const value = this.form.value;
       this.authService.login(value.email, value.password)
       .then(() => {
-        this.router.navigate(['/admin']);
+        this.router.navigate(['/home']);
       })
       .catch(() => {
           this.incorrect = true;

@@ -18,7 +18,6 @@ export class MailSenderService {
         { name: name, replyto: email, message: message },
         { 'headers': headers }).subscribe(
           response => {
-            console.log(response);
             return response;
           }
         );
@@ -27,7 +26,6 @@ export class MailSenderService {
         { name: name, replyto: email, message: message },
         { 'headers': headers }).subscribe(
           response => {
-            console.log(response);
             return response;
           }
         );

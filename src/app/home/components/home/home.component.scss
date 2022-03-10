@@ -1,6 +1,12 @@
 // panel de navegación
 
-p, div {font-family: var(--mainFont);}
+p, div, button {font-family: var(--mainFont);}
+
+.container__logout {
+  display: flex;
+  justify-content: flex-end;
+  margin: 1rem 1rem 0 0;
+}
 
 .containernav{
   display: flex;
@@ -25,7 +31,7 @@ p, div {font-family: var(--mainFont);}
 
 .nombreseccion{
   color: rgb(95, 95, 95);
-  font-size: var(--h3);
+  font-size: 1.4rem;
   margin-bottom: 0;
   text-align: center;
 }

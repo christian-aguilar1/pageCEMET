@@ -5,7 +5,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { QuillModule } from 'ngx-quill';
 
 import { AdminRoutingModule } from './admin-routing.module';
-import { AdminComponent } from './components/admin/admin.component';
 import { SharedModule } from '../shared/shared.module';
 import { MaterialModule } from '../material/material.module';
 import { CreateNewComponent } from './components/create-new/create-new.component';
@@ -15,7 +14,6 @@ import { EditPositionComponent } from './components/edit-position/edit-position.
 
 @NgModule({
   declarations: [
-    AdminComponent,
     CreateNewComponent,
     AddPositionComponent,
     EditPositionComponent
