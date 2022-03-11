@@ -22,6 +22,8 @@ const routes: Routes = [
         path: 'forms',
         loadChildren: () => import('./forms/forms.module').then(m => m.FormsModule)
       },
+      {path: 'reclamos', redirectTo: 'forms/reclamos'},
+      {path: 'contacto', redirectTo: 'forms/contacto'},
       {
         path: 'directiva',
         loadChildren: () => import('./management/management.module').then(m => m.ManagementModule)
@@ -46,10 +48,7 @@ const routes: Routes = [
         path: 'admin', canActivate: [AdminGuard],
         loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
       },
-      {
-        path: '**',
-        loadChildren: () => import('./not-found/not-found.module').then(m => m.NotFoundModule)
-      },
+      { path: '**', redirectTo: '/home' },
     ]
   },
 ];

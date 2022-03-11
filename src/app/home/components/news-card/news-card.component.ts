@@ -1,7 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { Router } from '@angular/router';
 
 import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { FirestoreService } from 'src/app/core/services/db/firestore/firestore.service';
 
 import { New } from '../../../core/models/new';
 
@@ -18,10 +20,12 @@ export class NewsCardComponent implements OnInit {
   new!: New;
   @Input() idDoc!: string;
   image!: string;
+  body: string = "";
 
   // image: string = this;
 
-  constructor(private authService: AuthService, private storage: AngularFireStorage) { }
+  constructor(private authService: AuthService, private storage: AngularFireStorage, private router: Router,
+              private firestoreService: FirestoreService,) { }
 
   ngOnInit(): void {
     this.hasUser();
@@ -30,6 +34,8 @@ export class NewsCardComponent implements OnInit {
     imageRef.subscribe(url => {
       this.image = url;
     })
+    this.body = this.new.body.substring(0, 300);
+    this.body += "...";
   }
 
   hasUser() {
@@ -40,6 +46,20 @@ export class NewsCardComponent implements OnInit {
         }
       }
     );
+  }
+
+  deleteNew() {
+    this.firestoreService.deleteCollection('management', this.idDoc)
+      .then(() => {
+        console.log("Document successfully deleted!");
+        this.router.navigateByUrl('/', {skipLocationChange: true}).
+          then(() =>
+            this.router.navigate(['./directiva'])
+          );
+      })
+      .catch((error) => {
+        console.error("Error removing document: ", error);
+      })
   }
 
 }
