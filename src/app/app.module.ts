@@ -2,13 +2,16 @@ import { NgModule } from '@angular/core';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule }  from '@angular/fire/compat/database';
 import { AngularFireStorageModule }  from '@angular/fire/compat/storage';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { ReactiveFormsModule } from '@angular/forms';
+// import {} from '@angular/fire/app-check';
+
+import { SafePipeModule } from 'safe-pipe';
 
 import { GoogleApiModule, GoogleApiService, GoogleAuthService, NgGapiClientConfig, NG_GAPI_CONFIG,
          GoogleApiConfig } from "ng-gapi";
@@ -21,6 +24,7 @@ import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
 import { SharedModule } from './shared/shared.module';
 import { GapiService } from './core/services/gapi/gapi.service';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 
 // import { TooltipModule } from 'ngx-bootstrap/tooltip';
 // import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
@@ -41,7 +45,8 @@ export function initGapi(gapiService: GapiService) {
 @NgModule({
   declarations: [
     AppComponent,
-    LayoutComponent
+    LayoutComponent,
+    PrivacyPolicyComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +60,7 @@ export function initGapi(gapiService: GapiService) {
     AngularFireDatabaseModule,
     AngularFireStorageModule,
     AngularFireAuthModule,
+    SafePipeModule,
     // BsDropdownModule.forRoot(),
     GoogleApiModule.forRoot({
       provide: NG_GAPI_CONFIG,

@@ -4,6 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 import { AdminGuard } from './admin.guard';
 import { LayoutComponent } from './layout/layout.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 
 const routes: Routes = [
   {
@@ -37,8 +38,15 @@ const routes: Routes = [
         loadChildren: () => import('./malla/malla.module').then(m => m.MallaModule)
       },
       {
-        path: 'papeo',
+        path: 'documentos',
+        loadChildren: () => import('./documents/documents.module').then(m => m.DocumentsModule)
+      },
+      {
+        path: 'sube-tu-papeo',
         loadChildren: () => import('./papeo/papeo.module').then(m => m.PapeoModule)
+      },
+      {
+        path: 'politicas-de-privacidad', component: PrivacyPolicyComponent
       },
       {
         path: 'auth',

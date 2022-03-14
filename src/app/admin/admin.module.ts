@@ -10,13 +10,15 @@ import { MaterialModule } from '../material/material.module';
 import { CreateNewComponent } from './components/create-new/create-new.component';
 import { AddPositionComponent } from './components/add-position/add-position.component';
 import { EditPositionComponent } from './components/edit-position/edit-position.component';
+import { AddDocumentComponent } from './components/add-document/add-document.component';
 
 
 @NgModule({
   declarations: [
     CreateNewComponent,
     AddPositionComponent,
-    EditPositionComponent
+    EditPositionComponent,
+    AddDocumentComponent
   ],
   imports: [
     CommonModule,

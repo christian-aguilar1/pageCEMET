@@ -12,8 +12,11 @@ import { AuthService } from 'src/app/core/services/auth/auth.service';
 export class HeaderComponent implements OnInit {
 
   public user: boolean = false;
+  isShown: boolean = false;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) {
+    console.log(this.isShown)
+  }
 
   ngOnInit(): void {
     this.hasUser();

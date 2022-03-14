@@ -3,7 +3,8 @@
     <div>
       <button (click)="changeMonth(-1)" class="btn-prev">Antes</button>
     </div>
-    <h1>{{ dateSelect | date:'MMMM, yyyy' }}</h1>
+    <!-- <h1>{{ dateSelect | date:'MMMM, yyyy' }}</h1> -->
+    <h1>{{ months[dateSelect.month()] }}, {{ dateSelect.year() }}</h1>
     <div>
       <button (click)="changeMonth(1)" class="btn-next">Siguiente</button>
     </div>

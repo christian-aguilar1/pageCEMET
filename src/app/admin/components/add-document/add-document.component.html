@@ -1,0 +1,45 @@
+<div class="container-fluid container__logout" *ngIf="user">
+  <button class="btn btn-outline-primary btnCerraS" (click)="logout()">Cerrar Sesión</button>
+</div>
+
+<div class="container-fluid mt-3">
+  <div class="container-fluid containerTCrearNoticia">
+    <h1 class="TCnoticia">Agregar Documento</h1>
+    <hr class="hrCrearNoticia">
+  </div>
+</div>
+
+<div class="container-fluid container__add-cargo position-relative">
+  <form [formGroup]="form" class="container-fluid form-group" (ngSubmit)="addPosition(form.value)">
+    <div class="mb-1">
+      <label for="name">Nombre</label>
+      <input id="name" type="text" formControlName="name" class="form-control" placeholder="ej: Reglamento 2022" [ngClass]="{ 'is-invalid': clicked && f['name'].errors}">
+      <div *ngIf="clicked && f['name'].errors" class="invalid-feedback">
+        <div *ngIf="f['name'].errors['required']">El nombre del documento es obligatorio</div>
+        <div *ngIf="f['name'].errors['minlength']">Por favor, ingresa un nombre más largo</div>
+      </div>
+    </div>
+
+    <div class="mb-1">
+      <label for="category">Categoría</label>
+      <input id="category" type="text" formControlName="category" class="form-control" placeholder="ej: Documentos Carrera" [ngClass]="{ 'is-invalid': clicked && f['category'].errors}">
+      <div *ngIf="clicked && f['category'].errors" class="invalid-feedback">
+        <div *ngIf="f['category'].errors['required']">La categoría del documento es obligatoria</div>
+        <div *ngIf="f['category'].errors['minlength']">Por favor, ingresa una posición válida</div>
+      </div>
+    </div>
+
+    <div class="mb-1">
+      <label for="image" class="form-label">Seleccionar Documento</label>
+      <input id="image" type="file" class="form-control form-control-sm" (change)="uploadFile($event)" [ngClass]="{ 'is-invalid': clicked && (errorRequiredDocument || errorTypeDocument)}">
+      <div *ngIf="clicked && (errorRequiredDocument || errorTypeDocument)" class="invalid-feedback">
+        <div *ngIf="errorRequiredDocument">El documento es obligatorio</div>
+        <div *ngIf="errorTypeDocument">El documento debe ser pdf</div>
+      </div>
+    </div>
+
+    <div class="cBtn mt-3 mb-3">
+      <button type="submit"  class="btn btn-primary btnCrear">Crear</button>
+    </div>
+  </form>
+</div>

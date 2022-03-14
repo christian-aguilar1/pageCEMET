@@ -33,7 +33,7 @@
 
     <div class="col-sm-auto hr2"></div>
 
-    <a routerLink="/home" routerLinkActive="active" class="col-sm conitem ">
+    <a routerLink="/documentos" routerLinkActive="active" class="col-sm conitem ">
       <p class="nombreseccion">Documentos</p>
       <img class="img-fluid fotopng" src="/assets/icons/icon-documents.png" alt="Icono de Documentos">
     </a>
@@ -62,10 +62,24 @@
     </button>
   </div>
 
-  <div class="container container-cards">
-    <app-news-card
-        *ngFor="let new of news; let i = index" [new]="new" [idDoc]="idDocs[i]">
-    </app-news-card>
+  <div class="container-news">
+
+    <div class="container-cards">
+      <app-news-card *ngFor="let new of news; let i = index" [new]="new" [idDoc]="idDocs[i]">
+      </app-news-card>
+    </div>
+
+    <aside>
+      <div class="container-post">
+        <button class="btn-post left" (click)="changeURL(-1)" [disabled]="urlShown === 0">
+          <img class="icon-post" src="/assets/icons/left-arrow.png" alt="Icono Flecha">
+        </button>
+        <iframe [src]='linkShown' frameborder="0" scrolling="yes" allowtransparency="true"></iframe>
+        <button class="btn-post right" (click)="changeURL(1)" [disabled]="urlsIg.length - 1 === urlShown">
+          <img class="icon-post" src="/assets/icons/right-arrow.png" alt="Icono Flecha">
+        </button>
+      </div>
+    </aside>
   </div>
 
   <div class="container__mas-noticias">

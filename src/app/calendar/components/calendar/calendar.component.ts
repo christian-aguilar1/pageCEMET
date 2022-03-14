@@ -11,15 +11,8 @@ moment.locale('es');
 })
 export class CalendarComponent implements OnInit {
 
-  week = [
-    "Lunes",
-    "Martes",
-    "Miércoles",
-    "Jueves",
-    "Viernes",
-    "Sábado",
-    "Domingo",
-  ];
+  week = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
+  months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "SeptIembre", "Octubre", "Noviembre", "Diciembre"];
 
   monthSelect: any;
   dateSelect: any;
@@ -30,11 +23,15 @@ export class CalendarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getDaysFromDate(2, 2022);
+    let dateToday = new Date();
+    let month = dateToday.getMonth() + 1
+    let year = dateToday.getFullYear()
+    // console.log(month);
+    this.getDaysFromDate(month, year);
   }
 
   getDaysFromDate(month: number, year: number) {
-    const startDate = moment.utc(`${year}/${month}/01`);
+    const startDate = moment(`${year}/${month}/01`);
     const endDate = startDate.clone().endOf('month');
     this.dateSelect = startDate;
 

@@ -31,9 +31,9 @@
 
     <div class="mb-1">
       <label for="email">Correo Electrónico</label>
-      <input id="email" type="text" formControlName="email" class="form-control" placeholder="ejemplo@usach.cl" [ngClass]="{ 'is-invalid': clicked && f['position'].errors}">
+      <input id="email" type="text" formControlName="email" class="form-control" placeholder="ejemplo@usach.cl" [ngClass]="{ 'is-invalid': clicked && f['email'].errors}">
       <div *ngIf="clicked && f['email'].errors" class="invalid-feedback">
-        <div *ngIf="f['email'].errors['minlength']">Por favor, ingresa un correo USACH válido</div>
+        <div *ngIf="f['email'].errors['pattern']">Por favor, ingresa un correo USACH válido</div>
       </div>
     </div>
 
@@ -58,13 +58,3 @@
     </div>
   </form>
 </div>
-
-
-
-<div class="container-fluid CcerrarSesion">
-  <hr class="hrCrearNoticia">
-  <button class="btn btn-outline-primary btnCerraS" (click)="logout()">Cerrar Sesión</button>
-</div>
-
-
-<div id="text"></div>
