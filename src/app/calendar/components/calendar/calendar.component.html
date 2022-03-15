@@ -1,11 +1,17 @@
-<div class="wrapper-calendar">
-  <div class="header-calendar">
-    <div>
+
+<div class="container-fluid noticiasHead">
+  <div class="container-fluid">
+      <h1 class="h1Head">Calendario de Actividades</h1>
+  </div>
+</div>
+
+<div class="wrapper-calendar container-fluid">
+  <div class="header-calendar container-fluid">
+    <div class="diva container-fluid">
       <button (click)="changeMonth(-1)" class="btn-prev">Antes</button>
     </div>
-    <!-- <h1>{{ dateSelect | date:'MMMM, yyyy' }}</h1> -->
     <h1>{{ months[dateSelect.month()] }}, {{ dateSelect.year() }}</h1>
-    <div>
+    <div class="divd container-fluid">
       <button (click)="changeMonth(1)" class="btn-next">Siguiente</button>
     </div>
   </div>
@@ -13,7 +19,7 @@
   <ol>
     <li *ngFor="let day of week" class="day-name">{{ day | slice:0:3 }}</li>
 
-    <li (click)="clickDay(day)" *ngFor="let day of monthSelect; let first = first"
+    <li class="day"  (click)="clickDay(day)" *ngFor="let day of monthSelect; let first = first"
         [style.gridColumnStart]="first ? day?.indexWeek : 'auto'">
       <span>{{day?.value}}</span>
     </li>
