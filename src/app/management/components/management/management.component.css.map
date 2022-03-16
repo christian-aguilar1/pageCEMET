@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AACA,AAAA,eAAe,CAAA;EACX,gBAAgB,EAAE,UAAkB;EACpC,MAAM,EAAC,KAAK;EACZ,WAAW,EAAE,IAAI;EACjB,UAAU,EAAC,KAAK,CAAC,KAAK,CAAC,OAAkB;EACzC,aAAa,EAAC,KAAK,CAAC,KAAK,CAAC,OAAkB;CAG/C;;AACD,AAAA,OAAO,CAAA;EACH,WAAW,EAAE,IAAI;CAEpB",
-    "sources": [
-        "management.component.scss"
-    ],
-    "names": [],
-    "file": "management.component.css"
-}

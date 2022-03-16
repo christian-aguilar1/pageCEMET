@@ -1,4 +1,4 @@
-h1, label, input, a, button, p, textarea {font-family: var(--mainFont);}
+h1, label, input, a, button, p, textarea, div {font-family: var(--mainFont);}
 
 .container__logout {
   display: flex;
@@ -6,7 +6,7 @@ h1, label, input, a, button, p, textarea {font-family: var(--mainFont);}
   margin: 1rem 1rem 0 0;
 }
 
-.CCrearNoticia{
+.container__add-cargo{
   display: flex;
   flex-direction: column;
   background-color: rgb(248, 248, 248);
@@ -17,7 +17,7 @@ h1, label, input, a, button, p, textarea {font-family: var(--mainFont);}
   border-radius: 2px;
 }
 
-.containerTCrearNoticia{
+.containerTCrearNoticia, .CcerrarSesion{
   text-align: center;
 }
 .hrCrearNoticia{
@@ -50,7 +50,7 @@ h1, label, input, a, button, p, textarea {font-family: var(--mainFont);}
 }
 
 @media (max-width: 1040px) {
-  .CCrearNoticia {
+  .container__add-cargo {
     width: 80%;
   }
 }

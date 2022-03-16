@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,GAAG,EAAE,EAAE,CAAC;EAAC,WAAW,EAAE,eAAe;CAAG;;AAExC,AAAA,aAAa,CAAA;EACT,gBAAgB,EAAE,UAAkB;EACpC,MAAM,EAAC,KAAK;EACZ,WAAW,EAAE,IAAI;EACjB,UAAU,EAAC,KAAK,CAAC,KAAK,CAAC,OAAkB;EACzC,aAAa,EAAC,KAAK,CAAC,KAAK,CAAC,OAAkB;CAG/C;;AACD,AAAA,OAAO,CAAA;EACH,WAAW,EAAE,IAAI;CAEpB",
-    "sources": [
-        "complaints.component.scss"
-    ],
-    "names": [],
-    "file": "complaints.component.css"
-}

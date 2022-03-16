@@ -1,21 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
-import { finalize, Observable } from 'rxjs';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 
+import { finalize, Observable } from 'rxjs';
+
 import { AuthService } from 'src/app/core/services/auth/auth.service';
-import { Position } from 'src/app/core/models/position';
 import { FirestoreService } from 'src/app/core/services/db/firestore/firestore.service';
+import { Evento } from 'src/app/core/models/evento';
 
 @Component({
-  selector: 'app-add-position',
-  templateUrl: './add-position.component.html',
-  styleUrls: ['./add-position.component.scss']
+  selector: 'app-add-event',
+  templateUrl: './add-event.component.html',
+  styleUrls: ['./add-event.component.scss']
 })
-export class AddPositionComponent implements OnInit {
+export class AddEventComponent implements OnInit {
 
   form!: FormGroup;
   public idDocs = [] as  any;
@@ -32,7 +32,7 @@ export class AddPositionComponent implements OnInit {
   ngOnInit(): void {
     this.hasUser();
     this.buildForm();
-    this.db.getCollections('management').subscribe((snapshot) => {
+    this.db.getCollections('events').subscribe((snapshot) => {
       snapshot.forEach((doc) => {
         this.idDocs.push(doc.id);
       })
@@ -40,18 +40,19 @@ export class AddPositionComponent implements OnInit {
     })
   }
 
-  addPosition(values: any) {
+  addEvent(values: any) {
     this.clicked = true;
 
     if (this.form.valid) {
       this.submitted = true;
       this.isLoading = true;
       let order = "0";
-      let position: Position;
-      position = {
-        name: values.name,
-        position: values.position,
-        email: values.email,
+      let event: Evento;
+      // let date: Date = new Date();
+      // date = values.date;
+      event = {
+        title: values.title,
+        date: values.date,
         image: this.name$,
         details: values.details,
       }
@@ -62,9 +63,9 @@ export class AddPositionComponent implements OnInit {
           }
         }
       }
-      this.db.createCollection('management', order, position)
+      this.db.createCollection('events', order, event)
         .then(() => {
-          this.router.navigate(['/directiva'])
+          this.router.navigate(['/calendario'])
         })
         .catch((err) => {
           console.log(err)
@@ -108,9 +109,8 @@ export class AddPositionComponent implements OnInit {
 
   private buildForm() {
     this.form = this.formBuilder.group({
-      name: ['', [Validators.required, Validators.minLength(8)]],
-      position: ['', [Validators.required, Validators.minLength(8)]],
-      email: ['', Validators.pattern('^[a-z]{4,}\.[a-z]{4,}(\.[a-z])?\@usach\.cl$')],
+      title: ['', [Validators.required, Validators.minLength(5)]],
+      date: ['', Validators.required],
       details: ['', [Validators.required, Validators.minLength(10)]],
     });
   }

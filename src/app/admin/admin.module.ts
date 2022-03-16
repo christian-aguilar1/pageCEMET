@@ -11,6 +11,8 @@ import { CreateNewComponent } from './components/create-new/create-new.component
 import { AddPositionComponent } from './components/add-position/add-position.component';
 import { EditPositionComponent } from './components/edit-position/edit-position.component';
 import { AddDocumentComponent } from './components/add-document/add-document.component';
+import { AddEventComponent } from './components/add-event/add-event.component';
+import { EditNewComponent } from './components/edit-new/edit-new.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { AddDocumentComponent } from './components/add-document/add-document.com
     CreateNewComponent,
     AddPositionComponent,
     EditPositionComponent,
-    AddDocumentComponent
+    AddDocumentComponent,
+    AddEventComponent,
+    EditNewComponent
   ],
   imports: [
     CommonModule,

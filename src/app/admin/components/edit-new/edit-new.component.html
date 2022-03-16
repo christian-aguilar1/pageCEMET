@@ -4,16 +4,16 @@
 
 <div class="container-fluid mt-4">
   <div class="container-fluid containerTCrearNoticia">
-    <h1 class="TCnoticia">Crear Noticia</h1>
+    <h1 class="TCnoticia">Editar Noticia</h1>
     <hr class="hrCrearNoticia">
   </div>
 </div>
 
 <div class="container-fluid CCrearNoticia position-relative">
-  <form [formGroup]="form" class="container-fluid form-group" (ngSubmit)="createNew(form.value)">
+  <form [formGroup]="form" class="container-fluid form-group" (ngSubmit)="editNew(form.value)">
     <div class="mb-1">
       <label for="title">Titulo de la Noticia</label>
-      <input id="title" type="text" formControlName="title" class="form-control" placeholder="Titulo" [ngClass]="{ 'is-invalid': clicked && f['title'].errors}">
+      <input id="title" type="text" [value]="new.title" formControlName="title" class="form-control" placeholder="Titulo" [ngClass]="{ 'is-invalid': clicked && f['title'].errors}">
       <div *ngIf="clicked && f['title'].errors" class="invalid-feedback">
         <div *ngIf="f['title'].errors['required']">El titulo de la noticia es obligatorio</div>
         <div *ngIf="f['title'].errors['minlength']">Por favor, el titulo de la noticia debe ser más largo</div>
@@ -22,7 +22,8 @@
 
     <div class="mb-1 container__div-category">
       <label for="category">Categoría de la Noticia</label>
-      <input id="category" formControlName="category" type="text" class="form-control" placeholder="Noticia, Evento, Comunicado Oficial, etc." [ngClass]="{ 'is-invalid': clicked && f['category'].errors}">
+      <input id="category" [value]="new.categories" formControlName="category" type="text" class="form-control" placeholder="Noticia, Evento, Comunicado Oficial, etc." [ngClass]="{ 'is-invalid': clicked && f['category'].errors}">
+      <!-- <button class="btn btn-primary" (click)="addNewCategory()">+</button> -->
       <div *ngIf="clicked && f['category'].errors" class="invalid-feedback">
         <div *ngIf="f['category'].errors['required']">La categoría de la noticia es obligatoria</div>
       </div>
@@ -31,18 +32,20 @@
     <div class="mb-1">
       <label for="image" class="form-label">Seleccionar Imagen</label>
       <br>
-      <img *ngIf="(image$ | async) as image" [src]="image" [alt]="name$" height="200px" width="200px">
+      <img *ngIf="have" [src]="image" [alt]="new.image" height="200px" width="200px">
+      <img *ngIf="(image$ | async) as url" [src]="url" [alt]="new.image" height="200px" width="200px">
       <input id="image" type="file" class="form-control form-control-sm" (change)="uploadFile($event)">
     </div>
 
     <label for="body">Contenido</label>
-    <textarea name="body" id="body" class="form-control" placeholder="Contenido" cols="10" rows="5" formControlName="body" [ngClass]="{ 'is-invalid': clicked && f['body'].errors}"></textarea>
-    <!-- <div [(ngmodel)]="content" class="form-control form-control-sm" [styles]="editorStyle" id="editor"
-              trackChanges="all" placeholder="Noticia" [ngClass]="{ 'is-invalid': clicked && error}">
-    </div> -->
-    <div *ngIf="clicked && f['body'].errors" class="invalid-feedback">
-      <div *ngIf="f['body'].errors['required']">El contenido de la noticia es obligatorio</div>
-      <div *ngIf="f['body'].errors['required']">El contenido de la noticia tiene que ser más largo</div>
+    <!-- <textarea name="body" id="body" class="form-control" formControlName="body" cols="30" rows="5" [value]="new.body"></textarea> -->
+    <div [(ngmodel)]="content" class="form-control form-control-sm" [styles]="editorStyle" id="editor"
+              trackChanges="all" [value]="new.body" [ngClass]="{ 'is-invalid': clicked && error}">
+      <p>{{new.body}}</p>
+    </div>
+    <div *ngIf="clicked && error" class="invalid-feedback">
+      <div *ngIf="errorRequired">El contenido de la noticia es obligatorio</div>
+      <div *ngIf="errorMinLength">El contenido de la noticia tiene que ser más largo</div>
     </div>
 
     <div class="cBtn mt-3 mb-3">

@@ -18,6 +18,7 @@ import { GoogleApiModule, GoogleApiService, GoogleAuthService, NgGapiClientConfi
 
 import { QuillModule } from 'ngx-quill'
 
+
 import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,6 +29,7 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
 
 // import { TooltipModule } from 'ngx-bootstrap/tooltip';
 // import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 let gapiClientConfig: NgGapiClientConfig = {
   client_id: environment.GAPI_CLIENT_ID,
@@ -61,7 +63,7 @@ export function initGapi(gapiService: GapiService) {
     AngularFireStorageModule,
     AngularFireAuthModule,
     SafePipeModule,
-    // BsDropdownModule.forRoot(),
+    BsDatepickerModule.forRoot(),
     GoogleApiModule.forRoot({
       provide: NG_GAPI_CONFIG,
       useValue: gapiClientConfig
