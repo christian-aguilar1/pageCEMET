@@ -1,3 +1,11 @@
+<div class="container-image">
+  <img [src]="image" [alt]="news.title">
+</div>
 <div class="container mt-4">
-  <h1>Test</h1>
+  <div class="container-title">
+    <h1>{{ news.title }}</h1>
+    <p>{{ news.date }}</p>
+  </div>
+
+  <div [innerHTML]="news.body"></div>
 </div>

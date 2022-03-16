@@ -1,0 +1,21 @@
+.container-image {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.container-title {
+  margin-bottom: 1rem;
+}
+
+h1 {
+  margin-bottom: 0;
+}
+
+p {
+  margin-bottom: 0;
+}
+/*# sourceMappingURL=news.component.css.map */

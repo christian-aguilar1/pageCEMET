@@ -64,10 +64,18 @@
 
   <div class="container-news">
 
-    <div class="container-cards">
-      <app-news-card *ngFor="let new of news; let i = index" [new]="new" [idDoc]="idDocs[i]">
-      </app-news-card>
-    </div>
+    <div *ngIf="news.length > 0; then thenBlock else elseBlock"></div>
+    <ng-template #thenBlock>
+    </ng-template>
+      <div class="container-cards">
+        <app-news-card *ngFor="let new of news; let i = index" [new]="new" [idDoc]="idDocs[i]">
+        </app-news-card>
+      </div>
+    <ng-template #elseBlock>
+      <div class="container-without">
+        <h3>Aún no hay noticias :(</h3>
+      </div>
+    </ng-template>
 
     <aside>
       <div class="container-post">
