@@ -1,0 +1,144 @@
+h1 {font-family: var(--mainFont);}
+
+.calendarHead{
+  background-color: rgb(245, 245, 245);
+  height:100px;
+  padding-top: 30px;
+  margin-bottom: 3rem;
+  border-top:solid 0.1px rgb(226, 226, 226);
+  border-bottom:solid 0.1px rgb(226, 226, 226);
+  @media (max-width: 670px) {
+    margin-bottom: 1rem;
+  }
+}
+
+.h1Head{
+  margin-left: 50px;
+}
+
+.container-page {
+  margin: 3rem 3rem;
+  @media (max-width: 670px) {
+    margin: 1rem 1rem;
+  }
+}
+
+.container-calendar {
+}
+
+.wrapper-calendar {
+  display: flex;
+  flex-direction: column;
+  padding: .5rem;
+  border: solid 1px #eaeaea;
+  box-shadow: 0 0 10px #e4e4e4;
+  width: 100%;
+  height: 100%;
+  // @media (max-width: 768px) {
+  //   height: 266px;
+  // }
+  @media (max-width: 400px) {
+    min-width: 300px;
+    width: 95%;
+
+  }
+}
+
+.header-calendar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  height: 30px;
+  margin: 10px 0;
+  h2 {
+    font-size: 25px;
+    margin: 0;
+  }
+  button {
+    // cursor: pointer;
+    background-color: transparent;
+    font-size: 20px;
+    border: solid 1px rgb(136, 134, 134);
+    border-radius: 5%;
+    width: 150px;
+  }
+}
+
+ol {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin: 0;
+  padding: 0;
+}
+
+.day-name {
+  background: #eee;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 2px;
+  padding: 4px;
+  text-align: center;
+}
+
+li {
+  cursor: pointer;
+  font-size: 2.2ch;
+  padding: .25rem;
+  text-align: center;
+  &.day-number:hover {
+    font-weight: 600;
+  }
+}
+
+.date-event {
+  text-align: center;
+  background: rgba(45, 57, 165, 0.6);
+  border-radius: 50%;
+  width: 35px;
+}
+
+.first-day {
+  grid-column-start: var(--first-day-start, 0);
+}
+
+.event-selected {
+  margin-top: 1rem;
+  // @media (max-width: 670px) {
+  //   margin: 0;
+  // }
+}
+
+.card {
+  max-width: 60%;
+  @media (max-width: 400px) {
+    max-width: 100%;
+  }
+}
+
+.container__btn-add {
+  margin: 1rem 0 0 1rem;
+}
+
+.btn-add {
+  display: flex;
+  justify-content: space-between;
+}
+
+.day{
+  padding-top: 12px;
+  background-color: rgb(255, 255, 255);
+  height: 45px;
+  margin: 2px;
+  border:solid 0.5px rgb(233, 233, 233);
+  transition: all ease 400ms;
+}
+.day:hover{
+  background-color: rgb(241, 241, 241);
+}
+
+.btn-edit {
+  border-radius: 50%;
+}
+

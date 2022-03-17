@@ -1,0 +1,57 @@
+h6, p, a, button {font-family: var(--mainFont);}
+
+.navbar{
+  height: 110px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.logo{
+  height: 80px;
+  width: 80px;
+  margin-right: -20px;
+}
+
+.container__text-cemet{
+  width: 400px;
+  margin-bottom: auto;
+}
+
+.titulo-cemet{
+  font-size: 12px;
+  margin-top: 15px;
+  margin-bottom: auto;
+}
+
+.info-cemet{
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+.navbitem{
+    font-size: 18px;
+    position:absolute; right:0px;
+}
+
+@media (max-width:650px) {
+  .logo{
+    margin-right: -65px;
+    margin-left: 0;
+  }
+
+  .container__text-cemet{
+    width: 165px;
+  }
+
+  .titulo-containercemet{
+    font-size: 12px;
+  }
+
+  .info-cemet{
+    font-size: 10px;
+  }
+
+  .navbitem{
+    position:static
+  }
+}

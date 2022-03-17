@@ -1,0 +1,40 @@
+h1, h2, p, button, div {font-family: var(--mainFont);}
+
+main {
+  min-height: 45vh;
+}
+
+.documentsHead{
+  background-color: rgb(245, 245, 245);
+  height:100px;
+  padding-top: 30px;
+  border-top:solid 0.1px rgb(226, 226, 226);
+  border-bottom:solid 0.1px rgb(226, 226, 226);
+  margin-bottom: 3rem;
+}
+
+.h1Head{
+  margin-left: 50px;
+}
+
+.container__btn-add {
+  margin-bottom: 3rem;
+}
+
+.btn-add {
+  display: flex;
+  justify-content: space-between;
+}
+
+.text__btn-add {
+  margin-top: 3px;
+}
+
+.container-documents {
+  padding: 0 2rem;
+}
+
+a {
+  text-decoration: none;
+  color: orange;
+}

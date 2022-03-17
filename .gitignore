@@ -1,38 +1,49 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
 
-# Created by https://www.toptal.com/developers/gitignore/api/angular,firebase
-# Edit at https://www.toptal.com/developers/gitignore?templates=angular,firebase
-
-### Angular ###
-## Angular ##
 # compiled output
-dist/
-tmp/
-app/**/*.js
-app/**/*.js.map
+/dist
+/tmp
+/out-tsc
+# Only exists if Bazel was run
+/bazel-out
 
 # dependencies
-node_modules/
-bower_components/
+/node_modules
+
+# profiling files
+chrome-profiler-events*.json
 
 # IDEs and editors
-.idea/
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
 
 # misc
-.sass-cache/
-connect.lock/
-coverage/
-libpeerconnection.log/
+/.angular/cache
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
 npm-debug.log
+yarn-error.log
 testem.log
-typings/
-.angular/
-
-# e2e
-e2e/*.js
-e2e/*.map
+/typings
 
 # System Files
-.DS_Store/
+.DS_Store
+Thumbs.db
 
 ### Firebase ###
 .idea
@@ -42,5 +53,11 @@ e2e/*.map
 ### Firebase Patch ###
 .runtimeconfig.json
 .firebase/
+storage.rules
+firestore.rules
+firestore.indexes.json
+database.rules.json
 
-# End of https://www.toptal.com/developers/gitignore/api/angular,firebase
+# environments
+environments
+environments.ts

@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="/home">
+        <img class="logo ms-3" src="/assets/images/logopng.png">
+      </a>
+      <div class="container ms-5 container__text-cemet">
+        <h6 class="titulo-cemet">CEMET USACH</h6>
+        <p class="info-cemet">Centro de Estudiantes de Ingeniería en
+          Metalurgia<br> de la Universidad de Santiago de Chile</p>
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" (click)="isShown = !isShown" [attr.aria-expanded]="isShown" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngClass]="{ 'show': isShown }">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbitem">
+          <li class="nav-item">
+            <a class="nav-link active ms-4" (click)="isShown = false" aria-current="page" routerLink="/home" routerLinkActive="is-active">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active ms-4" (click)="isShown = false" aria-current="page" routerLink="/noticias" routerLinkActive="is-active">Noticias</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active ms-4" (click)="isShown = false" aria-current="page" routerLink="/directiva" routerLinkActive="is-active">Directiva</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active ms-4" (click)="isShown = false" aria-current="page" routerLink="/calendario" routerLinkActive="is-active">Calendario</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active ms-4  me-4" (click)="isShown = false" aria-current="page" routerLink="/forms/contacto" routerLinkActive="is-active">Contacto</a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+
+</nav>

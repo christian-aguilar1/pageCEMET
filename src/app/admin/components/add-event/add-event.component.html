@@ -1,0 +1,51 @@
+<div class="container-fluid container__logout" *ngIf="user">
+  <button class="btn btn-outline-primary btnCerraS" (click)="logout()">Cerrar Sesión</button>
+</div>
+
+<div class="container-fluid mt-3">
+  <div class="container-fluid containerTCrearNoticia">
+    <h1 class="TCnoticia">Agregar Cargo</h1>
+    <hr class="hrCrearNoticia">
+  </div>
+</div>
+
+<div class="container-fluid container__add-cargo position-relative">
+  <form [formGroup]="form" class="container-fluid form-group" (ngSubmit)="addEvent(form.value)">
+    <div class="mb-1">
+      <label for="title">Título</label>
+      <input id="title" type="text" formControlName="title" class="form-control" placeholder="Título" [ngClass]="{ 'is-invalid': clicked && f['title'].errors}">
+      <div *ngIf="clicked && f['title'].errors" class="invalid-feedback">
+        <div *ngIf="f['title'].errors['required']">El título del evento es obligatorio</div>
+        <div *ngIf="f['title'].errors['minlength']">Por favor, ingresa un título más largo</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="date">Fecha</label>
+      <input type="date" id="date" class="form-control" formControlName="date" name="date" placeholder="Fecha" [ngClass]="{ 'is-invalid': clicked && f['date'].errors}">
+      <div *ngIf="clicked && f['date'].errors" class="invalid-feedback">
+        <div *ngIf="f['date'].errors['required']">La fecha es obligatoria</div>
+      </div>
+    </div>
+
+    <div class="mb-1">
+      <label for="image" class="form-label">Seleccionar Imagen (opcional)</label>
+      <br>
+      <img *ngIf="(image$ | async) as image" [src]="image" [alt]="name$" height="200px" width="200px">
+      <input id="image" type="file" class="form-control form-control-sm" (change)="uploadFile($event)">
+    </div>
+
+    <div class="mb-1">
+      <label for="details">Detalles</label>
+      <textarea id="details" class="form-control" formControlName="details" placeholder="En dónde será el evento, a qué hora, sobre qué, etc." [ngClass]="{ 'is-invalid': clicked && f['details'].errors}"></textarea>
+      <div *ngIf="clicked && f['details'].errors" class="invalid-feedback">
+        <div *ngIf="f['details'].errors['required']">Los detalles del evento es obligatoria</div>
+        <div *ngIf="f['details'].errors['minlength']">Por favor, los detalles deben ser más largos</div>
+      </div>
+    </div>
+
+    <div class="cBtn mt-3 mb-3">
+      <button type="submit"  class="btn btn-primary btnCrear">Crear</button>
+    </div>
+  </form>
+</div>

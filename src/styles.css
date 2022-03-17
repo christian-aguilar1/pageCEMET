@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap");
+:root {
+  --mainFont: 'Josefin Sans', sans-serif;
+  --normalSize: 16px;
+  --h3: 1.75rem;
+  --h5: 1.25rem;
+  --maincolor: black;
+  --header: white;
+  --footer2: rgb(16, 85, 212);
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  position: relative;
+  margin: 0;
+}
+
+.ql-font-mirza {
+  font-family: "Mirza";
+}
+
+.ql-font-aref {
+  font-family: "Aref Ruqaa";
+}
+
+.ql-font-roboto {
+  font-family: "Roboto";
+}
+/*# sourceMappingURL=styles.css.map */

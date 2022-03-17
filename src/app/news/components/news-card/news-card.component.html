@@ -1,0 +1,14 @@
+<a class="container-fluid noticia" [routerLink]="['/noticias', idDoc]" [state]="{data: {'image': '1'}}">
+  <div class="container-fluid row">
+      <div class="container-fluid containerNoticia">
+          <p class="fechaNoticia">{{ new.date }}</p>
+          <img class="img-fluid imgNoticia"  [src]="image" [alt]="new.title">
+      </div>
+      <div class="container-fluid infoNoticia">
+          <p class="title-new">{{ new.title }}</p>
+          <div class="contenidoNoticia" [innerHTML]="body"></div>
+      </div>
+      <hr class="hrNoticia">
+  </div>
+
+</a>

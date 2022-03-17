@@ -1,0 +1,60 @@
+<div class="container-fluid container__logout" *ngIf="user">
+  <button class="btn btn-outline-primary btnCerraS" (click)="logout()">Cerrar Sesión</button>
+</div>
+
+<div class="container-fluid mt-3">
+  <div class="container-fluid containerTCrearNoticia">
+    <h1 class="TCnoticia">Agregar Cargo</h1>
+    <hr class="hrCrearNoticia">
+  </div>
+</div>
+
+<div class="container-fluid container__add-cargo position-relative">
+  <form [formGroup]="form" class="container-fluid form-group" (ngSubmit)="addPosition(form.value)">
+    <div class="mb-1">
+      <label for="name">Nombre</label>
+      <input id="name" type="text" formControlName="name" class="form-control" placeholder="Nombre" [ngClass]="{ 'is-invalid': clicked && f['name'].errors}">
+      <div *ngIf="clicked && f['name'].errors" class="invalid-feedback">
+        <div *ngIf="f['name'].errors['required']">El nombre y apellido es obligatorio</div>
+        <div *ngIf="f['name'].errors['minlength']">Por favor, ingresa tu nombre y apellido</div>
+      </div>
+    </div>
+
+    <div class="mb-1">
+      <label for="position">Posición</label>
+      <input id="position" type="text" formControlName="position" class="form-control" placeholder="Posición" [ngClass]="{ 'is-invalid': clicked && f['position'].errors}">
+      <div *ngIf="clicked && f['position'].errors" class="invalid-feedback">
+        <div *ngIf="f['position'].errors['required']">La posición es obligatoria</div>
+        <div *ngIf="f['position'].errors['minlength']">Por favor, ingresa una posición válida</div>
+      </div>
+    </div>
+
+    <div class="mb-1">
+      <label for="email">Correo Electrónico (opcional)</label>
+      <input id="email" type="text" formControlName="email" class="form-control" placeholder="ejemplo@usach.cl" [ngClass]="{ 'is-invalid': clicked && f['email'].errors}">
+      <div *ngIf="clicked && f['email'].errors" class="invalid-feedback">
+        <div *ngIf="f['email'].errors['pattern']">Por favor, ingresa un correo USACH válido</div>
+      </div>
+    </div>
+
+    <div class="mb-1">
+      <label for="image" class="form-label">Seleccionar Imagen (opcional)</label>
+      <br>
+      <img *ngIf="(image$ | async) as image" [src]="image" [alt]="name$" height="200px" width="200px">
+      <input id="image" type="file" class="form-control form-control-sm" (change)="uploadFile($event)">
+    </div>
+
+    <div class="mb-1">
+      <label for="details">Detalles</label>
+      <textarea id="details" class="form-control" formControlName="details" placeholder="Carrera, año, etc." [ngClass]="{ 'is-invalid': clicked && f['details'].errors}"></textarea>
+      <div *ngIf="clicked && f['details'].errors" class="invalid-feedback">
+        <div *ngIf="f['details'].errors['required']">La descripción de la persona es obligatoria</div>
+        <div *ngIf="f['details'].errors['minlength']">Por favor, ingresa una descripción más larga</div>
+      </div>
+    </div>
+
+    <div class="cBtn mt-3 mb-3">
+      <button type="submit"  class="btn btn-primary btnCrear">Crear</button>
+    </div>
+  </form>
+</div>

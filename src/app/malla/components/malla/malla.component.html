@@ -1,0 +1,26 @@
+<div class=" container-malla">
+  <h1>Malla {{ nombreCarrera }}</h1>
+  <div class="container-btns row">
+    <button class="btn-mallas btnCivil" (click)="changeRamosCarrera('civil2021')">Malla civil</button>
+    <button class="btn-mallas btnCivilA" (click)="changeRamosCarrera('civil')">Malla civil antigua</button>
+    <button class="btn-mallas btnEjecucion" (click)="changeRamosCarrera('ejecucion')">Malla ejecucion</button>
+  </div>
+  <ol class="header-malla">
+    <li class="header-year" *ngFor="let year of years; let i = index">
+      {{ year }}° Año
+    </li>
+  </ol>
+
+  <!-- <ol class="header-malla">
+    <li class="header-semester" id="civil2020" *ngFor="let semestre of cantRamosPorSemestre; let i = index">
+      Semestre {{ i + 1 }}
+    </li>
+  </ol> -->
+  <div class="container-ramos">
+    <div class="column-ramos" *ngFor="let ramos of arrayRamosMallaCarrera; let i = index">
+      <div class="header-semester">Semestre {{ i + 1 }}</div>
+      <div class="ramos" *ngFor="let ramo of ramos">{{ ramo }}</div>
+      <!-- <li class="ramos">{{ ramos }}</li> -->
+    </div>
+  </div>
+</div>

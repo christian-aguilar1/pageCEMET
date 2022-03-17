@@ -1,0 +1,80 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap');
+:root {
+  //fonts
+  --mainFont: 'Josefin Sans', sans-serif;
+  --normalSize: 16px;
+  --h3: 1.75rem;
+  --h5: 1.25rem;
+
+  // colors
+  --maincolor: black;
+  --header: white;
+  --footer2: rgb(16, 85, 212);
+}
+
+html, body { height: 100%; }
+body { margin: 0; }
+
+#toolbar-container .ql-font span[data-label="Sans Serif"]::before {
+  font-family: "Sans Serif";
+}
+
+#toolbar-container .ql-font span[data-label="Inconsolata"]::before {
+  font-family: "Inconsolata";
+}
+
+#toolbar-container .ql-font span[data-label="Roboto"]::before {
+  font-family: "Roboto";
+}
+
+#toolbar-container .ql-font span[data-label="Mirza"]::before {
+  font-family: "Mirza";
+}
+
+#toolbar-container .ql-font span[data-label="Arial"]::before {
+  font-family: "Arial";
+}
+/* Set content font-families */
+
+.ql-font-principal {
+  font-family: var(--mainFont);
+}
+
+.ql-font-inconsolata {
+  font-family: "Inconsolata";
+}
+
+.ql-font-roboto {
+  font-family: "Roboto";
+}
+
+.ql-font-serif {
+  font-family: serif;
+}
+
+.ql-font-aref {
+  font-family: "Aref Ruqaa";
+}
+
+.ql-font-sansserif {
+  font-family: sans-serif;
+}
+
+.ql-font-mirza {
+  font-family: "Mirza";
+}
+
+.ql-font-arial {
+  font-family: "Arial";
+}
+
+.ql-font-monospace {
+  font-family: "Monospace";
+}
+
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";
+
+/* Importing Datepicker SCSS file. */
+@import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
