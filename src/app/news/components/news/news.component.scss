@@ -1,6 +1,9 @@
 .container-image {
+ 
   display: flex;
   justify-content: center;
+  
+  margin-bottom: 20px;
 }
 
 .container-title {
@@ -10,7 +13,29 @@
 h1 {
   margin-bottom: 0;
 }
-
+.container-fluid{
+  
+  display: flex;
+  justify-content: center;
+}
+.hrBajo{
+  text-align: center;
+  width: 50%;
+}
 p {
   margin-bottom: 0;
+}
+.imgNoticia{
+  border-radius: 5px;
+}
+.container-fluid{
+  background-color: rgb(252, 252, 252);
+  border:solid 1px rgb(228, 228, 228);
+  margin-top: 40px;
+  padding: 4%;
+  
+}
+
+.newDate{
+  color:rgb(175, 175, 175);
 }
