@@ -30,7 +30,7 @@
     </div>
 
     <div class="mb-1">
-      <label for="email">Correo Electrónico</label>
+      <label for="email">Correo Electrónico (opcional)</label>
       <input id="email" type="text" formControlName="email" class="form-control" placeholder="ejemplo@usach.cl" [ngClass]="{ 'is-invalid': clicked && f['email'].errors}">
       <div *ngIf="clicked && f['email'].errors" class="invalid-feedback">
         <div *ngIf="f['email'].errors['pattern']">Por favor, ingresa un correo USACH válido</div>
@@ -38,7 +38,7 @@
     </div>
 
     <div class="mb-1">
-      <label for="image" class="form-label">Seleccionar Imagen</label>
+      <label for="image" class="form-label">Seleccionar Imagen (opcional)</label>
       <br>
       <img *ngIf="(image$ | async) as image" [src]="image" [alt]="name$" height="200px" width="200px">
       <input id="image" type="file" class="form-control form-control-sm" (change)="uploadFile($event)">

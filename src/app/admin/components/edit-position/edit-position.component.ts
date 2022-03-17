@@ -81,6 +81,13 @@ export class EditPositionComponent implements OnInit {
     }
   }
 
+  deleteImage() {
+    this.have = false;
+    this.name$ = "";
+    this.image = "";
+    this.position.image = "";
+  }
+
   uploadFile(event: any) {
     const file = event.target.files[0];
     this.name$ = file.name;

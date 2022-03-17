@@ -41,6 +41,18 @@ h1, label, input, a, button, p, textarea, div {font-family: var(--mainFont);}
   margin-right: 1rem;
 }
 
+.container-old-image {
+  display: flex;
+}
+
+.btn-create {
+  margin: 1rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  height: 38px;
+  width: 170px;
+}
+
 .cBtn {
 
 }

@@ -1,9 +1,9 @@
-<img [src]="image" [alt]="position.name">
+<img *ngIf="position.image !== ''" [src]="image" [alt]="position.name">
 <h5>{{ position.name }}</h5>
 <p>{{ position.position }}</p>
 
 <p>{{ position.details }}</p>
-<p *ngIf="position.email !== ''">Correo <a [href]="position.email">{{ position.email }}</a></p>
+<p *ngIf="position.email !== ''">Correo: <a [href]="position.email">{{ position.email }}</a></p>
 
 <button *ngIf="user" type="button" class="btn btn-primary btn-edit me-3" [routerLink]="['/admin/editar-cargo', idDoc]">
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">

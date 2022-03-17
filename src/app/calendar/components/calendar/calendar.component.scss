@@ -56,11 +56,12 @@ h1 {font-family: var(--mainFont);}
     margin: 0;
   }
   button {
-    cursor: pointer;
+    // cursor: pointer;
     background-color: transparent;
     font-size: 20px;
-    border: solid 1px rgb(49, 49, 49);
+    border: solid 1px rgb(136, 134, 134);
     border-radius: 5%;
+    width: 150px;
   }
 }
 
