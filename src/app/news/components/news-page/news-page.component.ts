@@ -13,11 +13,12 @@ import { FirestoreService } from 'src/app/core/services/db/firestore/firestore.s
 export class NewsPageComponent implements OnInit {
 
   public news = [] as  any;
+  public dates = [] as any;
   public idDocs = [] as  any;
   public user: boolean = false;
   public months = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
 
-  constructor(private firestoreService: FirestoreService, private router: Router, private authService: AuthService, 
+  constructor(private firestoreService: FirestoreService, private router: Router, private authService: AuthService,
               private title: Title) {
     title.setTitle("Noticias - CEMET")
   }
@@ -28,12 +29,21 @@ export class NewsPageComponent implements OnInit {
       this.news = [];
       snapshot.forEach((doc) => {
         let newsDB = doc.data() as any;
+        this.news.push(newsDB)
         let a = newsDB.date.toDate()
         let date = a.getDate() + " de " + this.months[a.getMonth()] + ", " + a.getFullYear();
-        newsDB.date = date;
-        this.news.push(newsDB)
-        this.idDocs.push(doc.id);
+        this.dates.push({
+          stringDate: date,
+          date: newsDB.date
+        });
+        this.idDocs.push({
+          id: doc.id,
+          date: newsDB.date
+        });
       })
+      this.news.sort((a: any, b: any) => b.date - a.date)
+      this.dates.sort((a: any, b: any) => b.date - a.date)
+      this.idDocs.sort((a: any, b: any) => b.date - a.date)
     })
   }
 

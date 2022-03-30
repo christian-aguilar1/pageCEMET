@@ -3,6 +3,8 @@ import { DomSanitizer, Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 
+import * as moment from 'moment';
+
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { FirestoreService } from 'src/app/core/services/db/firestore/firestore.service';
 import { GetapiService } from 'src/app/core/services/getapi/getapi.service';
@@ -36,9 +38,15 @@ export class HomeComponent implements OnInit {
       this.firestoreService.getCollections('news').subscribe((snapshot) => {
         this.news = [];
         snapshot.forEach((doc) => {
+          let newsDB = doc.data() as any;
           this.news.push(doc.data())
-          this.idDocs.push(doc.id);
+          this.idDocs.push({
+            id: doc.id,
+            date: newsDB.date
+          });
         })
+        this.news.sort((a: any, b: any) => b.date - a.date)
+        this.idDocs.sort((a: any, b: any) => b.date - a.date)
       })
   }
 

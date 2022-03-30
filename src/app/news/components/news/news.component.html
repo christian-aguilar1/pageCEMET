@@ -1,11 +1,19 @@
 <div class="container-image">
-  <img [src]="image" [alt]="news.title">
+  <img class="imgNoticia" [src]="image" [alt]="news.title">
+ 
 </div>
 <div class="container mt-4">
-  <div class="container-title">
+  <div class="container-title ">
     <h1>{{ news.title }}</h1>
-    <p>{{ news.date }}</p>
+    <p class="newDate">{{ news.date }}</p>
+    <hr>
   </div>
-
-  <div [innerHTML]="news.body"></div>
+  
+  <!--<div class="container-fluid"><hr class="hrBajo"></div>-->
+  <div class="container-fluid">
+    <div class="bodyNoticia" [innerHTML]="news.body"></div>
+  
+  </div>
+ 
+  
 </div>

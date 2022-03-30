@@ -42,6 +42,7 @@ export class CreateNewComponent implements OnInit {
   error: boolean = false;
   errorRequired: boolean = false;
   errorMinLength: boolean = false;
+  errorMaxLength: boolean = false;
   public user: boolean = false;
   public editorStyle = {};
   public quill!: any;
@@ -117,14 +118,23 @@ export class CreateNewComponent implements OnInit {
 
   createNew(values: any) {
     this.clicked = true;
-    let text = this.quill.container.firstChild.innerHTML
-    if (text === "<p><br></p>") {
+    let formattedText = this.quill.container.firstChild.innerHTML
+    let text = this.quill.container.firstChild.innerText
+    if (formattedText === "<p><br></p>") {
       this.error = true;
       this.errorRequired = true;
     } else {
       this.error = false;
       this.errorRequired = false;
+      // if (text.length >= 1500) {
+      //   this.error = true;
+      //   this.errorMaxLength = true;
+      // }
     }
+    // console.log(formattedText)
+    // console.log(text.length)
+    // console.log(formattedText.length)
+
     if (this.form.valid && !this.error) {
       this.submitted = true;
       this.isLoading = true;
@@ -141,7 +151,7 @@ export class CreateNewComponent implements OnInit {
         image: this.name$,
         categories: values.category,
         date: currentDate,
-        body: text
+        body: formattedText
       };
       this.db.createCollection('news', document, newForm)
         .then(() => {
@@ -191,7 +201,6 @@ export class CreateNewComponent implements OnInit {
     this.form = this.formBuilder.group({
       title: ['', [Validators.required, Validators.minLength(10)]],
       category: ['', Validators.required],
-      // body: ['', [Validators.required, Validators.minLength(20)]],
     });
   }
 
