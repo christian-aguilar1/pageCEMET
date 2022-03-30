@@ -10,7 +10,7 @@
 
 <div class="container container-cards">
   <app-news-card
-      *ngFor="let new of news; let i = index" [new]="new" [idDoc]="idDocs[i]">
+      *ngFor="let new of news; let i = index" [new]="new" [date]="dates[i]" [idDoc]="idDocs[i]">
   </app-news-card>
 </div>
 

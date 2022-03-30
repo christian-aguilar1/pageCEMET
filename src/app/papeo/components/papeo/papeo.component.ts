@@ -51,16 +51,26 @@ export class PapeoComponent implements OnInit {
     });
   }
 
-  // public getFiles(): Observable<any> {
-  //   console.log('Getting files');
-  //   // This happens quickly (when the component initialises (ngOnInit))
-  //   return gapi.client({
-  //   //   pageSize: 100,
-  //   //   fields: "nextPageToken, files(id, name, mimeType, modifiedTime, size)",
-  //   //   q: 'root in parents and trashed = false'
-  //   // }).then((res: any) => {
-  //   //   return res;
-  //   })
-  // }
+  public getFiles() {
+    console.log('Getting files');
+    // gapi.client.load('drive', 'v2', )
+    // This happens quickly (when the component initialises (ngOnInit))
+  //   gapi.client.drive.files.list({
+  //     'pageSize': 10,
+  //     'fields': "nextPageToken, files(id, name)"
+  //   }).then(function(response: { result: { files: any; }; }) {
+  //     // appendPre('Files:');
+  //     let files = response.result.files;
+  //     console.log(files);
+  //     if (files && files.length > 0) {
+  //       for (let i = 0; i < files.length; i++) {
+  //         let file = files[i];
+  //         console.log(file);
+  //       }
+  //     } else {
+  //       console.log('No files found.');
+  //     }
+  //   });
+  }
 
 }

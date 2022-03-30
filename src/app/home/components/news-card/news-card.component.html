@@ -8,7 +8,7 @@
     <h5>{{ new.title }}</h5>
     <div class="contenidoNoticia" [innerHTML]="body"></div>
     <div class="container-btns">
-      <button type="button" class="btn btn-outline-success" [routerLink]="['/noticias', idDoc]" [state]="{data: {'image': '1'}}">Ver más</button>
+      <button type="button" class="btn btn-outline-success" [routerLink]="['/noticias', idDoc.id]" [state]="{data: {'image': '1'}}">Ver más</button>
 
       <!-- <button *ngIf="user" type="button" class="btn btn-primary btn-edit" [routerLink]="['/admin/editar-noticia', idDoc]">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">

@@ -1,7 +1,7 @@
-<a class="container-fluid noticia" [routerLink]="['/noticias', idDoc]" [state]="{data: {'image': '1'}}">
+<a class="container-fluid noticia" [routerLink]="['/noticias', idDoc.id]" [state]="{data: {'image': '1'}}">
   <div class="container-fluid row">
       <div class="container-fluid containerNoticia">
-          <p class="fechaNoticia">{{ new.date }}</p>
+          <p class="fechaNoticia">{{ date.stringDate }}</p>
           <img class="img-fluid imgNoticia"  [src]="image" [alt]="new.title">
       </div>
       <div class="container-fluid infoNoticia">

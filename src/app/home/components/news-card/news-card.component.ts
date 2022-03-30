@@ -18,7 +18,7 @@ export class NewsCardComponent implements OnInit {
 
   @Input()
   new!: New;
-  @Input() idDoc!: string;
+  @Input() idDoc!: any;
   image!: string;
   body: string = "";
 
