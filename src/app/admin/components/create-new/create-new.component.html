@@ -36,13 +36,16 @@
     </div>
 
     <label for="body">Contenido</label>
-    <!-- <textarea name="body" id="body" class="form-control" placeholder="Contenido" cols="10" rows="5" formControlName="body" [ngClass]="{ 'is-invalid': clicked && f['body'].errors}"></textarea> -->
-    <div [(ngmodel)]="content" class="form-control form-control-sm" [styles]="editorStyle" id="editor"
+    <textarea name="body" id="body" class="form-control" placeholder="Contenido" cols="10" rows="5" formControlName="body" [ngClass]="{ 'is-invalid': clicked && f['body'].errors}"></textarea>
+    <!-- <div [(ngmodel)]="content" class="form-control form-control-sm" [styles]="editorStyle" id="editor"
               trackChanges="all" placeholder="Noticia" [ngClass]="{ 'is-invalid': clicked && error}">
-    </div>
-    <div *ngIf="clicked && error" class="invalid-feedback">
+    </div> -->
+    <!-- <div *ngIf="clicked && error" class="invalid-feedback">
       <div *ngIf="error">El contenido de la noticia es obligatorio</div>
       <div *ngIf="errorRequired">El contenido de la noticia tiene que ser más largo</div>
+    </div> -->
+    <div *ngIf="clicked && f['body'].errors" class="invalid-feedback">
+      <div *ngIf="f['body'].errors['required']">El titulo de la noticia es obligatorio</div>
     </div>
 
     <div class="cBtn mt-3 mb-3">

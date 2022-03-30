@@ -5,10 +5,10 @@ import { AngularFireStorage } from '@angular/fire/compat/storage';
 
 import { finalize, Observable } from 'rxjs';
 
-import Quill from 'quill';
-import 'quill-emoji/dist/quill-emoji.js'
+// import Quill from 'quill';
+// import 'quill-emoji/dist/quill-emoji.js'
 
-import Counter from 'src/app/counter';
+// import Counter from 'src/app/counter';
 
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { FirestoreService } from 'src/app/core/services/db/firestore/firestore.service';
@@ -16,14 +16,14 @@ import { New } from 'src/app/core/models/new';
 
 // import { MdbDropdownDirective } from 'mdb-angular-ui-kit/dropdown';
 
-Quill.register('modules/counter', Counter)
+// Quill.register('modules/counter', Counter)
 
-const fontList = ['principal', 'mirza', 'roboto', 'aref', 'serif', 'sansserif', 'monospace'];
-const fontNames = fontList.map(font => font.toLowerCase().replace(/\s/g, "-"));
-const fonts = Quill.import('attributors/class/font');
-// // We do not add Aref Ruqaa since it is the default
-fonts.whitelist = fontNames
-Quill.register(fonts, true)
+// const fontList = ['principal', 'mirza', 'roboto', 'aref', 'serif', 'sansserif', 'monospace'];
+// const fontNames = fontList.map(font => font.toLowerCase().replace(/\s/g, "-"));
+// const fonts = Quill.import('attributors/class/font');
+// // // We do not add Aref Ruqaa since it is the default
+// fonts.whitelist = fontNames
+// Quill.register(fonts, true)
 
 @Component({
   selector: 'app-create',
@@ -51,31 +51,31 @@ export class CreateNewComponent implements OnInit {
   public text!: string;
   public content: any;
   public categories = [];
-  public toolbarOptions = {
-    container: [
-      ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
-      ['blockquote', 'code-block'],
+  // public toolbarOptions = {
+  //   container: [
+  //     ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+  //     ['blockquote', 'code-block'],
 
-      [{ 'header': 1 }, { 'header': 2 }],               // custom button values
-      [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-      [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
-      [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
-      [{ 'direction': 'rtl' }],                         // text direction
+  //     [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+  //     [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+  //     [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+  //     [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+  //     [{ 'direction': 'rtl' }],                         // text direction
 
-      [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
-      [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+  //     [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+  //     [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
 
-      [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
-      [{ 'font': fonts.whitelist }],
-      ['link', 'image', 'video'],
-      ['code-block'],
-      [{ 'align': [] }],
-      [ 'emoji' ],
+  //     [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+  //     [{ 'font': fonts.whitelist }],
+  //     ['link', 'image', 'video'],
+  //     ['code-block'],
+  //     [{ 'align': [] }],
+  //     [ 'emoji' ],
 
-      // [ 'clean' ]                                         // remove formatting button
-    ],
-    handlers: {'emoji': function() {}}
-  };
+  //     // [ 'clean' ]                                         // remove formatting button
+  //   ],
+  //   handlers: {'emoji': function() {}}
+  // };
 
   constructor(private authService: AuthService, private formBuilder: FormBuilder, private router: Router,
               private storage: AngularFireStorage, private db: FirestoreService) {
@@ -84,58 +84,59 @@ export class CreateNewComponent implements OnInit {
 
   ngOnInit(): void {
     this.hasUser();
-    this.editorStyle = {
-      height: '20px'
-    };
-    let fontStyles = "";
-    fontList.forEach(function(font) {
-      let fontName = font.toLowerCase().replace(/\s/g, "-");
-      fontStyles += ".ql-snow .ql-picker.ql-font .ql-picker-label[data-value=" + fontName + "]::before, .ql-snow .ql-picker.ql-font .ql-picker-item[data-value=" + fontName + "]::before {" +
-        "content: '" + font + "';" +
-        "font-family: '" + font + "', sans-serif;" +
-        "}" +
-        ".ql-font-" + fontName + "{" +
-        " font-family: '" + font + "', sans-serif;" +
-        "}";
-    });
-    var node = document.createElement('style');
-    node.innerHTML = fontStyles;
-    document.body.appendChild(node);
-    this.options = {
-      // debug: 'info',
-      modules: {
-        "emoji-toolbar": true,
-        "emoji-textarea": true,
-        "emoji-shortname": true,
-        toolbar: this.toolbarOptions,
-      },
-      placeholder: 'Compose an epic...',
-      // readOnly: true,
-      theme: 'snow'
-    };
-    this.quill = new Quill('#editor', this.options);
+    // this.editorStyle = {
+    //   height: '20px'
+    // };
+    // let fontStyles = "";
+    // fontList.forEach(function(font) {
+    //   let fontName = font.toLowerCase().replace(/\s/g, "-");
+    //   fontStyles += ".ql-snow .ql-picker.ql-font .ql-picker-label[data-value=" + fontName + "]::before, .ql-snow .ql-picker.ql-font .ql-picker-item[data-value=" + fontName + "]::before {" +
+    //     "content: '" + font + "';" +
+    //     "font-family: '" + font + "', sans-serif;" +
+    //     "}" +
+    //     ".ql-font-" + fontName + "{" +
+    //     " font-family: '" + font + "', sans-serif;" +
+    //     "}";
+    // });
+    // var node = document.createElement('style');
+    // node.innerHTML = fontStyles;
+    // document.body.appendChild(node);
+    // this.options = {
+    //   // debug: 'info',
+    //   modules: {
+    //     "emoji-toolbar": true,
+    //     "emoji-textarea": true,
+    //     "emoji-shortname": true,
+    //     toolbar: this.toolbarOptions,
+    //   },
+    //   placeholder: 'Compose an epic...',
+    //   // readOnly: true,
+    //   theme: 'snow'
+    // };
+    // this.quill = new Quill('#editor', this.options);
   }
 
   createNew(values: any) {
     this.clicked = true;
-    let formattedText = this.quill.container.firstChild.innerHTML
-    let text = this.quill.container.firstChild.innerText
-    if (formattedText === "<p><br></p>") {
-      this.error = true;
-      this.errorRequired = true;
-    } else {
-      this.error = false;
-      this.errorRequired = false;
+    // let formattedText = this.quill.container.firstChild.innerHTML
+    // let text = this.quill.container.firstChild.innerText
+    // if (formattedText === "<p><br></p>") {
+    //   this.error = true;
+    //   this.errorRequired = true;
+    // } else {
+    //   this.error = false;
+    //   this.errorRequired = false;
       // if (text.length >= 1500) {
       //   this.error = true;
       //   this.errorMaxLength = true;
       // }
-    }
+    // }
     // console.log(formattedText)
     // console.log(text.length)
     // console.log(formattedText.length)
 
-    if (this.form.valid && !this.error) {
+    // if (this.form.valid && !this.error) {
+    if (this.form.valid) {
       this.submitted = true;
       this.isLoading = true;
       let time = Date.now();
@@ -151,7 +152,7 @@ export class CreateNewComponent implements OnInit {
         image: this.name$,
         categories: values.category,
         date: currentDate,
-        body: formattedText
+        body: values.body
       };
       this.db.createCollection('news', document, newForm)
         .then(() => {
@@ -201,6 +202,7 @@ export class CreateNewComponent implements OnInit {
     this.form = this.formBuilder.group({
       title: ['', [Validators.required, Validators.minLength(10)]],
       category: ['', Validators.required],
+      body: ['', Validators.required],
     });
   }
 

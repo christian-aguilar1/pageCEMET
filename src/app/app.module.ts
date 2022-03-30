@@ -18,7 +18,7 @@ import { GoogleApiModule, GoogleApiService, GoogleAuthService, NgGapiClientConfi
 
 // import {} from 'gapi.client.drive';
 
-import { QuillModule } from 'ngx-quill'
+// import { QuillModule } from 'ngx-quill'
 
 
 import { environment } from 'src/environments/environment';
@@ -70,12 +70,12 @@ export function initGapi(gapiService: GapiService) {
       provide: NG_GAPI_CONFIG,
       useValue: gapiClientConfig
     }),
-    QuillModule.forRoot({
-      customOptions: [{
-        import: 'formats/font',
-        whitelist: ['mirza', 'roboto', 'aref', 'serif', 'sansserif', 'monospace']
-      }]
-    }),
+    // QuillModule.forRoot({
+    //   customOptions: [{
+    //     import: 'formats/font',
+    //     whitelist: ['mirza', 'roboto', 'aref', 'serif', 'sansserif', 'monospace']
+    //   }]
+    // }),
   ],
   providers: [AngularFirestore, Title],
   bootstrap: [AppComponent]
