@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
   isShown: boolean = false;
 
   constructor(private authService: AuthService, private router: Router) {
-    console.log(this.isShown)
+    // console.log(this.isShown)
   }
 
   ngOnInit(): void {

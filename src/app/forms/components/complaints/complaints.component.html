@@ -51,7 +51,6 @@
           {{ denounced }}
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownCareer">
-          <li><a class="dropdown-item" (click)="fillDropdown('student')">Estudiante</a></li>
           <li><a class="dropdown-item" (click)="fillDropdown('professor')">Profesor</a></li>
           <li><a class="dropdown-item" (click)="fillDropdown('assistant')">Ayudante</a></li>
         </ul>
@@ -61,7 +60,7 @@
       </div>
     </div>
 
-    <div class="form-group has-validation" *ngIf="isProfessor">
+    <div class="form-group has-validation">
       <label for="subject">Ramo que imparte *</label>
       <input id="subject" type="text" formControlName="subject" class="form-control" placeholder="Ramo" [ngClass]="{ 'is-invalid': clicked && subjectInvalid}">
       <div *ngIf="clicked && subjectInvalid" class="invalid-feedback">

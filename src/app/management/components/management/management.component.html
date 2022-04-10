@@ -15,9 +15,17 @@
   </button>
 </div>
 
-<div class="container-fluid cDirectiva">
-  <div class="container-fluid row">
-    <app-management-card class="container-fluid col" *ngFor="let position of positions; let i = index" [position]="position" [idDoc]="idDocs[i]" [user]="user">
-    </app-management-card>
+<div *ngIf="positions.length > 0; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>
+  <div class="container-fluid cDirectiva">
+    <div class="container-fluid row">
+      <app-management-card class="container-fluid col" *ngFor="let position of positions; let i = index" [position]="position" [idDoc]="idDocs[i]" [user]="user">
+      </app-management-card>
+    </div>
   </div>
-</div>
+</ng-template>
+<ng-template #elseBlock>
+  <div class="container-without">
+    <h3>Aún no hay cargos :(</h3>
+  </div>
+</ng-template>

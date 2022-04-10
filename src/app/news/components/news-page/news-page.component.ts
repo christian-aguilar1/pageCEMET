@@ -13,6 +13,7 @@ import { FirestoreService } from 'src/app/core/services/db/firestore/firestore.s
 export class NewsPageComponent implements OnInit {
 
   public news = [] as  any;
+  public thereNews = false;
   public dates = [] as any;
   public idDocs = [] as  any;
   public user: boolean = false;
@@ -44,6 +45,9 @@ export class NewsPageComponent implements OnInit {
       this.news.sort((a: any, b: any) => b.date - a.date)
       this.dates.sort((a: any, b: any) => b.date - a.date)
       this.idDocs.sort((a: any, b: any) => b.date - a.date)
+
+      this.news.length > 0 ? this.thereNews = true : this.thereNews = false;
+      console.log(this.thereNews)
     })
   }
 

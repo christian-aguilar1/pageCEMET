@@ -10,7 +10,7 @@
 </div>
 
 <div class="container-fluid CCrearNoticia position-relative">
-  <form [formGroup]="form" class="container-fluid form-group" (ngSubmit)="createNew(form.value)">
+  <form [formGroup]="form" class="container-fluid form-group" (ngSubmit)="createNew($event)">
     <div class="mb-1">
       <label for="title">Titulo de la Noticia</label>
       <input id="title" type="text" formControlName="title" class="form-control" placeholder="Titulo" [ngClass]="{ 'is-invalid': clicked && f['title'].errors}">

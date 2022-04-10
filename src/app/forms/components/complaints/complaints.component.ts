@@ -18,9 +18,8 @@ export class ComplaintsComponent implements OnInit {
   isLoading!: boolean;
   career: string = "Carrera";
   careerInvalid: boolean = false;
-  denounced: string = "Estudiante, Profesor o Ayudante";
+  denounced: string = "Profesor o Ayudante";
   denouncedInvalid: boolean = false;
-  isProfessor: boolean = false;
   inputRadio: boolean = false;
   answerQuestion: string = "";
   radioInvalid: boolean = true;
@@ -89,10 +88,8 @@ Situación a denunciar: ${values.message}\n`
       this.denounced = "Estudiante"
     } else if (selected === "professor") {
       this.denounced = "Profesor"
-      this.isProfessor = true;
     } else if (selected === "assistant") {
       this.denounced = "Ayudante"
-      this.isProfessor = true;
     } else if (selected === "yes") {
       this.inputRadio = true
       this.radioInvalid = false;

@@ -10,7 +10,7 @@
 </div>
 
 <div class="container-fluid CCrearNoticia position-relative">
-  <form [formGroup]="form" class="container-fluid form-group" (ngSubmit)="editNew(form.value)">
+  <form [formGroup]="form" class="container-fluid form-group" (ngSubmit)="editNew($event)">
     <div class="mb-1">
       <label for="title">Titulo de la Noticia</label>
       <input id="title" type="text" [value]="new.title" formControlName="title" class="form-control" placeholder="Titulo" [ngClass]="{ 'is-invalid': clicked && f['title'].errors}">
@@ -38,11 +38,9 @@
     </div>
 
     <label for="body">Contenido</label>
-    <!-- <textarea name="body" id="body" class="form-control" formControlName="body" cols="30" rows="5" [value]="new.body"></textarea> -->
-    <div [(ngmodel)]="content" class="form-control form-control-sm" [styles]="editorStyle" id="editor"
-              trackChanges="all" [value]="new.body" [ngClass]="{ 'is-invalid': clicked && error}">
-      <p>{{new.body}}</p>
-    </div>
+    <textarea name="body" id="body" class="form-control" formControlName="body" cols="30" rows="5" [value]="new.body">
+      "{{new.body}}"
+    </textarea>
     <div *ngIf="clicked && error" class="invalid-feedback">
       <div *ngIf="errorRequired">El contenido de la noticia es obligatorio</div>
       <div *ngIf="errorMinLength">El contenido de la noticia tiene que ser más largo</div>

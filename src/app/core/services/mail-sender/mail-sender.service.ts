@@ -14,21 +14,21 @@ export class MailSenderService {
     console.log(name, email, message)
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     if (form === 'contact') {
-      this._http.post(environment.mailSenderContact,
-        { name: name, replyto: email, message: message },
-        { 'headers': headers }).subscribe(
-          response => {
-            return response;
-          }
-        );
+      // this._http.post(environment.mailSenderContact,
+      //   { name: name, replyto: email, message: message },
+      //   { 'headers': headers }).subscribe(
+      //     response => {
+      //       return response;
+      //     }
+      //   );
     } else if (form === 'complaints') {
-      this._http.post(environment.mailSenderComplaints,
-        { name: name, replyto: email, message: message },
-        { 'headers': headers }).subscribe(
-          response => {
-            return response;
-          }
-        );
+      // this._http.post(environment.mailSenderComplaints,
+      //   { name: name, replyto: email, message: message },
+      //   { 'headers': headers }).subscribe(
+      //     response => {
+      //       return response;
+      //     }
+      //   );
     }
   }
 }

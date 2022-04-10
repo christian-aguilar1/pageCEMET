@@ -20,7 +20,15 @@
     "importHelpers": true,
     "target": "es2017",
     "module": "es2020",
-    "types": [],
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "types": [
+      "gapi",
+      "gapi.auth2",
+      "gapi.client",
+      "gapi.client.drive"
+    ],
     "lib": [
       "es2020",
       "dom"

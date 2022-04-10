@@ -1,7 +1,7 @@
-import { EditNewComponent } from './components/edit-new/edit-new.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { EditNewComponent } from './components/edit-new/edit-new.component';
 import { AddDocumentComponent } from './components/add-document/add-document.component';
 import { AddEventComponent } from './components/add-event/add-event.component';
 import { AddPositionComponent } from './components/add-position/add-position.component';

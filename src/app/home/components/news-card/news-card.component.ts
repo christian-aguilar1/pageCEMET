@@ -49,13 +49,11 @@ export class NewsCardComponent implements OnInit {
   }
 
   deleteNew() {
-    this.firestoreService.deleteCollection('management', this.idDoc)
+    console.log(this.idDoc)
+    this.firestoreService.deleteCollection('news', this.idDoc)
       .then(() => {
         console.log("Document successfully deleted!");
-        this.router.navigateByUrl('/', {skipLocationChange: true}).
-          then(() =>
-            this.router.navigate(['./directiva'])
-          );
+        window.location.reload();
       })
       .catch((error) => {
         console.error("Error removing document: ", error);

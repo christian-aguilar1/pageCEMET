@@ -5,21 +5,21 @@
 
   <div class="container row justify-content-sm-center containernav">
 
-    <a href="https://drive.google.com/drive/folders/1KKDmgafW2HtVvPuVooKIfa58JluJgrJN?usp=sharing" target="_blank" class="col-sm conitem">
+    <a class="col-sm conitem">
       <p class="nombreseccion">Nube Papeo</p>
       <img class="img-fluid fotopng" src="/assets/icons/cloud.png" alt="Icono de Nube Papeo">
     </a>
 
     <div class="col-sm-auto hr2"></div>
 
-    <a href="https://drive.google.com/drive/folders/1KKDmgafW2HtVvPuVooKIfa58JluJgrJN?usp=sharing" target="_blank" class="col-sm conitem">
+    <a class="col-sm conitem">
       <p class="nombreseccion">Sube tu Papeo</p>
       <img class="img-fluid fotopng" src="/assets/icons/file.png" alt="Icono de Sube tu Papeo"/>
     </a>
 
     <div class="col-sm-auto hr2"></div>
 
-    <a href="https://drive.google.com/drive/u/0/folders/1CNXj6bygSpYNTFNvcRTSIufv3eF_iVvd" target="_blank" class="col-sm conitem">
+    <a target="_blank" class="col-sm conitem">
       <p class="nombreseccion">Biblioteca</p>
       <img class="img-fluid fotopng" src="/assets/icons/bookshelf.png" alt="Icono de Sube tu Papeo"/>
     </a>
@@ -66,11 +66,11 @@
 
     <div *ngIf="news.length > 0; then thenBlock else elseBlock"></div>
     <ng-template #thenBlock>
-    </ng-template>
       <div class="container-cards">
         <app-news-card *ngFor="let new of news; let i = index" [new]="new" [idDoc]="idDocs[i]">
         </app-news-card>
       </div>
+    </ng-template>
     <ng-template #elseBlock>
       <div class="container-without">
         <h3>Aún no hay noticias :(</h3>
@@ -78,15 +78,22 @@
     </ng-template>
 
     <aside>
-      <div class="container-post">
-        <button class="btn-post left" (click)="changeURL(-1)" [disabled]="urlShown === 0">
-          <img class="icon-post" src="/assets/icons/left-arrow.png" alt="Icono Flecha">
-        </button>
-        <iframe [src]='linkShown' frameborder="0" scrolling="yes" allowtransparency="true"></iframe>
-        <button class="btn-post right" (click)="changeURL(1)" [disabled]="urlsIg.length - 1 === urlShown">
-          <img class="icon-post" src="/assets/icons/right-arrow.png" alt="Icono Flecha">
-        </button>
-      </div>
+      <div *ngIf="!linkShown"></div>
+      <ng-template #thenBlock>
+        <div class="container-post">
+          <button class="btn-post left" (click)="changeURL(-1)" [disabled]="urlShown === 0">
+            <img class="icon-post" src="/assets/icons/left-arrow.png" alt="Icono Flecha">
+          </button>
+          <iframe [src]='linkShown' frameborder="0" scrolling="yes" allowtransparency="true"></iframe>
+          <button class="btn-post right" (click)="changeURL(1)" [disabled]="urlsIg.length - 1 === urlShown">
+            <img class="icon-post" src="/assets/icons/right-arrow.png" alt="Icono Flecha">
+          </button>
+        </div>
+      </ng-template>
+      <ng-template #elseBlock>
+        <div>
+        </div>
+      </ng-template>
     </aside>
   </div>
 
