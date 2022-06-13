@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 
-import { finalize, Observable } from 'rxjs';
+import { finalize, Observable, Subscription } from 'rxjs';
 
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { FirestoreService } from 'src/app/core/services/db/firestore/firestore.service';
@@ -13,31 +13,48 @@ import { Evento } from 'src/app/core/models/evento';
 @Component({
   selector: 'app-add-event',
   templateUrl: './add-event.component.html',
-  styleUrls: ['./add-event.component.scss']
+  styleUrls: ['./add-event.component.scss'],
 })
-export class AddEventComponent implements OnInit {
-
+export class AddEventComponent implements OnInit, OnDestroy {
   form!: FormGroup;
-  public idDocs = [] as  any;
+  public idDocs = [] as any;
   public user: boolean = false;
-  name$: string = "";
+  name$: string = '';
   image$!: Observable<any>;
   submitted = false;
   clicked = false;
   isLoading!: boolean;
 
-  constructor(private authService: AuthService, private router: Router, private formBuilder: FormBuilder,
-              private db: FirestoreService, private storage: AngularFireStorage) { }
+  message = '';
+
+  collection$!: Subscription;
+  upload$!: Subscription;
+  imageSub$!: Subscription;
+  user$!: Subscription;
+
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private formBuilder: FormBuilder,
+    private db: FirestoreService,
+    private storage: AngularFireStorage
+  ) {}
 
   ngOnInit(): void {
     this.hasUser();
     this.buildForm();
-    this.db.getCollections('events').subscribe((snapshot) => {
+    this.collection$ = this.db.getCollections('events').subscribe((snapshot) => {
       snapshot.forEach((doc) => {
         this.idDocs.push(doc.id);
-      })
-      // console.log(this.idDocs)
-    })
+      });
+    });
+  }
+
+  ngOnDestroy(): void {
+    if (this.collection$) this.collection$.unsubscribe();
+    if (this.imageSub$) this.imageSub$.unsubscribe();
+    if (this.upload$) this.upload$.unsubscribe();
+    if (this.user$) this.user$.unsubscribe();
   }
 
   addEvent(values: any) {
@@ -46,7 +63,7 @@ export class AddEventComponent implements OnInit {
     if (this.form.valid) {
       this.submitted = true;
       this.isLoading = true;
-      let order = "0";
+      let order = '0';
       let event: Evento;
       // let date: Date = new Date();
       // date = values.date;
@@ -55,21 +72,22 @@ export class AddEventComponent implements OnInit {
         date: values.date,
         image: this.name$,
         details: values.details,
-      }
+      };
       if (this.idDocs.length > 0) {
         for (let i = 0; i < this.idDocs.length; i++) {
           if (!isNaN(this.idDocs[i])) {
-            order = String(Number(this.idDocs[i]) + 1)
+            order = String(Number(this.idDocs[i]) + 1);
           }
         }
       }
-      this.db.createCollection('events', order, event)
+      this.db
+        .createCollection('events', order, event)
         .then(() => {
-          this.router.navigate(['/calendario'])
+          this.router.navigate(['/calendario']);
         })
         .catch((err) => {
-          console.log(err)
-        })
+          this.message = 'No se pudo agregar el evento';
+        });
       this.isLoading = false;
     }
   }
@@ -80,31 +98,31 @@ export class AddEventComponent implements OnInit {
     const fileRef = this.storage.ref(this.name$);
     const task = this.storage.upload(this.name$, file);
 
-    task.snapshotChanges()
-      .pipe(finalize(() => {
-        this.image$ = fileRef.getDownloadURL();
-        this.image$.subscribe((url: any) => {
-          this.form.get('image')?.setValue(url);
+    this.upload$ = task
+      .snapshotChanges()
+      .pipe(
+        finalize(() => {
+          this.image$ = fileRef.getDownloadURL();
+          this.imageSub$ = this.image$.subscribe((url: any) => {
+            this.form.get('image')?.setValue(url);
+          });
         })
-      }))
+      )
       .subscribe();
   }
 
   hasUser() {
-    this.authService.hasUser().
-      subscribe(res => {
-        if(res && res.uid) {
-          this.user = true;
-        }
+    this.user$ = this.authService.hasUser().subscribe((res) => {
+      if (res && res.uid) {
+        this.user = true;
       }
-    );
+    });
   }
 
   logout() {
-    this.authService.logout()
-      .then(() => {
-        this.router.navigate(['/home']);
-      });
+    this.authService.logout().then(() => {
+      this.router.navigate(['/']);
+    });
   }
 
   private buildForm() {
@@ -115,6 +133,7 @@ export class AddEventComponent implements OnInit {
     });
   }
 
-  get f() { return this.form.controls; }
-
+  get f() {
+    return this.form.controls;
+  }
 }

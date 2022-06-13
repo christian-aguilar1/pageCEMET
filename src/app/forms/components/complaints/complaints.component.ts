@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 
 import { MailSenderService } from 'src/app/core/services/mail-sender/mail-sender.service';
-import { MyValidators } from 'src/app/utils/validators';
 
 @Component({
   selector: 'app-complaints',

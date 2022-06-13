@@ -3,11 +3,14 @@ import { BrowserModule, Title } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { QuicklinkModule } from 'ngx-quicklink';
+
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule }  from '@angular/fire/compat/database';
 import { AngularFireStorageModule }  from '@angular/fire/compat/storage';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
 // import {} from '@angular/fire/app-check';
 
 import { SafePipeModule } from 'safe-pipe';
@@ -19,9 +22,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { SharedModule } from './shared/shared.module';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 
-// import { TooltipModule } from 'ngx-bootstrap/tooltip';
-// import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 
 @NgModule({
@@ -31,18 +32,25 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     PrivacyPolicyComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     SharedModule,
     HttpClientModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule.enablePersistence(),
+    AngularFireAnalyticsModule,
     AngularFireDatabaseModule,
     AngularFireStorageModule,
     AngularFireAuthModule,
     SafePipeModule,
-    BsDatepickerModule.forRoot(),
+    QuicklinkModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [AngularFirestore, Title],
   bootstrap: [AppComponent]

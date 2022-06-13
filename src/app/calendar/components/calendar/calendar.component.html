@@ -10,29 +10,29 @@
 
     <div class="wrapper-calendar">
       <div class="header-calendar">
-        <!-- <div> -->
+        <div>
           <button (click)="changeMonth(-1)" class="btn-changeMonth">Antes</button>
-        <!-- </div> -->
+        </div>
         <!-- <h1>{{ dateSelect | date:'MMMM, yyyy' }}</h1> -->
         <h2>{{ months[dateSelect.month()] }}, {{ dateSelect.year() }}</h2>
-        <!-- <div> -->
+        <div>
           <button (click)="changeMonth(1)" class="btn-changeMonth">Siguiente</button>
-        <!-- </div> -->
+        </div>
       </div>
 
       <ol>
         <li *ngFor="let day of week" class="day-name">{{ day | slice:0:3 }}</li>
 
-        <div *ngFor="let day of monthSelect; let first = first" style="display: flex; justify-content: center;">
+        <div *ngFor="let day of monthSelect; let first = first" style="display: flex; justify-content: center;" [style.gridColumnStart]="first ? day?.indexWeek : 'auto'">
           <div *ngIf="dateDayNumberEvents.includes(day?.value) && monthEvents[dateDayNumberEvents.indexOf(day?.value)] === dateSelect.month() + 1; then thenBlock else elseBlock">
           </div>
           <ng-template #thenBlock>
-            <li (click)="clickDay(day)" [style.gridColumnStart]="first ? day?.indexWeek : 'auto'" class="day-number date-event">
-                <span>{{day?.value}}</span>
+            <li (click)="clickDay(day)" class="day-number date-event">
+              <span>{{day?.value}}</span>
             </li>
           </ng-template>
           <ng-template #elseBlock>
-            <li (click)="clickDay(day)" [style.gridColumnStart]="first ? day?.indexWeek : 'auto'" class="day-number">
+            <li (click)="clickDay(day)" class="day-number">
               <span>{{day?.value}}</span>
             </li>
           </ng-template>

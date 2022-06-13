@@ -1,0 +1,87 @@
+h1,
+div {
+  font-family: var(--mainFont);
+}
+
+.managementHead {
+  background-color: rgb(245, 245, 245);
+  height: 100px;
+  padding-top: 30px;
+  margin-bottom: 3rem;
+  border-top: solid 0.1px rgb(226, 226, 226);
+  border-bottom: solid 0.1px rgb(226, 226, 226);
+}
+
+.h1Head {
+  margin-left: 50px;
+}
+
+.container__btn-edit {
+  margin-bottom: 2rem;
+  display: flex;
+  gap: 2rem;
+}
+
+.container__btn-back {
+  margin-bottom: 2rem;
+}
+
+.btn-add {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+}
+
+.text__btn-add {
+  margin-top: 3px;
+}
+
+.carousel {
+  margin-top: 3rem;
+}
+
+.carousel-inner {
+  padding: 50px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 50%;
+}
+.carousel-control-prev {
+  justify-content: flex-start;
+}
+.carousel-control-next {
+  justify-content: flex-end;
+}
+
+.carousel-item {
+  .col {
+    padding: 0;
+  }
+  img {
+    width: 100%;
+  }
+}
+
+.one {
+  width: 50%;
+}
+
+.management-old {
+  background: transparent;
+  border: none;
+  color: #0d6efd;
+  padding: 0;
+  text-decoration: underline;
+  &:hover {
+    color: #0d5cd4;
+  }
+}
+
+@media (max-width: 575px) {
+  .mission {
+    padding: 0 20px;
+  }
+}

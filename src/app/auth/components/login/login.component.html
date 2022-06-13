@@ -7,14 +7,14 @@
 <div class="container-fluid cajaForm">
   <form [formGroup]="form" (ngSubmit)="login($event)" class="formLogin needs-validation">
     <label for="email" class="lCorreo">Correo</label>
-    <input id="email" formControlName="email" class="form-control iUser" matInput type="email" [ngClass]="{ 'is-invalid': clicked && f['email'].errors}">
+    <input id="email" formControlName="email" autocomplete="email" class="form-control iUser" matInput type="email" [ngClass]="{ 'is-invalid': clicked && f['email'].errors}">
     <div *ngIf="clicked && f['email'].errors" class="invalid-feedback">
       <div *ngIf="f['email'].errors['required']">El email es obligatorio</div>
       <div *ngIf="f['email'].errors['email']">Por favor, ingresa un Correo válido</div>
     </div>
     <br>
     <label for="password" class="lPass">Contraseña</label>
-    <input id="password" formControlName="password" class="form-control iPass" matInput type="password" [ngClass]="{ 'is-invalid': clicked && f['password'].errors || incorrect}">
+    <input id="password" formControlName="password" autocomplete="current-password" class="form-control iPass" matInput type="password" [ngClass]="{ 'is-invalid': clicked && f['password'].errors || incorrect}">
     <div *ngIf="clicked && f['password'].errors" class="invalid-feedback">
       <div *ngIf="f['password'].errors['required']">La contraseña es obligatorio</div>
     </div>
@@ -24,5 +24,6 @@
     <div class="container-btn">
       <button mat-raised-button color="primary" class="buttonLogin" type="submit">Login</button>
     </div>
+    <a routerLink="/auth/forgot">Restablecer contraseña</a>
   </form>
 </div>

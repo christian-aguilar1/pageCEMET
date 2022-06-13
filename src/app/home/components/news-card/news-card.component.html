@@ -1,12 +1,12 @@
 <div class="card card-news">
-  <img [src]="image" [alt]="new.title" class="card-img-top" >
-  <div class="card-body ">
+  <img *ngIf="image !== undefined" [src]="image" [alt]="new.title" class="card-img-top" >
+  <div class="card-body">
 
     <div class="badges mb-2">
       <span class="badge bg-primary me-2">{{ new.categories }}</span>
     </div>
     <h5>{{ new.title }}</h5>
-    <div>{{ new.body }}</div>
+    <div class="body" [innerHTML]="new.body | slice:0:30"></div>
     <div class="container-btns">
       <button type="button" class="btn btn-outline-success" [routerLink]="['/noticias', idDoc.id]" [state]="{data: {'image': '1'}}">Ver más</button>
 

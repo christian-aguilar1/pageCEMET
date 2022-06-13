@@ -4,57 +4,88 @@
 
 <div class="container-fluid mt-3">
   <div class="container-fluid containerTCrearNoticia">
-    <h1 class="TCnoticia">Agregar Cargo</h1>
+    <h1 class="TCnoticia">Agregar Directiva año anterior</h1>
     <hr class="hrCrearNoticia">
   </div>
 </div>
 
 <div class="container-fluid container__add-cargo position-relative">
-  <form [formGroup]="form" class="container-fluid form-group" (ngSubmit)="addPosition(form.value)">
+  <form [formGroup]="form" class="container-fluid form-group" (ngSubmit)="editPosition(form.value)">
     <div class="mb-1">
-      <label for="name">Nombre</label>
-      <input id="name" type="text" formControlName="name" class="form-control" placeholder="Nombre" [ngClass]="{ 'is-invalid': clicked && f['name'].errors}">
-      <div *ngIf="clicked && f['name'].errors" class="invalid-feedback">
-        <div *ngIf="f['name'].errors['required']">El nombre y apellido es obligatorio</div>
-        <div *ngIf="f['name'].errors['minlength']">Por favor, ingresa tu nombre y apellido</div>
+      <label for="mission">Año</label>
+      <input id="mission" type="number" [value]="mission" formControlName="year" class="form-control" placeholder="Año" [ngClass]="{ 'is-invalid': clicked && f['year'].errors}">
+      <div *ngIf="clicked && f['year'].errors" class="invalid-feedback">
+        <div *ngIf="f['year'].errors['required']">Este campo es obligatorio</div>
+        <div *ngIf="f['year'].errors['min']">Por favor, ingresa un año correcto.</div>
+        <div *ngIf="f['year'].errors['max']">Por favor, ingresa un año correcto.</div>
       </div>
     </div>
 
     <div class="mb-1">
-      <label for="position">Posición</label>
-      <input id="position" type="text" formControlName="position" class="form-control" placeholder="Posición" [ngClass]="{ 'is-invalid': clicked && f['position'].errors}">
-      <div *ngIf="clicked && f['position'].errors" class="invalid-feedback">
-        <div *ngIf="f['position'].errors['required']">La posición es obligatoria</div>
-        <div *ngIf="f['position'].errors['minlength']">Por favor, ingresa una posición válida</div>
+      <label for="mission">Misión</label>
+      <textarea id="mission" type="text" [value]="mission" formControlName="mission" class="form-control" placeholder="Misión" [ngClass]="{ 'is-invalid': clicked && f['mission'].errors}"></textarea>
+      <div *ngIf="clicked && f['mission'].errors" class="invalid-feedback">
+        <div *ngIf="f['mission'].errors['required']">Este campo es obligatorio</div>
+        <div *ngIf="f['mission'].errors['minlength']">Por favor, ingresa por lo menos un párrafo.</div>
       </div>
     </div>
 
     <div class="mb-1">
-      <label for="email">Correo Electrónico (opcional)</label>
-      <input id="email" type="text" formControlName="email" class="form-control" placeholder="ejemplo@usach.cl" [ngClass]="{ 'is-invalid': clicked && f['email'].errors}">
-      <div *ngIf="clicked && f['email'].errors" class="invalid-feedback">
-        <div *ngIf="f['email'].errors['pattern']">Por favor, ingresa un correo USACH válido</div>
+      <label for="vision">Visión</label>
+      <textarea id="vision" type="text" [value]="vision" formControlName="vision" class="form-control" placeholder="Posición" [ngClass]="{ 'is-invalid': clicked && f['vision'].errors}"></textarea>
+      <div *ngIf="clicked && f['vision'].errors" class="invalid-feedback">
+        <div *ngIf="f['vision'].errors['required']">Este campo es obligatorio</div>
+        <div *ngIf="f['vision'].errors['minlength']">Por favor, ingresa por lo menos un párrafo.</div>
       </div>
     </div>
 
     <div class="mb-1">
-      <label for="image" class="form-label">Seleccionar Imagen (opcional)</label>
+      <label for="logo" class="form-label">Logo CEMET {{year}}</label>
       <br>
-      <img *ngIf="(image$ | async) as image" [src]="image" [alt]="name$" height="200px" width="200px">
-      <input id="image" type="file" class="form-control form-control-sm" (change)="uploadFile($event)">
+      <div class="container-old-image" *ngIf="haveLogo">
+        <img [src]="imageUploadLogo" [alt]="position.image" height="200px" width="200px">
+        <div class="">
+          <button class="btn btn-danger btn-create" type="button" (click)="deleteLogo()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+              <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+            </svg>
+            <div class="text__btn-create">
+              Eliminar imagen
+            </div>
+          </button>
+        </div>
+      </div>
+      <input id="logo" type="file" class="form-control form-control-sm" (change)="previewLogo($event)">
     </div>
 
     <div class="mb-1">
-      <label for="details">Detalles</label>
-      <textarea id="details" class="form-control" formControlName="details" placeholder="Carrera, año, etc." [ngClass]="{ 'is-invalid': clicked && f['details'].errors}"></textarea>
-      <div *ngIf="clicked && f['details'].errors" class="invalid-feedback">
-        <div *ngIf="f['details'].errors['required']">La descripción de la persona es obligatoria</div>
-        <div *ngIf="f['details'].errors['minlength']">Por favor, ingresa una descripción más larga</div>
+      <label for="image" class="form-label">Miembros</label>
+      <br>
+      <div class="container-old-image" *ngIf="haveImageMember">
+        <img [src]="imageUploadMember" [alt]="position.image" height="200px" width="200px">
+        <div class="">
+          <button class="btn btn-success btn-create" type="button" (click)="agregarMiembro()">
+            <div class="text__btn-create">
+              Agregar
+            </div>
+          </button>
+          <button class="btn btn-danger btn-create" type="button" (click)="deleteImage()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+              <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+            </svg>
+            <div class="text__btn-create">
+              Eliminar imagen
+            </div>
+          </button>
+        </div>
       </div>
+      <input id="image" type="file" class="form-control form-control-sm" (change)="previewImage($event)">
     </div>
 
     <div class="cBtn mt-3 mb-3">
-      <button type="submit"  class="btn btn-primary btnCrear">Crear</button>
+      <p style="color: red;">{{message}}</p>
+      <button type="submit"  class="btn btn-primary btnCrear">Agregar</button>
+      <p *ngIf="isLoading">Cargando...</p>
     </div>
   </form>
 </div>

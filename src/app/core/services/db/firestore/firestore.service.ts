@@ -8,13 +8,16 @@ import { Documento } from 'src/app/core/models/document';
 import { Evento } from 'src/app/core/models/evento';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FirestoreService {
+  constructor(private db: AngularFirestore) {}
 
-  constructor(private db: AngularFirestore) { }
-
-  public createCollection(collection: string, documentId: string, data: New | Position | Documento | Evento) {
+  public createCollection(
+    collection: string,
+    documentId: string,
+    data: New | Position | Documento | Evento | any
+  ) {
     return this.db.collection(collection).doc(documentId).set(data);
   }
 

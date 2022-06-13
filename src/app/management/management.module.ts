@@ -4,18 +4,10 @@ import { CommonModule } from '@angular/common';
 import { ManagementRoutingModule } from './management-routing.module';
 import { ManagementComponent } from './components/management/management.component';
 import { SharedModule } from '../shared/shared.module';
-import { ManagementCardComponent } from './components/management-card/management-card.component';
-
+import { ManagementOldComponent } from './components/management-old/management-old.component';
 
 @NgModule({
-  declarations: [
-    ManagementComponent,
-    ManagementCardComponent
-  ],
-  imports: [
-    CommonModule,
-    ManagementRoutingModule,
-    SharedModule
-  ]
+  declarations: [ManagementComponent, ManagementOldComponent],
+  imports: [CommonModule, ManagementRoutingModule, SharedModule],
 })
-export class ManagementModule { }
+export class ManagementModule {}

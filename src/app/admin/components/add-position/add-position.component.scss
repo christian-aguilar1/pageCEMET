@@ -1,4 +1,13 @@
-h1, label, input, a, button, p, textarea, div {font-family: var(--mainFont);}
+h1,
+label,
+input,
+a,
+button,
+p,
+textarea,
+div {
+  font-family: var(--mainFont);
+}
 
 .container__logout {
   display: flex;
@@ -6,7 +15,7 @@ h1, label, input, a, button, p, textarea, div {font-family: var(--mainFont);}
   margin: 1rem 1rem 0 0;
 }
 
-.container__add-cargo{
+.container__add-cargo {
   display: flex;
   flex-direction: column;
   background-color: rgb(248, 248, 248);
@@ -17,23 +26,21 @@ h1, label, input, a, button, p, textarea, div {font-family: var(--mainFont);}
   border-radius: 2px;
 }
 
-.containerTCrearNoticia, .CcerrarSesion{
+.containerTCrearNoticia,
+.CcerrarSesion {
   text-align: center;
 }
-.hrCrearNoticia{
+.hrCrearNoticia {
   margin-left: 20%;
   margin-right: 20%;
 }
-.btnCerraS{
+.btnCerraS {
   width: 150px;
 }
-#editor{
-  background-color: rgb(255, 255, 255);
-}
 
-.container__input-category {
+.container__input-mission,
+.container__input-vision {
   display: flex;
-  margin-bottom: 1rem;
 }
 
 .input__add-category {
@@ -41,11 +48,23 @@ h1, label, input, a, button, p, textarea, div {font-family: var(--mainFont);}
   margin-right: 1rem;
 }
 
-.cBtn {
-
+.container-old-image {
+  display: flex;
 }
 
-.btnCrear{
+.img-member {
+  height: 50%;
+  width: 50%;
+}
+
+.btn-create {
+  margin: 1rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  height: 38px;
+}
+
+.btnCrear {
   width: 150px;
 }
 

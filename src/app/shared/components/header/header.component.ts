@@ -1,35 +1,34 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { map, tap } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
-
+export class HeaderComponent implements OnInit, OnDestroy {
   public user: boolean = false;
   isShown: boolean = false;
 
-  constructor(private authService: AuthService, private router: Router) {
-    // console.log(this.isShown)
-  }
+  sub$!: Subscription;
+
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
     this.hasUser();
   }
 
-  hasUser() {
-    this.authService.hasUser().
-      subscribe(res => {
-        if(res && res.uid) {
-          this.user = true;
-        }
-      }
-    );
+  ngOnDestroy(): void {
+    if (this.sub$) this.sub$.unsubscribe();
   }
 
+  hasUser() {
+    this.sub$ = this.authService.hasUser().subscribe((res) => {
+      if (res && res.uid) {
+        this.user = true;
+      }
+    });
+  }
 }

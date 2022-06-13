@@ -7,20 +7,22 @@ import { AuthService } from 'src/app/core/services/auth/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-
   form!: FormGroup;
   clicked = false;
   incorrect = false;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private authService: AuthService
+  ) {
     this.buildForm();
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   login(event: Event) {
     event.preventDefault();
@@ -28,11 +30,12 @@ export class LoginComponent implements OnInit {
 
     if (this.form.valid) {
       const value = this.form.value;
-      this.authService.login(value.email, value.password)
-      .then(() => {
-        this.router.navigate(['/home']);
-      })
-      .catch(() => {
+      this.authService
+        .login(value.email, value.password)
+        .then(() => {
+          this.router.navigate(['/']);
+        })
+        .catch(() => {
           this.incorrect = true;
         });
     }
@@ -45,6 +48,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  get f() { return this.form.controls; }
-
+  get f() {
+    return this.form.controls;
+  }
 }

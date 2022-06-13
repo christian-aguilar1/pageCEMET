@@ -6,14 +6,14 @@
 <div class="container-fluid cajaForm position-relative">
   <form [formGroup]="form" class="form-group container-fluid needs-validation" (ngSubmit)="sendEmail(form.value)" novalidate>
     <div class="form-group has-validation">
-      <input type="name" formControlName="name" class="form-control" placeholder="Nombre y apellido" [ngClass]="{ 'is-invalid': clicked && f['name'].errors}">
+      <input type="name" formControlName="name" autocomplete="name" class="form-control" placeholder="Nombre y apellido" [ngClass]="{ 'is-invalid': clicked && f['name'].errors}">
       <div *ngIf="clicked && f['name'].errors" class="invalid-feedback">
         <div *ngIf="f['name'].errors['required']">El nombre y apellido es obligatorio</div>
         <div *ngIf="f['name'].errors['minlength']">Por favor, ingresa tu nombre y apellido</div>
       </div>
     </div>
     <div class="form-group has-validation">
-      <input type="email" formControlName="email" class="form-control" placeholder="Correo Electrónico USACH" [ngClass]="{ 'is-invalid': clicked && f['email'].errors}">
+      <input type="email" formControlName="email" autocomplete="email" class="form-control" placeholder="Correo Electrónico USACH" [ngClass]="{ 'is-invalid': clicked && f['email'].errors}">
       <div *ngIf="clicked && f['email'].errors" class="invalid-feedback">
         <div *ngIf="f['email'].errors['required']">El email es obligatorio</div>
         <div *ngIf="f['email'].errors['pattern']">Por favor, ingresa un Email correcto</div>

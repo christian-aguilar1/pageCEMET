@@ -1,0 +1,73 @@
+h1,
+h2,
+p,
+div,
+button {
+  font-family: var(--mainFont);
+}
+
+.encabezadoContacto {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.containerPapeo {
+  margin: 0 3rem;
+}
+
+.cajaForm {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  padding: 1rem 1.5rem 0;
+  background-color: rgb(243, 243, 243);
+  border-radius: 8px;
+  border: solid 0.2px rgb(189, 189, 189);
+}
+
+form {
+  text-align: center;
+}
+
+button {
+  width: 500px;
+}
+
+.dropdown-menu {
+  min-width: 500px;
+}
+
+.dropdown-item {
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+button a {
+  color: white;
+  text-decoration: none;
+}
+
+@media (max-width: 980px) {
+  .cajaForm {
+    width: 90%;
+  }
+}
+
+@media (max-width: 650px) {
+  button {
+    width: 100%;
+  }
+
+  .dropdown-menu {
+    min-width: 86%;
+  }
+}

@@ -4,7 +4,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { SharedModule } from '../shared/shared.module';
-import { MaterialModule } from '../material/material.module';
 import { CreateNewComponent } from './components/create-new/create-new.component';
 import { AddPositionComponent } from './components/add-position/add-position.component';
 import { EditPositionComponent } from './components/edit-position/edit-position.component';
@@ -26,7 +25,6 @@ import { EditNewComponent } from './components/edit-new/edit-new.component';
     CommonModule,
     AdminRoutingModule,
     SharedModule,
-    MaterialModule,
     ReactiveFormsModule,
   ],
   providers: [],

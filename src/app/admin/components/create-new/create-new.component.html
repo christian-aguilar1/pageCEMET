@@ -31,7 +31,7 @@
     <div class="mb-1">
       <label for="image" class="form-label">Seleccionar Imagen</label>
       <br>
-      <img *ngIf="(image$ | async) as image" [src]="image" [alt]="name$" height="200px" width="200px">
+      <img *ngIf="(image$ | async) as image" [src]="image" alt="Imagen Subida" height="200px" width="200px">
       <input id="image" type="file" class="form-control form-control-sm" (change)="uploadFile($event)">
     </div>
 
@@ -51,6 +51,8 @@
     <div class="cBtn mt-3 mb-3">
       <button type="submit"  class="btn btn-primary btnCrear">Crear</button>
     </div>
+
+    <p *ngIf="message">{{message}}</p>
   </form>
 </div>
 

@@ -1,18 +1,20 @@
-h1 {font-family: var(--mainFont);}
+h1 {
+  font-family: var(--mainFont);
+}
 
-.calendarHead{
+.calendarHead {
   background-color: rgb(245, 245, 245);
-  height:100px;
+  height: 100px;
   padding-top: 30px;
   margin-bottom: 3rem;
-  border-top:solid 0.1px rgb(226, 226, 226);
-  border-bottom:solid 0.1px rgb(226, 226, 226);
+  border-top: solid 0.1px rgb(226, 226, 226);
+  border-bottom: solid 0.1px rgb(226, 226, 226);
   @media (max-width: 670px) {
     margin-bottom: 1rem;
   }
 }
 
-.h1Head{
+.h1Head {
   margin-left: 50px;
 }
 
@@ -29,7 +31,7 @@ h1 {font-family: var(--mainFont);}
 .wrapper-calendar {
   display: flex;
   flex-direction: column;
-  padding: .5rem;
+  padding: 0.5rem;
   border: solid 1px #eaeaea;
   box-shadow: 0 0 10px #e4e4e4;
   width: 100%;
@@ -40,7 +42,6 @@ h1 {font-family: var(--mainFont);}
   @media (max-width: 400px) {
     min-width: 300px;
     width: 95%;
-
   }
 }
 
@@ -55,14 +56,14 @@ h1 {font-family: var(--mainFont);}
     font-size: 25px;
     margin: 0;
   }
-  button {
-    // cursor: pointer;
-    background-color: transparent;
-    font-size: 20px;
-    border: solid 1px rgb(136, 134, 134);
-    border-radius: 5%;
-    width: 150px;
-  }
+}
+
+.btn-changeMonth {
+  background-color: transparent;
+  font-size: 20px;
+  border: solid 1px rgb(136, 134, 134);
+  border-radius: 5%;
+  width: 150px;
 }
 
 ol {
@@ -85,7 +86,7 @@ ol {
 li {
   cursor: pointer;
   font-size: 2.2ch;
-  padding: .25rem;
+  padding: 0.25rem;
   text-align: center;
   &.day-number:hover {
     font-weight: 600;
@@ -126,15 +127,15 @@ li {
   justify-content: space-between;
 }
 
-.day{
+.day {
   padding-top: 12px;
   background-color: rgb(255, 255, 255);
   height: 45px;
   margin: 2px;
-  border:solid 0.5px rgb(233, 233, 233);
+  border: solid 0.5px rgb(233, 233, 233);
   transition: all ease 400ms;
 }
-.day:hover{
+.day:hover {
   background-color: rgb(241, 241, 241);
 }
 
@@ -142,3 +143,19 @@ li {
   border-radius: 50%;
 }
 
+@media (max-width: 560px) {
+  .header-calendar {
+    h2 {
+      font-size: 20px;
+    }
+  }
+
+  .btn-changeMonth {
+    font-size: 16px;
+    width: 80px;
+  }
+
+  .day-name {
+    font-size: 16px;
+  }
+}

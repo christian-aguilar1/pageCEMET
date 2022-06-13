@@ -1,9 +1,11 @@
-button, li, div {font-family: var(--mainFont)}
+button,
+li,
+div {
+  font-family: var(--mainFont);
+}
 
 .container-malla {
   margin: 2rem 1.6rem 0;
-  // border: 1px solid #ccc;
-  // padding: 1rem;
 }
 
 .container-btns {
@@ -12,40 +14,38 @@ button, li, div {font-family: var(--mainFont)}
   margin: 0 0 1rem;
 }
 
-.btn-mallas{
+.btn-mallas {
   width: 200px;
   height: 50px;
-  border:none;
+  border: none;
   border-radius: 5px;
-  transition:  all 200ms ease;
+  transition: all 200ms ease;
   background-color: rgb(255, 255, 255);
 }
 
-.btnCivil{
-  border:solid 0.5px rgb(255, 85, 85);
+.btnCivil {
+  border: solid 0.5px rgb(255, 85, 85);
 }
-.btnCivil:hover{
+.btnCivil:hover {
   color: rgb(255, 255, 255);
   background-color: rgb(250, 51, 51);
 }
 
-.btnCivilA{
-  border:solid 0.5px rgb(66, 122, 243);
+.btnCivilA {
+  border: solid 0.5px rgb(66, 122, 243);
 }
-.btnCivilA:hover{
+.btnCivilA:hover {
   background-color: rgb(44, 82, 112);
   color: rgb(255, 255, 255);
 }
 
-.btnEjecucion{
-  border:solid 0.5px rgb(34, 41, 56);
+.btnEjecucion {
+  border: solid 0.5px rgb(34, 41, 56);
 }
-.btnEjecucion:hover{
+.btnEjecucion:hover {
   background-color: rgb(49, 146, 52);
   color: rgb(255, 255, 255);
 }
-
-
 
 .header-malla {
   display: flex;
@@ -75,12 +75,12 @@ button, li, div {font-family: var(--mainFont)}
   justify-content: center;
   align-items: center;
   border: 1px solid #ccc;
-  transition:  all 200ms ease;
+  transition: all 200ms ease;
   // width: var(--widthColumnRamos);
 }
 
-.header-semester:hover{
-  background-color:rgb(236, 236, 236) ;
+.header-semester:hover {
+  background-color: rgb(236, 236, 236);
   transform: translateY(-3%);
 }
 
@@ -104,17 +104,19 @@ button, li, div {font-family: var(--mainFont)}
   color: white;
   cursor: pointer;
   font-size: 12px;
-  padding: .25rem;
+  padding: 0.25rem;
   background-color: rgb(98, 135, 136);
   border: 2px solid rgb(255, 255, 255);
-  transition:  all 200ms ease;
+  transition: all 200ms ease;
 }
-.ramos:hover{
+.ramos:hover {
   transform: translateY(-3%);
 }
 
 @media (max-width: 980px) {
-  .header-malla {display:none;}
+  .header-malla {
+    display: none;
+  }
   .container-ramos {
     justify-content: center;
     align-items: flex-start;
@@ -130,12 +132,14 @@ button, li, div {font-family: var(--mainFont)}
     justify-content: center;
     align-items: center;
   }
-  .btn-mallas{
+  .btn-mallas {
     width: 250px;
     // margin-left: 20%;
     margin-bottom: 20px;
   }
-  .header-malla {display:none;}
+  .header-malla {
+    display: none;
+  }
   .container-ramos {
     justify-content: center;
     align-items: center;

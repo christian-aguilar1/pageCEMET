@@ -1,21 +1,108 @@
 <div class="container-fluid managementHead">
     <div class="container-fluid">
-        <h1 class="h1Head">Directiva CEMET</h1>
+        <h1 class="h1Head">Quiénes somos</h1>
     </div>
 </div>
 
 <div class="container container__btn-add" *ngIf="user">
-  <button class="btn btn-primary btn-add" routerLink="/admin/agregar-cargo">
-    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
-      <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+  <button class="btn btn-primary btn-add" [routerLink]="['/admin/editar-cargo', currentYear]">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+      <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+      <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
     </svg>
     <div class="text__btn-add">
-      Agregar nuevo cargo
+      Editar directiva {{ currentYear }}
     </div>
   </button>
 </div>
 
-<div *ngIf="positions.length > 0; then thenBlock else elseBlock"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-6 col-lg-8 mission">
+      <h2>Misión</h2>
+      <ul *ngFor="let point of mission">
+        <li>{{ point }}</li>
+      </ul>
+      <h2>Visión</h2>
+      <ul *ngFor="let point of vision">
+        <li>{{ point }}</li>
+      </ul>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+      <img [src]="logo" alt="Logo CEMET 2022" width="100%">
+    </div>
+  </div>
+
+  <div *ngIf="images.length > 0" id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="true">
+    <div *ngIf="isSmallScreen; then thenBlock else elseBlock"></div>
+    <ng-template #thenBlock>
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <!-- <button *ngIf="images.length > 4" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button> -->
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="row">
+            <div *ngFor="let image of images; let i = index" class="col">
+              <img [src]="image.url" class="d-block" alt="...">
+            </div>
+          </div>
+        </div>
+        <!-- <div class="carousel-item" *ngIf="images.length > 4">
+          <div class="row">
+            <div class="col"><img src="/assets/images/foto-perfil.png" class="d-block" alt="..."></div>
+          </div>
+        </div> -->
+      </div>
+    </ng-template>
+    <ng-template #elseBlock>
+      <div class="carousel-inner">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button *ngIf="images.length > 1" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2">{{images.length}}</button>
+          <button *ngIf="images.length > 2" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button *ngIf="images.length > 3" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          <button *ngIf="images.length > 4" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+          <button *ngIf="images.length > 5" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
+          <button *ngIf="images.length > 6" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7"></button>
+        </div>
+        <div *ngFor="let image of images; let first = first" class="carousel-item" [ngClass]="{'active': first}">
+          <img [src]="image.url" class="d-block one" alt="...">
+        </div>
+      </div>
+    </ng-template>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <button *ngIf="user" class="btn btn-primary btn-add" routerLink="/admin/agregar-cargo">
+    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+      <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+    </svg>
+    <div class="text__btn-add">
+      Agregar directiva años anteriores
+    </div>
+  </button>
+  <h2>Años anteriores</h2>
+  <ul>
+    <div *ngFor="let position of positions">
+      <li *ngIf="position.id !== currentYear">
+        <button (click)="changeYear(position.id)" class="management-old">{{ position.id }}</button>
+      </li>
+    </div>
+  </ul>
+</div>
+
+<!-- <div *ngIf="positions.length > 0; then thenBlock else elseBlock"></div>
 <ng-template #thenBlock>
   <div class="container-fluid cDirectiva">
     <div class="container-fluid row">
@@ -28,4 +115,4 @@
   <div class="container-without">
     <h3>Aún no hay cargos :(</h3>
   </div>
-</ng-template>
+</ng-template> -->

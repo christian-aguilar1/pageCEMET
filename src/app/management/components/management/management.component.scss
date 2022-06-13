@@ -17,12 +17,13 @@ div {
 }
 
 .container__btn-add {
-  // margin-top: 3rem;
   margin-bottom: 4rem;
 }
 
 .btn-add {
   display: flex;
+  align-items: center;
+  gap: 10px;
   justify-content: space-between;
 }
 
@@ -30,22 +31,51 @@ div {
   margin-top: 3px;
 }
 
-.cDirectiva {
-  // margin-top: 100px;
-}
-
-.col {
-  text-align: center;
-}
-
-h3 {
+.carousel {
   margin-top: 3rem;
-  text-align: center;
-  color: rgb(95, 95, 95);
 }
 
-@media (max-width: 980px) {
+.carousel-inner {
+  padding: 50px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 50%;
+}
+.carousel-control-prev {
+  justify-content: flex-start;
+}
+.carousel-control-next {
+  justify-content: flex-end;
+}
+
+.carousel-item {
   .col {
-    padding-left: 40px;
+    padding: 0;
+  }
+  img {
+    width: 100%;
+  }
+}
+
+.one {
+  width: 50%;
+}
+
+.management-old {
+  background: transparent;
+  border: none;
+  color: #0d6efd;
+  padding: 0;
+  text-decoration: underline;
+  &:hover {
+    color: #0d5cd4;
+  }
+}
+
+@media (max-width: 575px) {
+  .mission {
+    padding: 0 20px;
   }
 }

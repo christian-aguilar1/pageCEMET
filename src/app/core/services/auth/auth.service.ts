@@ -3,11 +3,10 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
-  constructor(private af: AngularFireAuth) { }
+  constructor(private af: AngularFireAuth) {}
 
   createUser(email: string, password: string) {
     return this.af.createUserWithEmailAndPassword(email, password);
@@ -15,6 +14,10 @@ export class AuthService {
 
   login(email: string, password: string) {
     return this.af.signInWithEmailAndPassword(email, password);
+  }
+
+  resetPassword(email: string) {
+    return this.af.sendPasswordResetEmail(email);
   }
 
   logout() {

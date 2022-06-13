@@ -1,6 +1,6 @@
 <div class="container-image">
-  <img class="imgNoticia" [src]="image" [alt]="news.title">
- 
+  <img *ngIf="image !== undefined" class="imgNoticia" [src]="image" [alt]="news.title">
+
 </div>
 <div class="container mt-4">
   <div class="container-title ">
@@ -8,12 +8,12 @@
     <p class="newDate">{{ news.date }}</p>
     <hr>
   </div>
-  
+
   <!--<div class="container-fluid"><hr class="hrBajo"></div>-->
   <div class="container-fluid">
     <div class="bodyNoticia" [innerHTML]="news.body"></div>
-  
+
   </div>
- 
-  
+
+
 </div>

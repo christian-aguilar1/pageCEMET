@@ -5,50 +5,50 @@
 
   <div class="container row justify-content-sm-center containernav">
 
-    <a class="col-sm conitem">
+    <a href="https://drive.google.com/drive/folders/1KKDmgafW2HtVvPuVooKIfa58JluJgrJN?usp=sharing" target="_blank" class="col-sm conitem">
       <p class="nombreseccion">Nube Papeo</p>
-      <img class="img-fluid fotopng" src="/assets/icons/cloud.png" alt="Icono de Nube Papeo">
+      <img class="img-fluid fotopng" src="/assets/icons/cloud.png" alt="Nube Papeo" height="80px" width="80px"/>
     </a>
 
     <div class="col-sm-auto hr2"></div>
 
-    <a class="col-sm conitem">
+    <a routerLink="/sube-tu-papeo" routerLinkActive="active" class="col-sm conitem">
       <p class="nombreseccion">Sube tu Papeo</p>
-      <img class="img-fluid fotopng" src="/assets/icons/file.png" alt="Icono de Sube tu Papeo"/>
+      <img class="img-fluid fotopng" src="/assets/icons/file.png" alt="Sube tu Papeo" height="80px" width="80px"/>
     </a>
 
     <div class="col-sm-auto hr2"></div>
 
-    <a target="_blank" class="col-sm conitem">
+    <a href="https://drive.google.com/drive/u/0/folders/1CNXj6bygSpYNTFNvcRTSIufv3eF_iVvd" target="_blank" class="col-sm conitem">
       <p class="nombreseccion">Biblioteca</p>
-      <img class="img-fluid fotopng" src="/assets/icons/bookshelf.png" alt="Icono de Sube tu Papeo"/>
+      <img class="img-fluid fotopng" src="/assets/icons/bookshelf.png" alt="Biblioteca" height="80px" width="80px"/>
     </a>
 
     <div class="col-sm-auto hr2"></div>
 
     <a routerLink="/malla" routerLinkActive="active" class="col-sm conitem ">
       <p class="nombreseccion">Malla</p>
-      <img class="img-fluid fotopng" src="/assets/icons/folder2.png" alt="Icono de Malla">
+      <img class="img-fluid fotopng" src="/assets/icons/folder2.png" alt="Malla" height="80px" width="80px">
     </a>
 
     <div class="col-sm-auto hr2"></div>
 
     <a routerLink="/documentos" routerLinkActive="active" class="col-sm conitem ">
       <p class="nombreseccion">Documentos</p>
-      <img class="img-fluid fotopng" src="/assets/icons/icon-documents.png" alt="Icono de Documentos">
+      <img class="img-fluid fotopng" src="/assets/icons/icon-documents.png" alt="Documentos" height="80px" width="80px">
     </a>
 
     <div class="col-sm-auto hr2"></div>
 
     <a routerLink="/forms/reclamos" routerLinkActive="active" class="col-sm conitem ">
       <p class="nombreseccion">Reclamos</p>
-      <img class="img-fluid fotopng" src="/assets/icons/complain.png" alt="Icono de Reclamos">
+      <img class="img-fluid fotopng" src="/assets/icons/complain.png" alt="Reclamos" height="80px" width="80px">
     </a>
 
   </div>
 
   <div class="container divultimas">
-    <p class="ultimasnoticias">Últimas Noticias</p>
+    <h1 class="ultimasnoticias">Últimas Noticias</h1>
   </div>
 
   <div class="container container__btn-create" *ngIf="user">
@@ -78,8 +78,8 @@
     </ng-template>
 
     <aside>
-      <div *ngIf="!linkShown"></div>
-      <ng-template #thenBlock>
+      <!-- <div *ngIf="linkShown"></div>
+      <ng-template #thenBlock> -->
         <div class="container-post">
           <button class="btn-post left" (click)="changeURL(-1)" [disabled]="urlShown === 0">
             <img class="icon-post" src="/assets/icons/left-arrow.png" alt="Icono Flecha">
@@ -89,11 +89,11 @@
             <img class="icon-post" src="/assets/icons/right-arrow.png" alt="Icono Flecha">
           </button>
         </div>
-      </ng-template>
+      <!-- </ng-template>
       <ng-template #elseBlock>
         <div>
         </div>
-      </ng-template>
+      </ng-template> -->
     </aside>
   </div>
 

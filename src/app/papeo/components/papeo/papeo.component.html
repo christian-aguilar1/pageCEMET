@@ -1,0 +1,27 @@
+<div class="container-fluid encabezadoContacto">
+  <h1>Sube tu papeo</h1>
+  Puedes subir tus archivos a las distintas ramos de la carrera dependiendo si pertenecen al MBI
+  <br/>o si es un ramo particular de Ingeniería Civil en Metalurgia o Ingeniería en Ejecución en Metalurgia.
+</div>
+
+<div class="container-fluid cajaForm position-relative">
+  <form  [formGroup]="form" (ngSubmit)="uploadPapeo(form.value)">
+    <div class="form-group">
+      <label for="dropdownCareer">Elige donde subir tu papeo</label>
+      <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownCareer" data-bs-toggle="dropdown" aria-expanded="false" [ngClass]="{ 'is-invalid': clicked  && careerInvalid}">
+        {{ career }}
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownCareer">
+        <li><a class="dropdown-item" (click)="fillDropdown('mbi')">MBI</a></li>
+        <li><a class="dropdown-item" (click)="fillDropdown('civil')">Civil</a></li>
+        <li><a class="dropdown-item" (click)="fillDropdown('ejecu')">Ejecución</a></li>
+      </ul>
+      <div *ngIf="clicked && careerInvalid" class="invalid-feedback">
+        <div *ngIf="careerInvalid">La carrera es obligatoria</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+    </div>
+  </form>
+</div>

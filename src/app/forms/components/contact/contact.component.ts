@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
@@ -18,7 +17,7 @@ export class ContactComponent implements OnInit {
   isLoading!: boolean;
 
   constructor(private formBuilder: FormBuilder, private mailSender: MailSenderService, private title: Title) {
-    title.setTitle("Contacto - CEMET");
+    this.title.setTitle("Contacto - CEMET");
     this.buildForm();
   }
 

@@ -1,0 +1,117 @@
+<div class="container-fluid managementHead">
+  <div class="container-fluid">
+      <h1 class="h1Head">Quiénes somos. Directiva {{year}}</h1>
+  </div>
+</div>
+
+<div class="container container__btn-edit" *ngIf="user">
+  <button class="btn btn-primary btn-add" [routerLink]="['/admin/editar-cargo', year]">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+      <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+      <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+    </svg>
+    <div class="text__btn-add">
+      Editar directiva {{ year }}
+    </div>
+  </button>
+  <button class="btn btn-danger btn-add" (click)="deleteManagement()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+      <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+    </svg>
+    <div class="text__btn-add">
+      Eliminar directiva {{ year }}
+    </div>
+  </button>
+</div>
+
+<div class="container">
+  <div class="row">
+  <div class="container container__btn-back">
+    <button class="btn btn-primary btn-add" routerLink="/quienes-somos/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+      </svg>
+      <div class="text__btn-add">
+        Volver a la directiva actual
+      </div>
+    </button>
+  </div>
+  <div class="col-12 col-md-6 col-lg-8 mission">
+    <h2>Misión</h2>
+    <ul *ngFor="let point of mission">
+      <li>{{ point }}</li>
+    </ul>
+    <h2>Visión</h2>
+    <ul *ngFor="let point of vision">
+      <li>{{ point }}</li>
+    </ul>
+  </div>
+
+  <div class="col-12 col-md-6 col-lg-4">
+    <img [src]="logo" [alt]="year" width="100%">
+  </div>
+</div>
+
+<div *ngIf="images.length > 0" id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="true">
+  <div *ngIf="isSmallScreen; then thenBlock else elseBlock"></div>
+  <ng-template #thenBlock>
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <!-- <button *ngIf="images.length > 4" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button> -->
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="row">
+          <div *ngFor="let image of images; let i = index" class="col">
+            <img [src]="image.url" class="d-block" alt="...">
+          </div>
+        </div>
+      </div>
+      <!-- <div class="carousel-item" *ngIf="images.length > 4">
+        <div class="row">
+          <div class="col"><img [src]="" class="d-block" alt="..."></div>
+        </div>
+      </div> -->
+    </div>
+  </ng-template>
+  <ng-template #elseBlock>
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button *ngIf="images.length > 1" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2">{{images.length}}</button>
+      <button *ngIf="images.length > 2" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button *ngIf="images.length > 3" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+      <button *ngIf="images.length > 4" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+      <button *ngIf="images.length > 5" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
+      <button *ngIf="images.length > 6" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7"></button>
+    </div>
+    <div class="carousel-inner">
+      <div *ngFor="let image of images; let first = first" class="carousel-item" [ngClass]="{'active': first}">
+        <img [src]="image.url" class="d-block one" alt="...">
+      </div>
+    </div>
+  </ng-template>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+</div>
+
+<!-- <div *ngIf="positions.length > 0; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>
+<div class="container-fluid cDirectiva">
+  <div class="container-fluid row">
+    <app-management-card class="container-fluid col" *ngFor="let position of positions; let i = index" [position]="position" [idDoc]="idDocs[i]" [user]="user">
+    </app-management-card>
+  </div>
+</div>
+</ng-template>
+<ng-template #elseBlock>
+<div class="container-without">
+  <h3>Aún no hay cargos :(</h3>
+</div>
+</ng-template> -->

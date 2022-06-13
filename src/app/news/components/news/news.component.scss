@@ -1,8 +1,7 @@
 .container-image {
- 
   display: flex;
   justify-content: center;
-  
+
   margin-bottom: 20px;
 }
 
@@ -13,29 +12,31 @@
 h1 {
   margin-bottom: 0;
 }
-.container-fluid{
-  
+.container-fluid {
   display: flex;
   justify-content: center;
 }
-.hrBajo{
+.hrBajo {
   text-align: center;
   width: 50%;
 }
 p {
   margin-bottom: 0;
 }
-.imgNoticia{
+.imgNoticia {
   border-radius: 5px;
+  width: 40%;
+  @media (max-width: 580px) {
+    width: 90%;
+  }
 }
-.container-fluid{
+.container-fluid {
   background-color: rgb(252, 252, 252);
-  border:solid 1px rgb(228, 228, 228);
+  border: solid 1px rgb(228, 228, 228);
   margin-top: 40px;
   padding: 4%;
-  
 }
 
-.newDate{
-  color:rgb(175, 175, 175);
+.newDate {
+  color: rgb(175, 175, 175);
 }
